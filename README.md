@@ -41,11 +41,25 @@ Open source kite control bar for all chill kite-foil enthusiasts.
 
 ## Step-by-Step Instructions
 
-1.  **Step 1:** [Detailed description of the first step with images/diagrams.]
-    ![Image 1](path/to/image1.jpg)
-2.  **Step 2:** [Detailed description of the second step with images/diagrams.]
-    ![Image 2](path/to/image2.jpg)
-3.  ...
+1. **Step 1:**  
+   *[Provide a detailed description of the first step, including images or diagrams for clarity.]*  
+   ![Image 1](path/to/image1.jpg)
+
+2. **Step 2:**  
+   *[Provide a detailed description of the second step, including images or diagrams for clarity.]*  
+   ![Image 2](path/to/image2.jpg)
+
+3. **Step 3: EVA Non-Slip Heat Shrink Tube Installation**  
+   To install the **EVA non-slip heat shrink tube**, follow these steps:  
+
+   - Use **100°C boiling water** or a **heat gun** to shrink the tube.  
+   - If using a heat gun, apply heat evenly, working from **one end to the middle** while slowly rotating the bar.  
+   - Ensure the tube is **fully heated**; insufficient heating may cause it to **slip or stretch** during use.  
+   - EVA heat shrink tubing typically does **not shrink lengthwise**, so you can cut it **to the exact required length** before installation.  
+   - **Cutting tip:** Use a **scalpel** to cut the tube while it is flat for a clean edge.  
+   - Recommended tube size:  
+     - **25mm diameter** tube fits both **OD 24mm carbon tubes** and **OD 22mm carbon tubes**.  
+
 
 ## Safety Precautions
 
