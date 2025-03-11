@@ -77,11 +77,9 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 - **Part Name:** `bar-end_sls_id22_od24_100mm_rnd_v7.0`
 - **Technology:** **SLS 3D Printing**
 - **Material:** **PA12 Nylon**
-- **Inner Diameter (ID):** **22mm**
-- **Outer Diameter (OD):** **24mm**
-- **Length:** **100mm**
-- **Shape:** **Round**
-- **Version:** **7.0**
+- **Fits Cabon tube:** **OD=24mm, ID=22mm**
+- **Length inside tube:** **100mm**
+- **Length to rope:** **25mm**
 
 **🔹 Bar End Preview:**
 ![Bar End](./hardware/3D_models/carbon_tube_od24_id22mm/bar_ends/bar-end_sls_100mm_rnd_v7.0.png)
