@@ -84,7 +84,10 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 - **Version:** **7.0**
 
 **🔹 Bar End Preview:**
-![Bar End](hardware/3D_models/bar_ends/bar-end_sls_id22_od24_100mm_rnd_v7.0.png)
+![Bar End](./hardware/3D_models/carbon_tube_od24_id22mm/bar_ends/bar-end_sls_100mm_rnd_v7.0.png)
+
+**🔹Center Piece Preview:**
+![Center Piece](./hardware/3D_models/carbon_tube_od24_id22mm/bar_center_piece/bar-center-piece_sls_m3_v7.0.png)
 
 *(More parts will be added here as needed.)*
 
