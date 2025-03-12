@@ -90,7 +90,17 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 **🔹V-Splitter Preview:**
 ![V-Splitter](./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.png)
 
-[🔗 View 3D Model](./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl)
+<!-- Load the model-viewer web component -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<!-- Embed the interactive 3D model -->
+<model-viewer 
+  src="./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl" 
+  alt="V-Splitter 3D Model Preview" 
+  auto-rotate 
+  camera-controls 
+  style="width: 100%; height: 500px;">
+</model-viewer>
 
 *(More parts will be added here as needed.)*
 
