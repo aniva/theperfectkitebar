@@ -94,8 +94,6 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 
 [🔗 View 3D Model](./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl)
 
-<iframe src="docs/stl_viewer.html" width="600" height="400" frameborder="0"></iframe>
-
 *(More parts will be added here as needed.)*
 
 ---
