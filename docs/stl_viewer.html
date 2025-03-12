@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STL 3D Viewer</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Include Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <!-- Include STLLoader -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/STLLoader.js"></script>
+  <script>
+    let scene, camera, renderer;
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Add ambient and directional lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      scene.add(ambientLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLight.position.set(1, 1, 1).normalize();
+      scene.add(directionalLight);
+
+      // Load the STL file
+      const loader = new THREE.STLLoader();
+      loader.load('./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl', function (geometry) {
+        const material = new THREE.MeshPhongMaterial({ color: 0xFF5533 });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        // Compute geometry bounding box to adjust camera position
+        geometry.computeBoundingBox();
+        const bbox = geometry.boundingBox;
+        const centerZ = (bbox.max.z + bbox.min.z) / 2;
+        camera.position.z = (bbox.max.z - bbox.min.z) * 2 || 100;
+        camera.lookAt(new THREE.Vector3(0, 0, centerZ));
+      });
+    }
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    init();
+    animate();
+  </script>
+</body>
+</html>
