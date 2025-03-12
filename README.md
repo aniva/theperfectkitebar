@@ -90,7 +90,7 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 **🔹V-Splitter Preview:**
 ![V-Splitter](./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.png)
 
-[🔗 View 3D Model](https://github.com/aniva/theperfectkitebar/blob/main/hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl)
+[🔗 View 3D Model](./hardware/3D_models/v-splitter/v-splitter_mjf_4x1.7mm_v3.0.stl)
 
 *(More parts will be added here as needed.)*
 
