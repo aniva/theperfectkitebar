@@ -6,13 +6,16 @@ An **open-source kite control bar** designed for all **chill kite-foil enthusias
 [![GitHub Issues](https://img.shields.io/github/issues/aniva/theperfectkitebar.svg)](https://github.com/aniva/theperfectkitebar/issues)  
 
 ## **Key Features**
+
 - **Lightweight Design** – Optimized for durability and performance.  
 - **Customizable Length** – Adjustable to suit various riding styles.  
-- **Easy-to-Replace Components** – Modular parts for effortless maintenance.  
+- **Easy-to-Replace Components** – Modular parts for effortless maintenance.
+- **Open source design** – Transparent design to allow anyone to improve parts or make variations.
 
 ---
 
 ## **Table of Contents**
+
 - [Materials List](#materials-list)
 - [Tools Required](#tools-required)
 - [Step-by-Step Instructions](#step-by-step-instructions)
@@ -28,6 +31,7 @@ An **open-source kite control bar** designed for all **chill kite-foil enthusias
 ---
 
 ## **Materials List**
+
 The following materials are required to assemble **ThePerfectKiteBar**:
 
 - **Carbon Fiber Tube** – [Specify dimensions, supplier link]  
@@ -38,6 +42,7 @@ The following materials are required to assemble **ThePerfectKiteBar**:
 ---
 
 ## **Tools Required**
+
 You will need the following tools to assemble the bar:
 
 - **Hacksaw** – For cutting carbon fiber tube.  
@@ -50,14 +55,17 @@ You will need the following tools to assemble the bar:
 ## **Step-by-Step Instructions**
 
 ### **Step 1: [Title]**
+
 *[Provide a detailed description of the first step. Include images or diagrams for clarity.]*  
 ![Image 1](path/to/image1.jpg)
 
 ### **Step 2: [Title]**
+
 *[Provide a detailed description of the second step. Include images or diagrams for clarity.]*  
 ![Image 2](path/to/image2.jpg)
 
 ### **Step 3: EVA Non-Slip Heat Shrink Tube Installation**
+
 To install the **EVA non-slip heat shrink tube**, follow these steps:
 
 1. Use **100°C boiling water** or a **heat gun** to shrink the tube.  
@@ -71,9 +79,11 @@ To install the **EVA non-slip heat shrink tube**, follow these steps:
 ---
 
 ## **Parts for Prints**
+
 The following **3D-printed parts** are required for assembling ThePerfectKiteBar:
 
 ### **1️⃣ Bar End**
+
 - **Part Name:** `bar-end_sls_id22_od24_100mm_rnd_v7.0`
 - **Technology:** **SLS 3D Printing**
 - **Material:** **PA12 Nylon**
@@ -107,6 +117,7 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 ---
 
 ## **Safety Precautions**
+
 Please follow these safety guidelines when assembling and using the kite bar:
 
 - ⚠ **Wear Safety Gear** – Always wear **safety glasses and gloves** when cutting materials.  
@@ -117,6 +128,7 @@ Please follow these safety guidelines when assembling and using the kite bar:
 ---
 
 ## **Design Files**
+
 Download the latest **CAD and 3D printing files**:
 
 - [🔗 Link to CAD files](link-to-cad-files)  
@@ -125,6 +137,7 @@ Download the latest **CAD and 3D printing files**:
 ---
 
 ## **Testing and Tuning**
+
 Before using **ThePerfectKiteBar**, ensure optimal performance by following these steps:
 
 - **Strength Testing** – Apply load gradually to verify the bar’s durability.  
@@ -135,11 +148,13 @@ Before using **ThePerfectKiteBar**, ensure optimal performance by following thes
 ---
 
 ## **Disclaimer**
+
 This project is provided **"as is"**, without **any warranty**. The author is **not responsible** for any injuries or damages resulting from the use of this guide. Use at **your own risk**.  
 
 ---
 
 ## **Contributing**
+
 Want to improve **ThePerfectKiteBar**? Contributions are welcome!  
 
 - **Fork the repository** on GitHub.  
@@ -149,4 +164,5 @@ Want to improve **ThePerfectKiteBar**? Contributions are welcome!
 ---
 
 ## **License**
+
 This project is licensed under the **Creative Commons Attribution-NonCommercial
