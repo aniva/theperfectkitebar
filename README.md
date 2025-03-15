@@ -16,6 +16,7 @@ An **open-source kite control bar** designed for all **chill kite-foil enthusias
 
 - [Materials List](#materials-list)
 - [Parts for Prints](#parts-for-prints)
+- [Assembly Instructions](#assembly-instructions)
 - [Disclaimer](#disclaimer)
 - [Contributing](#contributing)
 - [License](#license)
@@ -28,10 +29,6 @@ The following materials are required to assemble **ThePerfectKiteBar**:
 - **Dyneema Line** – [Specify type, length, supplier link]  
 - **Quick Release System** – [Specify type, supplier link]  
 - *(Add more materials as needed)*  
-
-## Assembly Instructions
-
-See the following section [`here`](docs/assembly.md).
 
 ## Parts for Prints
 
@@ -51,6 +48,10 @@ The entire control bar is made of the following parts that can be 3D printed or 
   - [`V-Spliter`](hardware/accessories/v-splitter/README.md)
   - Swivel
   - Trim
+
+## Assembly Instructions
+
+See the following section [`here`](docs/assembly.md).
 
 ## Disclaimer
 
