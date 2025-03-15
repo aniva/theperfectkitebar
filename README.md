@@ -1,4 +1,4 @@
-# ThePerfectKiteBar
+# ThePerfectKiteBar (TPKB)
 
 An **open-source kite control bar** designed for all **chill kite-foil enthusiasts**.  
 
@@ -45,7 +45,7 @@ The entire control bar is made of the following parts that can be 3D printed or 
   - [`Center piece`](<hardware/bar/center piece/README.md>)
 - Quick Release System
 - Line accessories
-  - [`V-Spliter`](hardware/accessories/v-splitter/README.md)
+  - [`V-spliter`](hardware/accessories/v-splitter/README.md)
   - Swivel
   - Trim
 
@@ -55,7 +55,12 @@ See the following section [`here`](docs/assembly.md).
 
 ## Disclaimer
 
-This project is provided **"as is"**, without **any warranty**. The author is **not responsible** for any injuries or damages resulting from the use of this guide. Use at **your own risk**.  
+This project is provided **"as is"**, without **any warranty**. The author is **not responsible** for any injuries or damages resulting from the use of this guide. Use at **your own risk**. In addition to this,
+
+- ThePerfectKiteBar is not responsible for any sudden urges to replace all furniture with hydrofoil parts.
+- We are not responsible for any sudden and intense desire to replace all your shoes with neoprene booties.
+- Be prepared for envious stares and unsolicited advice from less fortunate kiters. ThePerfectKiteBar is a magnet for attention.
+- May attract envious glances from Wingfoilers. Be prepared for the age old debate of kitefoil vs wing.
 
 ## Contributing
 
@@ -67,4 +72,4 @@ Want to improve **ThePerfectKiteBar**? Contributions are welcome!
 
 ## License
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial
+This project is licensed under the **Creative Commons Attribution-NonCommercial**
