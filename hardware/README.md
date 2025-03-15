@@ -17,6 +17,6 @@ The entire control bar is made of the following parts that can be 3D printed or 
   * [Center piece](<bar/center piece/README.md>)
 * Quick Release System
 * Line accessories
-  * V-Spliter
+  * [V-Spliter](accessories/v-splitter/README.md)
   * Swivel
   * Trim
