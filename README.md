@@ -89,11 +89,11 @@ The [hardware](hardware) directory contains the parts needed to build/improve Th
 The entire control bar is made of the following parts that can be 3D printed or laser cut.
 
 - Bar
-  - [Bar end (2x)](<hardware/bar/bar end/README.md>)
-  - [Center piece](<hardware/bar/center piece/README.md>)
+  - [`Bar end (2x)`](<hardware/bar/bar end/README.md>)
+  - [`Center piece`](<hardware/bar/center piece/README.md>)
 - Quick Release System
 - Line accessories
-  - [V-Spliter](hardware/accessories/v-splitter/README.md)
+  - [`V-Spliter`](hardware/accessories/v-splitter/README.md)
   - Swivel
   - Trim
 
