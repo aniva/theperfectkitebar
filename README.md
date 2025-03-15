@@ -80,41 +80,22 @@ To install the **EVA non-slip heat shrink tube**, follow these steps:
 
 ## **Parts for Prints**
 
-The following **3D-printed parts** are required for assembling ThePerfectKiteBar:
+The [hardware](hardware) directory contains the parts needed to build/improve ThePerfectKiteBar. All parts will have the following files.
 
-### **1️⃣ Bar End**
+- A `.step` file to allow importing the model in your favorite 3D software.
+- A`.shapr` file allowing you to improve/edit the existing model using [shapr3d](https://www.shapr3d.com).
+- A `.stl` file containing the ready to print part.
 
-- **Part Name:** `bar-end_sls_id22_od24_100mm_rnd_v7.0`
-- **Technology:** **SLS 3D Printing**
-- **Material:** **PA12 Nylon**
-- **Fits Cabon tube:** **OD=24mm, ID=22mm**
-- **Length inside tube:** **100mm**
-- **Length to rope:** **25mm**
+The entire control bar is made of the following parts that can be 3D printed or laser cut.
 
-**🔹 Bar End Preview:**
-![Bar End](./hardware/carbon_tube_od24_id22mm/bar_ends/leader_line_3mm/variant_7/bar-end_sls.png)
-
-***🔹3D Preview:***
-
-[🔗 View 3D Model](./hardware/carbon_tube_od24_id22mm/bar_ends/leader_line_3mm/variant_7/bar-end_sls.stl)
-
-**🔹Center Piece Preview:**
-![Center Piece](./hardware/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.png)
-
-***🔹3D Preview:***
-
-[🔗 View 3D Model](./hardware/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.stl)
-
-**🔹V-Splitter Preview:**
-![V-Splitter](./hardware/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.png)
-
-***🔹3D Preview:***
-
-[🔗 View 3D Model](./hardware/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.stl)
-
-*(More parts will be added here as needed.)*
-
----
+- Bar
+  - [Bar end (2x)](<hardware/bar/bar end/README.md>)
+  - [Center piece](<hardware/bar/center piece/README.md>)
+- Quick Release System
+- Line accessories
+  - [V-Spliter](hardware/accessories/v-splitter/README.md)
+  - Swivel
+  - Trim
 
 ## **Safety Precautions**
 
