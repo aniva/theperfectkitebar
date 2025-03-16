@@ -87,21 +87,21 @@ The following **3D-printed parts** are required for assembling ThePerfectKiteBar
 
 ***🔹3D Preview:***
 
-[🔗 View 3D Model](./hardware/carbon_tube_od24_id22mm/bar_ends/leader_line_3mm/variant_7/bar-end_sls.stl)
+[🔗 View 3D Model](./hardware/bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_sls.stl)
 
 **🔹Center Piece Preview:**
-![Center Piece](./hardware/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.png)
+![Center Piece](./hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.png)
 
 ***🔹3D Preview:***
 
-[🔗 View 3D Model](./hardware/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.stl)
+[🔗 View 3D Model](./hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.stl)
 
 **🔹V-Splitter Preview:**
-![V-Splitter](./hardware/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.png)
+![V-Splitter](./hardware/trim/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.png)
 
 ***🔹3D Preview:***
 
-[🔗 View 3D Model](./hardware/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.stl)
+[🔗 View 3D Model](./hardware/trim/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.stl)
 
 *(More parts will be added here as needed.)*
 
