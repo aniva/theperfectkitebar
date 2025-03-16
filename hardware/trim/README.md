@@ -12,6 +12,6 @@
 
 ## Sheeting Rope 8mm, Front line 2mm, Variant 3
 
-- **Files:** [`here`](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3/v-splitter_mjf.stl)
+- **Files:** [`here`](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3)
 - **Technology:** **MJF 3D Printing**
 - **Material:** **PA12 Nylon**
