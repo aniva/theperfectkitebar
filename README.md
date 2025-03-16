@@ -12,6 +12,7 @@ An **open-source kite control bar** designed for all **chill kite-foil enthusias
 
 ---
 
+
 ## **Table of Contents**
 - [Materials List](#materials-list)
 - [Tools Required](#tools-required)
