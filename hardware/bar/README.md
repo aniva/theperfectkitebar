@@ -2,11 +2,11 @@
 
 ## Preview
 
-![bar end](<carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_sls.png>)
+![bar end](carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_sls.png)
 
 ## Leader lines 3mm, for carbon tube OD42/ID22, Variant 7
 
-- **Files:** [`here`](<carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7)
+- **Files:** [`here`](carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7)
 - **Technology:** **SLS 3D Printing**
 - **Material:** **PA12 Nylon**
 - **Fits Cabon tube:** **OD=24mm, ID=22mm**
@@ -22,7 +22,7 @@
 
 ## For carbon tube OD42/ID22, Variant 7
 
-- **Files:** [`here`](carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_sls_m3.png)
+- **Files:** [`here`](carbon_tube_od24_id22mm/bar_center_piece/variant_7)
 - **Technology:** **SLS 3D Printing**
 - **Material:** **PA12 Nylon**
 - **Fits Cabon tube:** **OD=24mm, ID=22mm**
