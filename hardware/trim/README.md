@@ -2,7 +2,7 @@
 
 ## Preview
 
-![v-splitter](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_mjf.png)
+![v-splitter](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.png)
 
 ## Sheeting Rope 4mm, Front line 1.7mm, Variant 3
 
