@@ -12,7 +12,7 @@ This swivel is optimized for:
 
 To assemble this swivel, you will need a **ceramic thrust bearing**.
 
-### Designed Bearing Specification:
+### Bearing Specification:
 - Type: **Zirconia Thrust Ball Ceramic Bearing**  
 - Model: **51103**  
 - Dimensions:  
@@ -21,21 +21,49 @@ To assemble this swivel, you will need a **ceramic thrust bearing**.
   - Height (H): 9mm  
 
 ### Suggested Product:
-> **Zirconia Thrust Ball Bearing #51103 (17x30x9 mm)**
-
----
-
-## Where to Buy
-
-These bearings are commonly available from:
+Available from:
 - **AliExpress**  
 - **Alibaba**  
-- Direct from manufacturers such as:  
+- Direct from manufacturers like:  
   [Lily Bearing - 51103 Ceramic Bearing](https://www.lily-bearing.com/products/ce51103zr/)
 
 ---
 
-## Notes
-- Ensure the bearing used matches the specified dimensions to guarantee proper fit and performance.  
-- Ceramic bearings are highly recommended for their corrosion resistance and smooth rotation, especially in marine environments.
+## 3D Printing Instructions
+
+Both the **swivel housing** and **swivel shaft** are designed to be 3D printed from **316 stainless steel** using **SLM technology (Selective Laser Melting)**.
+
+---
+
+### Material & Technology
+- Material: **316 Stainless Steel**  
+- Printing Method: **SLM (Selective Laser Melting)**
+
+> SLM is a metal 3D printing technology that uses a high-power laser to fully melt metal powder, layer by layer, into solid parts. It produces highly durable and functional metal components suitable for structural applications.
+
+Learn more: [https://jlc3dp.com/3d-printing/selective-laser-melting](https://jlc3dp.com/3d-printing/selective-laser-melting)
+
+---
+
+## Printing Notes
+- Recommended print orientation: minimize support contact on critical surfaces.  
+- Consider post-processing (vibratory polishing or manual smoothing) for smoother line contact areas.  
+- Ensure correct tolerances for bearing fit.  
+- Clean all support removal points carefully.
+
+---
+
+## Assembly Notes
+- Insert the ceramic bearing carefully into the swivel housing.  
+- The bearing should seat snugly without forcing.  
+- Ensure smooth rotation after assembly.
+
+---
+
+## Summary of Components
+| Part               | Material               | Manufacturing Method     |
+|-------------------|------------------------|--------------------------|
+| Swivel Housing    | 316 Stainless Steel    | SLM Metal 3D Printing    |
+| Swivel Shaft      | 316 Stainless Steel    | SLM Metal 3D Printing    |
+| Bearing           | Zirconia Ceramic       | Purchased (51103 model)  |
 
