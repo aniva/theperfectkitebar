@@ -75,8 +75,8 @@ To explore any component:
 
 Example links:
 
-- [Bar Center Piece](hardware/3D_models/bar_center_piece/README.md)
-- [Swivel](hardware/3D_models/swivel/README.md)
+- [Bar Center Piece](hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/README.md)
+- [Swivel](hardware/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/README.md)
 - Quick Release → Coming Soon
 
 ---
@@ -125,5 +125,7 @@ See above for details.
 
 Maintained by: 
 * [aniva](https://github.com/aniva)
-* [Deboitemendumenix](https://github.com/Deboitemendumenix)---
+* [Deboitemendumenix](https://github.com/Deboitemendumenix)
+
+---
 
