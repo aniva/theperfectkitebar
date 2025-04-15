@@ -1,6 +1,18 @@
 # ThePerfectKiteBar (TPKB)
 
-An **open-source kite control bar** designed for all **chill kite-foil enthusiasts** that means max kitefoil session enjoyment with added benefits of flexibility, customization, and full DIY freedom.
+An **open-source kite control bar** designed for all **chill kite-foil enthusiasts** — maximizing session enjoyment with the added benefits of flexibility, customization, and full DIY freedom.
+
+Development began in **2023**, driven by the lack of suitable off-the-shelf products — most commercial options were either too expensive, too complex, unnecessarily heavy, or built around same design across many brands.
+
+The first functional version of TPKB was **tested in spring 2024**, followed by multiple iterative refinements based on real-world feedback and session data.
+
+Key design priorities include:
+- Minimal weight without compromising strength
+- Full **field-serviceability** with common tools
+- **Low-cost manufacturing** using accessible 3D printing services
+- Easy **spare part replacement**
+- **Glove-friendly operation**, especially in cold water (5°C and below)
+- Seamless usability in both **cold northern climates** and **tropical destinations** (e.g. Caribbean)
 
 ---
 
