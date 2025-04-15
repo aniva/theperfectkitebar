@@ -1,159 +1,129 @@
 # ThePerfectKiteBar (TPKB)
 
-An **open-source kite control bar** designed for all **chill kite-foil enthusiasts**.  
-
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](LICENSE)  
-[![GitHub Issues](https://img.shields.io/github/issues/aniva/theperfectkitebar.svg)](https://github.com/aniva/theperfectkitebar/issues)  
-
-## Key Features
-
-- **Lightweight Design** – Optimized for durability and performance.  
-- **Customizable Length** – Adjustable to suit various riding styles.  
-- **Easy-to-Replace Components** – Modular parts for effortless maintenance.
-- **Open source design** – Transparent design to allow anyone to improve parts or make variations.
-
-## Table of Contents
-
-## **Table of Contents**
-- [ThePerfectKiteBar (TPKB)](#theperfectkitebar-tpkb)
-  - [Key Features](#key-features)
-  - [Table of Contents](#table-of-contents)
-  - [**Table of Contents**](#table-of-contents-1)
-  - [Materials List](#materials-list)
-  - [**Tools Required**](#tools-required)
-  - [**Step-by-Step Instructions**](#step-by-step-instructions)
-    - [**Step 1: \[Title\]**](#step-1-title)
-    - [**Step 2: \[Title\]**](#step-2-title)
-    - [**Step 3: EVA Non-Slip Heat Shrink Tube Installation**](#step-3-eva-non-slip-heat-shrink-tube-installation)
-  - [**Parts for Prints**](#parts-for-prints)
-    - [**1️⃣ Bar End**](#1️⃣-bar-end)
-  - [**Safety Precautions**](#safety-precautions)
-  - [**Design Files**](#design-files)
-  - [**Testing and Tuning**](#testing-and-tuning)
-  - [**Disclaimer**](#disclaimer)
-  - [**Contributing**](#contributing)
-  - [License](#license)
-
-## Materials List
-
-The following materials are required to assemble **ThePerfectKiteBar**:
-
-- **Carbon Fiber Tube** – [Specify dimensions, supplier link]  
-- **Dyneema Line** – [Specify type, length, supplier link]  
-- **Quick Release System** – [Specify type, supplier link]  
-- *(Add more materials as needed)*  
+An **open-source kite control bar** designed for all **chill kite-foil enthusiasts** that means max kitefoil session enjoyment with added benefits of flexibility, customization, and full DIY freedom.
 
 ---
 
-## **Tools Required**
-You will need the following tools to assemble the bar:
+## Project Purpose
 
-- **Hacksaw** – For cutting carbon fiber tube.  
-- **Drill** – For precision hole-making.  
-- **Measuring Tape** – Ensures accurate component placement.  
-- *(Add additional tools if necessary)*  
+ThePerfectKiteBar is an open hardware project focused on designing and sharing components of a kite control bar system optimized for kite-foiling.
 
----
+This project is intended for:
 
-## **Step-by-Step Instructions**
+- DIY enthusiasts
+- Riders seeking lightweight or custom solutions
+- Experimental design exploration
+- Field replacement and customization of bar components
 
-### **Step 1: [Title]**
-*[Provide a detailed description of the first step. Include images or diagrams for clarity.]*  
-![Image 1](path/to/image1.jpg)
-
-### **Step 2: [Title]**
-*[Provide a detailed description of the second step. Include images or diagrams for clarity.]*  
-![Image 2](path/to/image2.jpg)
-
-### **Step 3: EVA Non-Slip Heat Shrink Tube Installation**
-To install the **EVA non-slip heat shrink tube**, follow these steps:
-
-1. Use **100°C boiling water** or a **heat gun** to shrink the tube.  
-2. If using a heat gun, apply heat evenly, working from **one end to the middle**, while slowly rotating the bar.  
-3. Ensure the tube is **fully heated**; **insufficient heating may cause slipping or stretching** during use.  
-4. EVA heat shrink tubing typically **does not shrink lengthwise**, so you can cut it **to the exact required length** before installation.  
-5. **Cutting tip:** Use a **scalpel** to cut the tube while it is flat for a clean edge.  
-6. **Recommended tube size:**  
-   - **25mm diameter** tube fits both **OD 24mm carbon tubes** and **OD 22mm carbon tubes**.  
+All parts are designed with parametric flexibility in mind — allowing for adaptation to different materials, manufacturing methods, and rope/tube sizes.
 
 ---
 
-## **Parts for Prints**
-The following **3D-printed parts** are required for assembling ThePerfectKiteBar:
+## Project Organization and Directory Structure
 
-### **1️⃣ Bar End**
-- **Part Name:** `bar-end_24-22_sls`
-- **Technology:** **SLS 3D Printing**
-- **Material:** **PA12 Nylon**
-- **Fits Cabon tube:** **OD=24mm, ID=22mm**
-- **Length inside tube:** **100mm**
-- **Length to rope:** **25mm**
+Main components of the project are organized like this:
 
-**🔹 Bar End Preview:**
-![Bar End](hardware/bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24-22_sls.png)
+- `/bar/` → The main bar body
+- `/bar_center_piece/` → Center insert parts
+- `/bar_end/` → End pieces for the bar
+- `/swivel/` → Swivel component to untwist lines
+- `/trim/` → Depower trim and V-splitter
+- `/quick_release/` → Quick release system (Coming soon)
 
-***🔹3D Preview:***
+Each component has its own folder, containing:
 
-[🔗 View 3D Model](hardware/bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24-22_sls.stl)
-
-**🔹Center Piece Preview:**
-![Center Piece](hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24-22_m3_sls.png)
-
-***🔹3D Preview:***
-
-[🔗 View 3D Model](hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24-22_m3_sls.stl)
-
-**🔹V-Splitter Preview:**
-![V-Splitter](hardware/trim/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.png)
-
-***🔹3D Preview:***
-
-[🔗 View 3D Model](hardware/trim/sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.stl)
-
-*(More parts will be added here as needed.)*
+- Its own `README.md` file with details
+- Subfolders indicating key design constraints (tube diameter, bearing type, rope diameter, etc.)
+- Variants reflecting different design ideas
 
 ---
 
-## **Safety Precautions**
-Please follow these safety guidelines when assembling and using the kite bar:
+## Design Philosophy: Variant vs Version
 
-- ⚠ **Wear Safety Gear** – Always wear **safety glasses and gloves** when cutting materials.  
-- ⚠ **Secure Components** – Ensure **lines and hardware** are properly attached before applying tension.  
-- ⚠ **Use Heat Tools with Caution** – When using a heat gun or boiling water, handle materials carefully to **avoid burns**.  
-- *(Add more safety notes as necessary)*  
+| Term    | Meaning                                                             | How it's handled                       |
+| ------- | ------------------------------------------------------------------- | -------------------------------------- |
+| Variant | Different design direction or conceptual approach                   | Separate folder or filename indication |
+| Version | Evolution of the same variant (small changes, tweaks, improvements) | Managed via Git version control        |
 
----
+Example filename (STL version to print)
 
-## **Design Files**
-Download the latest **CAD and 3D printing files**:
+```
+bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24_22_sls.*
+```
 
-- [🔗 Link to CAD files](link-to-cad-files)  
-- [🔗 Link to 3D printing files](link-to-3d-printing-files)  
-
----
-
-## **Testing and Tuning**
-Before using **ThePerfectKiteBar**, ensure optimal performance by following these steps:
-
-- **Strength Testing** – Apply load gradually to verify the bar’s durability.  
-- **Balance Check** – Ensure the control bar is symmetrical for even response.  
-- **Line Tension Adjustment** – Tune the flying lines for **optimal kite control**.  
-- *(Add more testing steps if required)*  
+- `bar` folder = part of the bar (vs QR etc.)
+- `carbon_tube_od24_id22mm` = must use carbon tube with these OD/ID
+- `leader_line_3mm` = must use 3mm leadr (steering) lines 
+- `variant` = 7 
+- `version` = _git commit id_
 
 ---
 
-## **Disclaimer**
-This project is provided **"as is"**, without **any warranty**. The author is **not responsible** for any injuries or damages resulting from the use of this guide. Use at **your own risk**.  
+## Navigation Guide
+
+To explore any component:
+
+1. Navigate to: `hardware/3D_models/<component_name>/`
+2. Open: `README.md`
+3. Inside you will find:
+   - Part purpose
+   - Design constraints
+   - 3D printing instructions
+   - Relevant assembly notes
+   - Images and previews
+   - Available variants
+
+Example links:
+
+- [Bar Center Piece](hardware/3D_models/bar_center_piece/README.md)
+- [Swivel](hardware/3D_models/swivel/README.md)
+- Quick Release → Coming Soon
 
 ---
 
-## **Contributing**
-Want to improve **ThePerfectKiteBar**? Contributions are welcome!  
+## File Types and Their Purpose
 
-- **Fork the repository** on GitHub.  
-- **Make your modifications** and **submit a pull request**.  
-- Open an issue for **bug reports, feature requests, or questions**.  
+Each component folder may contain the following file types:
+
+| Extension | Purpose |
+|-----------|---------|
+| `.shapr`  | Native design file created in Shapr3D. Editable source model including sketches, constraints, and parametric features. |
+| `.step`   | Industry-standard neutral 3D file format (ISO 10303). Used for CAD interoperability, CNC machining, or modification in other CAD software. |
+| `.stl`    | 3D mesh file optimized for 3D printing. Triangulated surface model ready to slice for FDM, SLS, or SLA printing. |
+| `.png`    | Preview or reference image of the part. Used in documentation to visualize the shape, assembled view, or specific details. |
+
+---
+
+## Contribution & Collaboration
+
+Pull requests, design discussions, and new variants are welcome.
+
+- Fork the repository
+- Open Issues to suggest improvements or report problems
+- Contribute new components or variants
+
+Documentation and structure are continuously evolving.
+
+---
 
 ## License
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial**
+This project is licensed under
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](LICENSE)  
+
+See above for details.
+
+## Issues
+
+[![GitHub Issues](https://img.shields.io/github/issues/aniva/theperfectkitebar.svg)](https://github.com/aniva/theperfectkitebar/issues)  
+
+
+---
+
+## Maintainer
+
+Maintained by: 
+* [aniva](https://github.com/aniva)
+* [Deboitemendumenix](https://github.com/Deboitemendumenix)---
+
