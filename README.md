@@ -4,7 +4,7 @@ An **open-source kite control bar** designed for all **chill kite-foil enthusias
 
 Development began in **2023**, driven by the lack of suitable off-the-shelf products — most commercial options were either too expensive, too complex, unnecessarily heavy, or built around same design across many brands.
 
-The first functional version of TPKB was **tested in spring 2024**, followed by multiple iterative refinements based on real-world feedback and session data.
+The first functional version of TPKB was **tested in spring 2024**, followed by multiple iterative refinements based on real-world user expreience.
 
 Key design priorities include:
 - Minimal weight without compromising strength
