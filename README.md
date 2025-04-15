@@ -81,51 +81,20 @@ Example links:
 
 ---
 
-## File Types and Their Purpose
+## General 3D Print Material Selection Guide
 
-Each component folder may contain the following file types:
+Unless explicitly specified otherwise in a part's `README.md`, the recommended default material for most 3D printed components is:
 
-| Extension | Purpose |
-|-----------|---------|
-| `.shapr`  | Native design file created in Shapr3D. Editable source model including sketches, constraints, and parametric features. |
-| `.step`   | Industry-standard neutral 3D file format (ISO 10303). Used for CAD interoperability, CNC machining, or modification in other CAD software. |
-| `.stl`    | 3D mesh file optimized for 3D printing. Triangulated surface model ready to slice for FDM, SLS, or SLA printing. |
-| `.png`    | Preview or reference image of the part. Used in documentation to visualize the shape, assembled view, or specific details. |
+- [PA12 Nylon (3201PA-F)](https://jlc3dp.com/help/article/3201PA-F-Nylon) — proven material with excellent UV resistance, toughness, and durability. Field-tested over multiple seasons in snow and water kiting environments (-20°C to +30°C, freshwater and seawater conditions).
 
----
+### Material Recommendations by Use Case
 
-## Contribution & Collaboration
+| Part / Component | Recommended Material | Notes |
+|------------------|----------------------|-------|
+| Most components (default) | [3201PA-F Nylon](https://jlc3dp.com/help/article/3201PA-F-Nylon) | Standard go-to material for durability and reliability |
+| White-colored parts (e.g., left bar-end, QR case) | [Precimid-1172 Pro Nylon](https://jlc3dp.com/help/article/Precimid-1172-Pro) | Slightly more expensive, but produces white parts without need for dyeing |
+| V-splitter and Cleat base | [PA12 HP Nylon](https://jlc3dp.com/help/article/PA12-HP-Nylon) | Offers better strength for small structural parts |
+| Swivel metal parts (housing and shaft) | [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel) | SLM 3D printed, or CNC machined (future: titanium possible) |
+| Quick Release (QR) mechanism flat parts | Titanium sheet | Flat-cut (laser, waterjet, etc.) from titanium sheet of exactly specified thickness |
 
-Pull requests, design discussions, and new variants are welcome.
-
-- Fork the repository
-- Open Issues to suggest improvements or report problems
-- Contribute new components or variants
-
-Documentation and structure are continuously evolving.
-
----
-
-## License
-
-This project is licensed under
-
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](LICENSE)  
-
-See above for details.
-
-## Issues
-
-[![GitHub Issues](https://img.shields.io/github/issues/aniva/theperfectkitebar.svg)](https://github.com/aniva/theperfectkitebar/issues)  
-
-
----
-
-## Maintainer
-
-Maintained by: 
-* [aniva](https://github.com/aniva)
-* [Deboitemendumenix](https://github.com/Deboitemendumenix)
-
----
-
+> Note: Most online 3D printing services offer part dyeing; however, this is optional as the selected materials provide functional durability without color treatment.
