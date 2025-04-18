@@ -28,7 +28,7 @@ The following variant is **not part of this system** but provided as an often ha
 | 8mm           | 2mm        | 3       | MJF        | PA12     | [`Files`](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3) |
 
 > ⚠️ Use only if you are adapting the V-splitter for a different bar system.  
-> This is not compatible with the TPKB bar or trim system.
+> This is not compatible with the TPKB bar or trim system at the moment.
 
 ---
 
