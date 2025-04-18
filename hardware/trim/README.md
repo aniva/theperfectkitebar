@@ -21,7 +21,7 @@ The following V-Splitter variants are recommended for use with ThePerfectKiteBar
 
 ## Optional / Legacy Compatibility
 
-The following variant is **not part of this system** but provided as a often hard to get replacement part for off-the-shelf bars that use thicker rope and front lines.
+The following variant is **not part of this system** but provided as an often hard to get replacement part for off-the-shelf bars that use thicker rope and front lines.
 
 | Sheeting Rope | Front Line | Variant | Technology | Material | Files |
 |---------------|------------|---------|------------|----------|-------|
