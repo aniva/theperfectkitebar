@@ -7,6 +7,5 @@ terraform.tfstate
 terraform.tfstate.backup
 
 # Compiled function packages
-functions.zip
-functions-enable.zip
+functions*.zip
 
