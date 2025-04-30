@@ -1,1 +1,12 @@
 .venv/
+
+# Terraform local state
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Compiled function packages
+functions.zip
+functions-enable.zip
+
