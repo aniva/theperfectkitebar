@@ -1,7 +1,26 @@
-.venv/
+# Terraform state and cache
 .terraform/
-.terraform.lock.hcl
-terraform.tfstate
-terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+terraform.tfvars
+*.tfplan
+
+# Python virtual environment
+.venv/
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ZIP archives used for GCP function deployment
 *.zip
+
+# Logs or system files
+*.log
+.DS_Store
 
