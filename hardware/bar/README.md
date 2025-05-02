@@ -25,3 +25,11 @@
 - **Technology:** **SLS 3D Printing**
 - **Material:** **PA12 Nylon**
 - **Fits Cabon tube:** **OD=24mm, ID=22mm**
+
+### Native Shapr3D Design Files
+
+The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—so you can open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
+
+<!-- BEGIN_SHAPR_TABLE -->
+<!-- This section is auto-generated. Do not edit manually. -->
+<!-- END_SHAPR_TABLE -->
