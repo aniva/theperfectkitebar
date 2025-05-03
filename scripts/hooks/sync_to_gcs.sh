@@ -15,11 +15,6 @@ if ! command -v gsutil &> /dev/null; then
   exit 1
 fi
 
-# --- Clean Windows metadata ---
-echo "[pre-commit] Cleaning Windows ADS metadata…"
-find "$LOCAL_DIR" -type f -name '*:Zone.Identifier' -print0 \
-  | xargs -0 rm -f || true
-
 # --- Sync changed CAD files ---
 echo "[pre-commit] Syncing CAD assets to GCS bucket…"
 # -m = parallel; -r = recursive; -d = delete orphaned remote files
