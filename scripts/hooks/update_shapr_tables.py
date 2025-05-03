@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
 Script to auto-update README.md files by inserting/updating a table of .shapr file download links
-from Google Cloud Storage. Replaces content between BEGIN_SHAPR_TABLE and END_SHAPR_TABLE markers.
-Handles HTTP access errors by warning and skipping updates.
+from Google Cloud Storage JSON listing. Uses the JSON API to fetch MD5 and Updated timestamp.
+Matches local .shapr files under hardware/ to GCS objects without the leading 'hardware/' prefix.
+Replaces content between BEGIN_SHAPR_TABLE and END_SHAPR_TABLE markers.
 """
 import sys
-import hashlib
-import urllib.request
-import urllib.error
-import xml.etree.ElementTree as ET
+import json
+import base64
 import re
 from pathlib import Path
+from datetime import datetime
+import urllib.request, urllib.error
 
 # Ensure Python 3.6+
 if sys.version_info < (3, 6):
@@ -18,86 +19,99 @@ if sys.version_info < (3, 6):
     sys.exit(1)
 
 # Configuration
-GCS_URL = "https://storage.googleapis.com/theperfectkitebar-cad-assets/"
+GCS_BUCKET = "theperfectkitebar-cad-assets"
+GCS_JSON_URL = (
+    f"https://storage.googleapis.com/storage/v1/b/{GCS_BUCKET}/o"
+    "?alt=json&fields=items(name,md5Hash,updated)"
+)
+GCS_BASE_URL = f"https://storage.googleapis.com/{GCS_BUCKET}/"
 BEGIN_MARKER = r"<!-- BEGIN_SHAPR_TABLE -->"
 END_MARKER = r"<!-- END_SHAPR_TABLE -->"
 
 
-def fetch_gcs_keys():
+def fetch_metadata():
+    """Fetch JSON metadata listing from GCS."""
     try:
-        with urllib.request.urlopen(GCS_URL) as resp:
-            xml_data = resp.read()
-        root = ET.fromstring(xml_data)
-        keys = [elem.text for elem in root.findall(".//Contents/Key") if elem.text.endswith('.shapr')]
-        return keys
-
-    except urllib.error.HTTPError as e:
-        if e.code == 403:
-            print(f"⚠️  Access denied (HTTP {e.code}) when fetching GCS listing. Skipping .shapr table updates.")
-            return []
-        else:
-            print(f"❌ HTTP error {e.code} when fetching GCS listing: {e.reason}")
-            sys.exit(1)
-    except Exception as e:
-        print(f"❌ Unexpected error fetching GCS listing: {e}")
-        sys.exit(1)
-
-
-def compute_md5(url):
-    try:
-        with urllib.request.urlopen(url) as resp:
+        with urllib.request.urlopen(GCS_JSON_URL) as resp:
             data = resp.read()
-        return hashlib.md5(data).hexdigest()
     except urllib.error.HTTPError as e:
-        if e.code == 403:
-            print(f"⚠️  Access denied (HTTP {e.code}) when fetching {url}. Skipping MD5 calculation.")
-            return "N/A"
-        else:
-            print(f"❌ HTTP error {e.code} when fetching {url}: {e.reason}")
-            return "error"
+        print(f"⚠️ HTTP error {e.code} fetching JSON metadata: {e.reason}")
+        return {}
     except Exception as e:
-        print(f"❌ Error fetching {url}: {e}")
-        return "error"
+        print(f"❌ Error fetching JSON metadata: {e}")
+        return {}
+    try:
+        items = json.loads(data).get('items', [])
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON parse error: {e}")
+        return {}
+    meta = {}
+    for item in items:
+        name = item.get('name')
+        if not name or not name.endswith('.shapr'):
+            continue
+        b64 = item.get('md5Hash', '')
+        try:
+            md5hex = base64.b64decode(b64).hex()
+        except Exception:
+            md5hex = 'N/A'
+        updated = item.get('updated', '')
+        try:
+            ts = datetime.fromisoformat(updated.rstrip('Z'))
+            updated_str = ts.strftime('%Y-%m-%d %H:%M:%S')
+        except Exception:
+            updated_str = updated
+        meta[name] = {'md5': md5hex, 'updated': updated_str}
+    return meta
 
 
-def generate_table(rel_prefix, keys):
-    entries = [k for k in keys if k.startswith(rel_prefix)]
-    if not entries:
-        return ""  # no matching files => no table
+def generate_table(dirpath, meta):
+    """Generate a Markdown table for all .shapr files under dirpath."""
+    local_files = [p for p in Path(dirpath).rglob('*.shapr')]
+    if not local_files:
+        return ''
+    lines = ["| File | MD5 | Last Modified | Download URL |",
+             "|------|-----|---------------|--------------|"]
+    for p in sorted(local_files):
+        # Compute object key by stripping leading 'hardware/' from local path
+        rel_full = str(p.relative_to('.')).lstrip('./')
+        if rel_full.startswith('hardware/'):
+            key = rel_full[len('hardware/'):]  # remove prefix for GCS lookup
+        else:
+            key = rel_full
+        entry = meta.get(key)
+        if not entry:
+            md5 = 'N/A'
+            updated = 'N/A'
+        else:
+            md5 = entry['md5']
+            updated = entry['updated']
+        url = GCS_BASE_URL + key
+        filename = p.name
+        lines.append(f"| `{filename}` | `{md5}` | {updated} | [Download]({url}) |")
+    return '\n'.join(lines)
 
-    lines = ["| File | MD5 | Download URL |",
-             "|------|-----|--------------|"]
-    for k in sorted(entries):
-        url = GCS_URL + k
-        md5 = compute_md5(url)
-        name = k[len(rel_prefix):]
-        lines.append(f"| `{name}` | `{md5}` | [Download]({url}) |")
-    return "\n".join(lines)
 
-
-def update_file(path, keys):
+def update_readme(path, meta):
     text = path.read_text()
-    # Only proceed if markers exist
     if BEGIN_MARKER not in text or END_MARKER not in text:
         return
-
-    rel_prefix = str(path.parent).lstrip('./') + '/'
-    table_md = generate_table(rel_prefix, keys)
-    # If no files or access denied, skip replacement
-    if not table_md:
-        print(f"ℹ️  No .shapr files found for {path.parent}, skipping update.")
+    table = generate_table(path.parent, meta)
+    if not table:
+        print(f"ℹ️ No .shapr files under {path.parent}, skipping.")
         return
-
-    # Build replacement block
     replacement = (
         f"{BEGIN_MARKER}\n"
-        "<!-- This section is auto-generated. Do not edit manually. -->\n"
-        f"{table_md}\n"
+        "<!-- Auto-generated Shapr3D download table. Do not edit manually. -->\n"
+        f"{table}\n"
         f"{END_MARKER}"
     )
-    # Replace existing block
-    pattern = re.compile(f"{BEGIN_MARKER}.*?{END_MARKER}", flags=re.DOTALL)
-    new_text, count = pattern.subn(replacement, text)
+    new_text, count = re.subn(
+        f"{BEGIN_MARKER}.*?{END_MARKER}",
+        replacement,
+        text,
+        flags=re.DOTALL
+    )
     if count:
         path.write_text(new_text)
         print(f"✅ Updated {path}")
@@ -105,12 +119,12 @@ def update_file(path, keys):
 
 def main():
     print("🔍 Updating .shapr tables in README.md files...")
-    keys = fetch_gcs_keys()
-    if not keys:
-        print("⚠️  No .shapr keys to process.")
+    meta = fetch_metadata()
+    if not meta:
+        print("⚠️ No metadata found; aborting.")
         return
     for readme in Path('hardware').rglob('README.md'):
-        update_file(readme, keys)
+        update_readme(readme, meta)
 
 
 if __name__ == '__main__':
