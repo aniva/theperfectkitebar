@@ -110,3 +110,5 @@ Unless explicitly specified otherwise in a part's `README.md`, the recommended d
 | Quick Release (QR) mechanism flat parts | Titanium sheet | Flat-cut (Laser, Waterjet) | From titanium sheet of exactly specified thickness |
 
 > Note: Most online 3D printing services offer part dyeing; however, this is optional as the selected materials provide functional durability without color treatment.
+
+> Note 2: Expect printing services like [JLC3PD](https://jlc3dp.com/) to warn you about the printing accuracy of some STL files. It's is safe to ignore as it's doesn't impact performance nor the safety of the prints. Here is a typical email sent by [JLC3PD](./images/jlc3dp_warning.jpeg).
