@@ -2,7 +2,7 @@ terraform {
   required_providers {
     archive = {
       source  = "hashicorp/archive"
-      version = "~> 2.4.0"
+      version = ">= 2.4.0"
     }
   }
 }
@@ -55,6 +55,12 @@ data "archive_file" "disable_fn" {
   type        = "zip"
   source_dir  = "${path.module}/src"
   output_path = "${path.module}/functions.zip"
+
+  # Exclude any backup files
+  excludes = [
+    "**/*.bak",
+  ]
+
 }
 
 resource "google_storage_bucket_object" "function_zip" {
@@ -68,6 +74,12 @@ data "archive_file" "enable_fn" {
   type        = "zip"
   source_dir  = "${path.module}/src"
   output_path = "${path.module}/functions-enable.zip"
+
+  # Exclude any backup files
+  excludes = [
+    "**/*.bak",
+  ]
+
 }
 
 resource "google_storage_bucket_object" "function_zip_enable" {
