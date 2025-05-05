@@ -1,0 +1,37 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "projectEditor:theperfectkitebar-cad-dev",
+        "projectOwner:theperfectkitebar-cad-dev"
+      ],
+      "role": "roles/storage.legacyBucketOwner"
+    },
+    {
+      "members": [
+        "projectViewer:theperfectkitebar-cad-dev"
+      ],
+      "role": "roles/storage.legacyBucketReader"
+    },
+    {
+      "members": [
+        "projectEditor:theperfectkitebar-cad-dev",
+        "projectOwner:theperfectkitebar-cad-dev"
+      ],
+      "role": "roles/storage.legacyObjectOwner"
+    },
+    {
+      "members": [
+        "projectViewer:theperfectkitebar-cad-dev"
+      ],
+      "role": "roles/storage.legacyObjectReader"
+    },
+    {
+      "members": [
+        "allUsers"
+      ],
+      "role": "roles/storage.objectViewer"
+    }
+  ],
+  "etag": "CLcC"
+}
