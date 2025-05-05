@@ -1,11 +1,18 @@
-# main.tf (updated with separate fn_code bucket for function zips)
+terraform {
+  required_providers {
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4.0"
+    }
+  }
+}
 
 provider "google" {
   project = var.project_id
   region  = var.region
 }
 
-# === CAD Asset Bucket (public, serves STL etc.) ===
+# === CAD Asset Bucket (public) ===
 resource "google_storage_bucket" "cad_assets" {
   name                        = "theperfectkitebar-cad-assets"
   location                    = var.region
@@ -19,7 +26,7 @@ resource "google_storage_bucket_iam_binding" "public_access" {
   members = ["allUsers"]
 }
 
-# === Separate Function Code Bucket (private) ===
+# === Function Code Bucket (private) ===
 resource "google_storage_bucket" "fn_code" {
   name                        = "theperfectkitebar-fn-code"
   location                    = var.region
@@ -41,27 +48,42 @@ resource "google_pubsub_topic" "budget_alerts" {
   name = "cad-budget-alerts"
 }
 
-# === Function Zip Files ===
+# === Build and Upload Cloud Function Archives ===
+
+# Disable function archive (zips everything in src/)
+data "archive_file" "disable_fn" {
+  type        = "zip"
+  source_dir  = "${path.module}/src"
+  output_path = "${path.module}/functions.zip"
+}
+
 resource "google_storage_bucket_object" "function_zip" {
   name   = "functions.zip"
   bucket = google_storage_bucket.fn_code.name
-  source = "${path.module}/functions.zip"
+  source = data.archive_file.disable_fn.output_path
+}
+
+# Enable function archive (same src/)
+data "archive_file" "enable_fn" {
+  type        = "zip"
+  source_dir  = "${path.module}/src"
+  output_path = "${path.module}/functions-enable.zip"
 }
 
 resource "google_storage_bucket_object" "function_zip_enable" {
   name   = "functions-enable.zip"
   bucket = google_storage_bucket.fn_code.name
-  source = "${path.module}/functions-enable.zip"
+  source = data.archive_file.enable_fn.output_path
 }
 
-# === .keep placeholder to persist hardware/ ===
+# === Placeholder to keep hardware/ folder ===
 resource "google_storage_bucket_object" "shapr_placeholder" {
   name    = "hardware/.keep"
   bucket  = google_storage_bucket.cad_assets.name
   content = "placeholder"
 }
 
-# === Disable Function ===
+# === Disable Public Access Cloud Function ===
 resource "google_cloudfunctions_function" "disable_access" {
   name                  = "disablePublicAccess"
   description           = "Disables public access to GCS bucket if budget exceeded"
@@ -77,9 +99,15 @@ resource "google_cloudfunctions_function" "disable_access" {
     event_type = "google.pubsub.topic.publish"
     resource   = google_pubsub_topic.budget_alerts.id
   }
+
+  environment_variables = {
+    BUCKET_NAME         = google_storage_bucket.cad_assets.name
+    BILLING_ACCOUNT_ID  = var.billing_account_id
+    BUDGET_DISPLAY_NAME = var.budget_display_name
+  }
 }
 
-# === Enable Function ===
+# === Enable Public Access Cloud Function ===
 resource "google_cloudfunctions_function" "enable_access" {
   name                  = "enablePublicAccess"
   description           = "Re-enables public access on 1st of the month"
@@ -91,9 +119,22 @@ resource "google_cloudfunctions_function" "enable_access" {
   trigger_http          = true
   source_archive_bucket = google_storage_bucket.fn_code.name
   source_archive_object = google_storage_bucket_object.function_zip_enable.name
+
+  environment_variables = {
+    BUCKET_NAME = google_storage_bucket.cad_assets.name
+  }
 }
 
-# === Monthly Re-enable Access Job ===
+# === Enable Function Invoker Binding ===
+resource "google_cloudfunctions_function_iam_member" "enable_access_invoker" {
+  project        = var.project_id
+  region         = var.region
+  cloud_function = google_cloudfunctions_function.enable_access.name
+  role           = "roles/cloudfunctions.invoker"
+  member         = "serviceAccount:${google_cloudfunctions_function.enable_access.service_account_email}"
+}
+
+# === Monthly Re-enable Access Scheduler ===
 resource "google_cloud_scheduler_job" "monthly_reenable_access" {
   name             = "reenable-public-access"
   description      = "Re-enable public GCS access monthly"
