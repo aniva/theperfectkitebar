@@ -1,4 +1,4 @@
-# Central Piece for 24mm Tube
+# Central Piece installed on carbon tube (od 24, 22mm ...) 
 
 Central piece for a **24mm** carbon tube — Variant 7.
 
