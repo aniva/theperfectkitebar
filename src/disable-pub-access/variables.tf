@@ -18,3 +18,13 @@ variable "budget_display_name" {
   description = "Display name of the Budget"
   type        = string
 }
+
+variable "bucket_name" {
+  description = "Name of the GCS bucket to revoke allUsers from"
+  type        = string
+}
+
+variable "pubsub_topic" {
+  description = "Full Pub/Sub topic path for budget alerts, e.g. projects/your-project/topics/alerts"
+  type        = string
+}

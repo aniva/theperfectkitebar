@@ -16,58 +16,58 @@ provider "google" {
   region  = var.region
 }
 
-# === CAD Asset Bucket (public) ===
+# 1) Public CAD-assets bucket
 resource "google_storage_bucket" "cad_assets" {
   name                        = "theperfectkitebar-cad-assets"
   location                    = var.region
-  force_destroy               = true
   uniform_bucket_level_access = true
+  force_destroy               = true
 }
 
 resource "google_storage_bucket_iam_binding" "public_access" {
-  bucket  = google_storage_bucket.cad_assets.name
-  role    = "roles/storage.objectViewer"
+  bucket = google_storage_bucket.cad_assets.name
+  role   = "roles/storage.objectViewer"
   members = ["allUsers"]
 }
 
-# === Function Code Bucket (private) ===
+# 2) Private bucket for our function ZIPs
 resource "google_storage_bucket" "fn_code" {
   name                        = "theperfectkitebar-fn-code"
   location                    = var.region
-  force_destroy               = true
   uniform_bucket_level_access = true
+  force_destroy               = true
 }
 
 resource "google_storage_bucket_iam_binding" "fn_code_private" {
-  bucket  = google_storage_bucket.fn_code.name
-  role    = "roles/storage.objectViewer"
+  bucket = google_storage_bucket.fn_code.name
+  role   = "roles/storage.objectViewer"
   members = [
     "projectOwner:${var.project_id}",
     "projectEditor:${var.project_id}",
   ]
 }
 
-# === Pub/Sub Topic for Budget Alerts ===
+# 3) Pub/Sub topic for budget alerts
 resource "google_pubsub_topic" "budget_alerts" {
-  name = "cad-budget-alerts"
+  name = "budget-alerts"
 }
 
-# === ZIP up each function (no *.bak) ===
+# 4) Build two ZIPs (disable vs enable), excluding .bak
 data "archive_file" "disable_fn" {
   type        = "zip"
   source_dir  = "${path.module}/src"
-  output_path = "${path.module}/functions-disable.zip"
   excludes    = ["**/*.bak"]
+  output_path = "${path.module}/functions-disable.zip"
 }
 
 data "archive_file" "enable_fn" {
   type        = "zip"
   source_dir  = "${path.module}/src"
-  output_path = "${path.module}/functions-enable.zip"
   excludes    = ["**/*.bak"]
+  output_path = "${path.module}/functions-enable.zip"
 }
 
-# === Upload the ZIPs ===
+# 5) Upload the ZIPs
 resource "google_storage_bucket_object" "disable_zip" {
   name   = "functions-disable.zip"
   bucket = google_storage_bucket.fn_code.name
@@ -80,17 +80,17 @@ resource "google_storage_bucket_object" "enable_zip" {
   source = data.archive_file.enable_fn.output_path
 }
 
-# === Keep hardware/ in cad_assets ===
+# 6) Keep the empty placeholder so `hardware/` isn’t pruned
 resource "google_storage_bucket_object" "shapr_placeholder" {
   name    = "hardware/.keep"
   bucket  = google_storage_bucket.cad_assets.name
   content = "placeholder"
 }
 
-# === disablePublicAccess (Gen 2, Pub/Sub) ===
+# 7) disablePublicAccess — Gen-2, Pub/Sub trigger
 resource "google_cloudfunctions2_function" "disable_access" {
-  name        = "disablePublicAccess"
-  location    = var.region
+  name     = "disablePublicAccess"
+  location = var.region
   description = "Disables public access when budget exceeded"
 
   build_config {
@@ -104,7 +104,7 @@ resource "google_cloudfunctions2_function" "disable_access" {
       }
     }
 
-    # force a new deploy whenever the ZIP changes
+    # force redeployment when code changes
     environment_variables = {
       ZIP_HASH = data.archive_file.disable_fn.output_base64sha256
     }
@@ -128,10 +128,10 @@ resource "google_cloudfunctions2_function" "disable_access" {
   }
 }
 
-# === enablePublicAccess (Gen 2, HTTP) ===
+# 8) enablePublicAccess — Gen-2, HTTP trigger
 resource "google_cloudfunctions2_function" "enable_access" {
-  name        = "enablePublicAccess"
-  location    = var.region
+  name     = "enablePublicAccess"
+  location = var.region
   description = "Re-enables public access monthly"
 
   build_config {
@@ -162,14 +162,11 @@ resource "google_cloudfunctions2_function" "enable_access" {
     }
   }
 
-  # HTTP trigger for manual/scheduler calls
-  event_trigger {
-    event_type = "google.cloud.pubsub.topic.v1.messagePublished"
-    pubsub_topic = google_pubsub_topic.budget_alerts.id
-  }
+  # THIS makes it an HTTP-triggered Gen-2 function:
+  https_trigger {}
 }
 
-# Allow public invocation of the HTTP-enable function
+# 9) Allow “allUsers” to hit our HTTP-triggered function
 resource "google_cloudfunctions2_function_iam_member" "enable_invoker" {
   project        = var.project_id
   location       = var.region
@@ -178,10 +175,10 @@ resource "google_cloudfunctions2_function_iam_member" "enable_invoker" {
   member         = "allUsers"
 }
 
-# === Monthly re-enable job ===
+# 10) Monthly job to call the HTTP-triggered enable function
 resource "google_cloud_scheduler_job" "monthly_reenable" {
   name             = "reenable-public-access"
-  description      = "Re-enable GCS public access each month"
+  description      = "Call enablePublicAccess monthly"
   schedule         = "0 0 1 * *"
   time_zone        = "America/Toronto"
   attempt_deadline = "60s"
