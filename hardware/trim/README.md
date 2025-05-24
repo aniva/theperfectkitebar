@@ -16,7 +16,7 @@ The following V-Splitter variants are recommended for use with ThePerfectKiteBar
 |---------------|------------|---------|------------|----------|-------|---------|
 | 4mm           | 1.4mm      | 3       | MJF        | PA12     | [`Files`](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3) | ![v-splitter](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3/v-splitter_4x14_mjf.png) |
 | 4mm           | 1.7mm      | 3       | MJF        | PA12     | [`Files`](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3) | ![v-splitter](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.png) |
-
+| 6mm           | 2mm        | 1       | MJF        | PA12     | [`Files`](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1) | ![v-splitter](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.png) |
 ---
 
 ## Optional / Legacy Compatibility
