@@ -75,7 +75,7 @@ The following `.shapr` files are the editable source models created in Shapr3D. 
 <!-- Auto-generated Shapr3D download table. Do not edit manually. -->
 | File | MD5 | Last Modified | Download URL |
 |------|-----|---------------|--------------|
-| `swivel-cap_sls.shapr` | `1715559d852b7dfd9414abf99c1e8d5d` | 2025-05-03 02:13:46 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel-cap/variant_4/swivel-cap_sls.shapr) |
+| `swivel-cap_sls.shapr` | `1715559d852b7dfd9414abf99c1e8d5d` | 2025-06-07 20:08:35 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel-cap/variant_4/swivel-cap_sls.shapr) |
 | `swivel_4.5x17x3x9_slm.shapr` | `8903e0fc5c8f5b3c1035ddb2334a7ffc` | 2025-05-02 03:57:08 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/swivel_4.5x17x3x9_slm.shapr) |
-| `swivel_5x17x3x9_slm.shapr` | `5beec6918e9ec438ad74d79805c2baa0` | 2025-05-03 02:13:46 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/swivel_5x17x3x9_slm.shapr) |
+| `swivel_5x17x3x9_slm.shapr` | `5beec6918e9ec438ad74d79805c2baa0` | 2025-06-07 20:08:34 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/swivel_5x17x3x9_slm.shapr) |
 <!-- END_SHAPR_TABLE -->
