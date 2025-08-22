@@ -6,12 +6,13 @@ GIT_HOOKS_DIR="$(git rev-parse --git-path hooks)"
 
 echo "Installing git hooks..."
 
-# Create symlinks for each hook in scripts/hooks
-for hook in "$SCRIPT_DIR"/*; do
-    if [[ -f "$hook" && -x "$hook" && "${hook}" != *".sh" ]]; then
-        hook_name=$(basename "$hook")
-        ln -sf "$hook" "$GIT_HOOKS_DIR/$hook_name"
-        echo "Installed $hook_name hook"
+# Find all executable .sh files, excluding this installer script itself.
+for hook_script in "$SCRIPT_DIR"/*.sh; do
+    hook_name=$(basename "$hook_script" .sh)
+    # Skip the installer script itself and ensure the file is executable
+    if [[ "$hook_name" != "install_hooks" && -x "$hook_script" ]]; then
+        ln -sf "../../scripts/hooks/$hook_name.sh" "$GIT_HOOKS_DIR/$hook_name"
+        echo "✅ Installed $hook_name hook"
     fi
 done
 
