@@ -1,13 +1,13 @@
 # Quick release
 
-The Quick Release (QR) is a critical safety component of the kite control system. This design is focused on reliability, ease of use even with gloves in cold water, and field serviceability.
+The Quick Release (QR) is a critical safety component of the kite control system. This design focuses on reliability, ease of use (even with gloves in cold water), and field serviceability.
 
-The mechanism consists of 3D-printed and flat-cut metal components.
+The mechanism consists of 3D-printed parts and flat-cut metal components.
 
 -   **Case**: The main body of the QR is designed for SLS 3D printing in Nylon (e.g., PA12 or Precimid-1172 Pro for a white finish) for durability and impact resistance.
 -   **Mechanism**: The internal flat parts are designed to be laser or waterjet cut from Grade 5 Titanium sheets of specific thicknesses (0.125" and 0.187") for maximum strength and corrosion resistance.
 
-This directory contains variants of the QR system, for example, accommodating different bolt sizes (M4 and M6) for attachment.
+This directory contains variants of the QR system that accommodate different bolt sizes (M4 and M6) for attachment.
 
 ## Sizing (M4 vs. M6)
 
@@ -18,31 +18,43 @@ The M4 and M6 versions are functionally identical across all variants, with the 
 
 ## Variants
 
-Variants 1 through 4 have been omitted as they represent early design iterations that did not proceed to field testing.
+Variants 1 through 4 have been omitted, as they represent early design iterations that did not proceed to field testing.
 
 ### Variant 5
 
-This variant uses a permanent bolt and nut to attach to the sliding rope of a harness.
+This variant uses a permanent bolt and nut to attach to the harness's sliding rope.
 
-Parts needed to build M4 version of this variant:
+Parts needed to build **M4** version of this variant.
 
-| File Name | Where to Order | Parameters | Quantity | Comments |
-|---|---|---|---|---|
-| [`qr_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces | |
-| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces | |
-| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece | |
-| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | 3D Technology SLS (e.g., jlc3dp.com) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | |
-| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | 3D Technology SLS (e.g., jlc3dp.com) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | |
+From any laser/waterjet cutting service (e.g., SendCutSend)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |
+
+From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
+
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+
+Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
+
+Marine grade stainless
 
 ### Variant 6
 
-This variant uses a clevis pin, allowing for easy field removal of the QR from a harness hook or sliding rope.
+This variant uses a clevis pin, allowing for easy removal of the QR from a harness hook or sliding rope in the field.
 
-**Warning:** At the time of writing, this variant has not been field-tested. There is a risk that the clevis pin could be accidentally released during use, which would cause the kite to flag out on its safety line, potentially resulting in a long swim. Extreme riding and jumping are strongly discouraged until this variant has been thoroughly tested in various conditions.
+**Warning:** At the time of writing, this variant has not been field-tested. There is a risk that the clevis pin could be accidentally released during use. This would cause the kite to flag out on its safety line, potentially resulting in a long swim. Extreme riding and jumping are strongly discouraged until this variant has been thoroughly tested in various conditions.
 
 ## Native Shapr3D Design Files
 
-The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—so you can open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
+The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—allowing you to open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
 
 <!-- BEGIN_SHAPR_TABLE -->
 <!-- Auto-generated Shapr3D download table. Do not edit manually. -->
