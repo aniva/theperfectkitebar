@@ -47,7 +47,7 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts can be procured from hardware suppliers such as aliexpress.com or McMaster-Carr.
 
-- Marine-grade stainless steel M4 bolts, 25mm in length (2 pieces) and 2 nuts.
+- Marine grade stainless or titanium socket head bolts M4 lengh of 25mm - 2 bolts and 2 nuts
 - Titanium tube for two 13mm spacers with an outer diameter (OD) of 6mm and an inner diameter (ID) of 4mm.
 
 ### Variant 5 M6
@@ -76,7 +76,7 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
 
-- Marine grade stainless bolts M6 lengh of 25mm - 2 pieces and 2 nuts
+- Marine grade stainless or titanium socket head bolts M6 lengh of 25mm - 2 bolts and 2 nuts
 - Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm 
 
 ### Variant 6
@@ -114,7 +114,7 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
-- Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
+- Marine grade stainless or titanium socket head bolts M4 lengh of 25mm - 2 bolts and 2 nuts.
 - Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
 - Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
@@ -141,9 +141,9 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
-- Marine grade stainless bolts M6 lengh of 25mm - 1 piece and 1 nut
+- Marine grade stainless or titanium socket head bolts M6 lengh of 25mm - 1 bolt and 1 nut
 - Titanium tube for one spacer of 13mm with OD 8mm and ID 6mm 
-- Marine grade stainless bolt M4 lengh of 25mm - 1 piece and 1 nut
+- Marine grade stainless or titanium socket head bolt M4 lengh of 25mm - 1 bolt and 1 nut
 - Titanium tube for one spacer of 13mm with OD 6mm and ID 4mm
 - Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
