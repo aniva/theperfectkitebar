@@ -72,8 +72,8 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
 
-Marine grade stainless bolts M6 lengh of 25mm - 2 pieces and 2 nuts
-Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm 
+- Marine grade stainless bolts M6 lengh of 25mm - 2 pieces and 2 nuts
+- Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm 
 
 ### Variant 6
 
@@ -108,9 +108,9 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
-Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
-Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
-Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
+- Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
+- Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
+- Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
 ### Variant 6 M6
 
@@ -133,11 +133,11 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
-Marine grade stainless bolts M6 lengh of 25mm - 1 piece and 1 nut
-Titanium tube for one spacer of 13mm with OD 8mm and ID 6mm 
-Marine grade stainless bolt M4 lengh of 25mm - 1 piece and 1 nut
-Titanium tube for one spacer of 13mm with OD 6mm and ID 4mm
-Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
+- Marine grade stainless bolts M6 lengh of 25mm - 1 piece and 1 nut
+- Titanium tube for one spacer of 13mm with OD 8mm and ID 6mm 
+- Marine grade stainless bolt M4 lengh of 25mm - 1 piece and 1 nut
+- Titanium tube for one spacer of 13mm with OD 6mm and ID 4mm
+- Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
 ## Native Shapr3D Design Files
 
