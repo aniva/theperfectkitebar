@@ -15,14 +15,16 @@ The M4 and M6 versions are functionally identical across all variants, with the 
 
 -   **M4 Version**: A lighter-weight option suitable for most recreational riders.
 -   **M6 Version**: A heavier-duty option suitable for heavier riders or more demanding conditions.
+-   
+Note that for all variants an upper nut (M4 or M6) that holds claws must be installed permanently (e.g.,using Loctite Threadlocker Red).
 
 ## Variants
 
 Variants 1 through 4 have been omitted, as they represent early design iterations that did not proceed to field testing.
 
-### Variant 5
+### Variant 5 M4
 
-This variant uses a permanent bolt and nut to attach to the harness's sliding rope.
+This variant uses a permanent (e.g.,using Loctite Threadlocker Red) M4 bolt and nut to attach to the harness's sliding rope.
 
 Parts needed to build **M4** version of this variant.
 
@@ -36,7 +38,6 @@ From any laser/waterjet cutting service (e.g., SendCutSend)
 
 From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
-
 | File Name | Parameters | Quantity |
 |---|---|---|
 | [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
@@ -46,6 +47,10 @@ Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macma
 
 Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
 Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
+
+### Variant 5 M6
+
+This variant uses a permanent (e.g.,using Loctite Threadlocker Red) M6 bolt and nut to attach to the harness's sliding rope
 
 Parts needed to build **M6** version of this variant.
 
@@ -72,9 +77,67 @@ Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm
 
 ### Variant 6
 
-This variant uses a clevis pin, allowing for easy removal of the QR from a harness hook or sliding rope in the field.
+This variant uses a quick release pin, allowing for easy removal of the QR from a harness hook or sliding rope in the field.
 
-**Warning:** At the time of writing, this variant has not been field-tested. There is a risk that the clevis pin could be accidentally released during use. This would cause the kite to flag out on its safety line, potentially resulting in a long swim. Extreme riding and jumping are strongly discouraged until this variant has been thoroughly tested in various conditions.
+To support QR structure an additional spacer with M4 bolt and nut used that must be instaled permanently (e.g.,using Loctite Threadlocker Red).
+
+Note that all the claws are the same as for Variant 5 with correspoing M4 or M6 bolt and nut.
+
+QR cases are also the same and rope wheel is of M4 version (because quick release pin diameter is M6, the M4 version of the wheel have hole diameter of 7mmm)
+
+**Warning:** At the time of writing, this variant has not been field-tested. There is a risk that the quick release pin could be accidentally released during use. This would cause the kite to flag out on its safety line, potentially resulting in a long swim. Extreme riding and jumping are strongly discouraged until this variant has been thoroughly tested in various conditions.
+
+### Variant 6 M4
+
+Parts needed to build **M4** version of this variant.
+
+From any laser/waterjet cutting service (e.g., SendCutSend)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr_shackle_m4-clpin_m6.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr_shackle_m4-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |
+
+From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+
+Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
+
+Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
+Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
+Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
+
+### Variant 6 M6
+
+Parts needed to build **M6** version of this variant.
+
+From any laser/waterjet cutting service (e.g., SendCutSend)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr_shackle_m6-clpin_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr_shackle_m6-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |
+
+From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+| [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+
+Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
+
+Marine grade stainless bolts M6 lengh of 25mm - 1 piece and 1 nut
+Titanium tube for one spacer of 13mm with OD 8mm and ID 6mm 
+Marine grade stainless bolt M4 lengh of 25mm - 1 piece and 1 nut
+Titanium tube for one spacer of 13mm with OD 6mm and ID 4mm
+Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
 ## Native Shapr3D Design Files
 
