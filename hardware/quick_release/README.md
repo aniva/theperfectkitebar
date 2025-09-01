@@ -24,6 +24,8 @@ Variants 1 through 4 have been omitted, as they represent early design iteration
 
 ### Variant 5 M4
 
+<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-mech_assembly_m4.png">
+
 This variant uses a permanent M4 bolt and nut to attach to the harness's sliding rope. It is recommended to use a thread-locking fluid (e.g., Loctite Threadlocker Red) to secure the nut.
 
 Parts needed to build the **M4** version of this variant.
@@ -49,6 +51,8 @@ Additional parts can be procured from hardware suppliers such as aliexpress.com 
 - Titanium tube for two 13mm spacers with an outer diameter (OD) of 6mm and an inner diameter (ID) of 4mm.
 
 ### Variant 5 M6
+
+<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-mech-assembly_m6.png">
 
 This variant uses a permanent M6 bolt and nut to attach to the harness's sliding rope. It is recommended to use a thread-locking fluid (e.g., Loctite Threadlocker Red) to secure the nut.
 
@@ -89,6 +93,8 @@ QR cases are also the same and rope wheel is of M4 version (because quick releas
 
 ### Variant 6 M4
 
+<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-mech_assembly_m4.png">
+
 Parts needed to build **M4** version of this variant.
 
 From any laser/waterjet cutting service (e.g., SendCutSend)
@@ -113,6 +119,8 @@ Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.c
 - Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
 
 ### Variant 6 M6
+
+<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-mech-assembly_m6.png">
 
 Parts needed to build **M6** version of this variant.
 
