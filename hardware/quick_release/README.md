@@ -44,7 +44,31 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
 
-Marine grade stainless
+Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
+Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
+
+Parts needed to build **M6** version of this variant.
+
+From any laser/waterjet cutting service (e.g., SendCutSend)
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |
+| [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |
+
+From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
+
+
+| File Name | Parameters | Quantity |
+|---|---|---|
+| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+| [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
+
+Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
+
+Marine grade stainless bolts M6 lengh of 25mm - 2 pieces and 2 nuts
+Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm 
 
 ### Variant 6
 
