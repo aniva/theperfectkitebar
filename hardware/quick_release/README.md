@@ -31,10 +31,8 @@ Parts needed to build M4 version of this variant:
 | [`qr_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces | |
 | [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces | |
 | [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Any laser/waterjet cutting service (e.g., SendCutSend) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece | |
-| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | 3D Technology SLS (Nylon)
-Material 3201PA-F Nylon or 1172Pro Nylon (e.g., jlc3dp.com) | 1 piece | |
-| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | 3D Technology SLS (Nylon)
-Material 3201PA-F Nylon or 1172Pro Nylon (e.g., jlc3dp.com) | 1 piece | |
+| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | 3D Technology SLS Material 3201PA-F Nylon or 1172Pro Nylon (e.g., jlc3dp.com) | 1 piece | |
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | 3D Technology SLS Material 3201PA-F Nylon or 1172Pro Nylon (e.g., jlc3dp.com) | 1 piece | |
 
 ### Variant 6
 
