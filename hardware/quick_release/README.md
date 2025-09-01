@@ -15,7 +15,7 @@ The M4 and M6 versions are functionally identical across all variants, with the 
 
 -   **M4 Version**: A lighter-weight option suitable for most recreational riders.
 -   **M6 Version**: A heavier-duty option suitable for heavier riders or more demanding conditions.
--   
+
 Note that for all variants, the upper nut (M4 or M6) that holds the claws must be installed permanently (e.g., using Loctite Threadlocker Red).
 
 ## Variants
