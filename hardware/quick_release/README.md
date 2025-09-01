@@ -41,7 +41,7 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
 | [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.png" width="200">| 
-| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.png" width="200">| | 
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.png" width="200">|
 
 Additional parts can be procured from hardware suppliers such as aliexpress.com or McMaster-Carr.
 
@@ -67,8 +67,8 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | | 
-| [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | |
+| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.png" width="200">| 
+| [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.png" width="200">|
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
 
@@ -103,8 +103,8 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | | 
-| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | |
+| [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.png" width="200">| 
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.png" width="200">|
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
@@ -128,8 +128,8 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | | 
-| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |  |
+| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.png" width="200">| 
+| [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.png" width="200">|
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
