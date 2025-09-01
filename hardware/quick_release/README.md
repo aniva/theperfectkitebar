@@ -16,7 +16,7 @@ The M4 and M6 versions are functionally identical across all variants, with the 
 -   **M4 Version**: A lighter-weight option suitable for most recreational riders.
 -   **M6 Version**: A heavier-duty option suitable for heavier riders or more demanding conditions.
 -   
-Note that for all variants an upper nut (M4 or M6) that holds claws must be installed permanently (e.g.,using Loctite Threadlocker Red).
+Note that for all variants, the upper nut (M4 or M6) that holds the claws must be installed permanently (e.g., using Loctite Threadlocker Red).
 
 ## Variants
 
@@ -24,9 +24,9 @@ Variants 1 through 4 have been omitted, as they represent early design iteration
 
 ### Variant 5 M4
 
-This variant uses a permanent (e.g.,using Loctite Threadlocker Red) M4 bolt and nut to attach to the harness's sliding rope.
+This variant uses a permanent M4 bolt and nut to attach to the harness's sliding rope. It is recommended to use a thread-locking fluid (e.g., Loctite Threadlocker Red) to secure the nut.
 
-Parts needed to build **M4** version of this variant.
+Parts needed to build the **M4** version of this variant.
 
 From any laser/waterjet cutting service (e.g., SendCutSend)
 
@@ -43,16 +43,16 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 | [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
 | [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece | 
 
-Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
+Additional parts can be procured from hardware suppliers such as aliexpress.com or McMaster-Carr.
 
-Marine grade stainless bolts M4 lengh of 25mm - 2 pieces and 2 nuts.
-Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
+- Marine-grade stainless steel M4 bolts, 25mm in length (2 pieces) and 2 nuts.
+- Titanium tube for two 13mm spacers with an outer diameter (OD) of 6mm and an inner diameter (ID) of 4mm.
 
 ### Variant 5 M6
 
-This variant uses a permanent (e.g.,using Loctite Threadlocker Red) M6 bolt and nut to attach to the harness's sliding rope
+This variant uses a permanent M6 bolt and nut to attach to the harness's sliding rope. It is recommended to use a thread-locking fluid (e.g., Loctite Threadlocker Red) to secure the nut.
 
-Parts needed to build **M6** version of this variant.
+Parts needed to build the **M6** version of this variant.
 
 From any laser/waterjet cutting service (e.g., SendCutSend)
 
