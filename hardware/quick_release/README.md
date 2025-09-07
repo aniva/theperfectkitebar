@@ -61,10 +61,11 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 | [`qr-case_m4_sls.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m4_sls.png" width="200">| 
 | [`slider-rope-wheel_7x12.5.stl`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_6/slider-rope-wheel_7x12.5.png" width="200">|
 
-Additional parts can be procured from hardware suppliers such as aliexpress.com or McMaster-Carr.
+Additional parts can be procured from hardware suppliers such as aliexpress.com, amazon.com, or McMaster-Carr.
 
 - Marine grade stainless or titanium socket head bolts M4 lengh of 25mm - 2 bolts and 2 nuts
 - Titanium tube for two 13mm spacers with an outer diameter (OD) of 6mm and an inner diameter (ID) of 4mm.
+- 2.5mm Elastic Nylon Bungee Cord. A length of ~35cm (approx. 1 ft 2 in) is needed per QR. (Example: Paracord Planet Elastic Nylon Bungee and Shock Cord)
 
 ### Variant 5 M6
 
@@ -90,10 +91,12 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 | [`qr-case_m6_sls.stl`](./hardware/quick_release/6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.png" width="200">| 
 | [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.png" width="200">|
 
-Additional parts procured from hardware suppliers, e.g. aliexpress.com or [macmastercarr](https://www.mcmaster.com/)
+Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
 
 - Marine grade stainless or titanium socket head bolts M6 lengh of 25mm - 2 bolts and 2 nuts
-- Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm 
+- Titanium tube for two spacers of 13mm with OD 8mm and ID 6mm
+- 2.5mm Elastic Nylon Bungee Cord. A length of ~35cm (approx. 1 ft 2 in) is needed per QR. (Example: Paracord Planet Elastic Nylon Bungee and Shock Cord)
+
 
 ### Variant 6
 
@@ -133,6 +136,7 @@ Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.c
 - Marine grade stainless or titanium socket head bolts M4 lengh of 25mm - 2 bolts and 2 nuts.
 - Titanium tube for two spacers of 13mm with OD 6mm and ID 4mm.
 - Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
+- 2.5mm Elastic Nylon Bungee Cord. A length of ~35cm (approx. 1 ft 2 in) is needed per QR. (Example: Paracord Planet Elastic Nylon Bungee and Shock Cord)
 
 ### Variant 6 M6
 
@@ -162,6 +166,7 @@ Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.c
 - Marine grade stainless or titanium socket head bolt M4 lengh of 25mm - 1 bolt and 1 nut
 - Titanium tube for one spacer of 13mm with OD 6mm and ID 4mm
 - Quick release pin, spring loaded, diameter 1/4" (or 6.35mm), usable length approx 1"
+- 2.5mm Elastic Nylon Bungee Cord. A length of ~35cm (approx. 1 ft 2 in) is needed per QR. (Example: Paracord Planet Elastic Nylon Bungee and Shock Cord)
 
 ## Native Shapr3D Design Files
 
