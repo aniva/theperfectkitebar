@@ -50,8 +50,8 @@ From any laser/waterjet cutting service (e.g., SendCutSend)
 
 | File Name | Parameters | Quantity | Image
 |---|---|---|---|
-| [`qr-shackle_m6-clpin_m6.dxf`](./hardware/quick_release/6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6_0.125.png" width="200">|
-| [`qr-claw_m8_for_shackle_m6.dxf`](./hardware/quick_release/6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.125.png" width="200">|
+| [`qr-shackle_m6-clpin_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6_0.125.png" width="200">|
+| [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.125.png" width="200">|
 | [`qr-claw_m6_for_shackle_m4.dxf`](./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |<img src="./4mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m6_for_shackle_m4_0.187.png" width="200">|
 
 From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
