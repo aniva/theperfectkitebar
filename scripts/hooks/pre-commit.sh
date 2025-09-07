@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[pre-commit hook] Cleaning up Windows metadata..."
-# Safely remove any lingering Zone.Identifier files
-find . -type f -name '*:Zone.Identifier' -print0 | xargs -0 rm -f || true
+echo "[pre-commit hook] Cleaning up filesystem metadata files..."
+# Safely remove lingering metadata files from Windows (Zone.Identifier) and Dropbox.
+find . -type f \( -name '*:Zone.Identifier' -o -name '*:com.dropbox.attrs' \) -print0 | xargs -0 --no-run-if-empty rm -f
 
 echo "[pre-commit hook] Updating .shapr download tables..."
 if command -v python3 &>/dev/null; then

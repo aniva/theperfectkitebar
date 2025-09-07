@@ -1,3 +1,4 @@
 *Zone.Identifier
+*:com.dropbox.attrs
 /hardware/**/*.shapr
-hardware/**/backup/
+   **/backup/
