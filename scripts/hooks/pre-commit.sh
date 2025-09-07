@@ -14,6 +14,6 @@ fi
 
 # After the script runs, automatically stage any README.md files that were modified.
 # This ensures the table updates are included in the commit.
-git add hardware/**/README.md
+git add -u hardware/**/README.md
 
 exit 0
