@@ -76,7 +76,7 @@ bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24_22_sls.
 To explore any component:
 
 1. Navigate to: `hardware/3D_models/<component_name>/`
-2. Open: `README.md`
+1. Navigate to: `hardware/<component_name>/` and open the `README.md` file in that directory.
 3. Inside you will find:
    - Part purpose
    - Design constraints
