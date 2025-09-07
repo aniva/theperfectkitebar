@@ -7,13 +7,17 @@ find . -type f \( -name '*:Zone.Identifier' -o -name '*:com.dropbox.attrs' \) -p
 
 echo "[pre-commit hook] Updating .shapr download tables..."
 if command -v python3 &>/dev/null; then
-  python3 scripts/hooks/update_shapr_tables.py
+  # Run the script and capture its output to find which files were modified.
+  # The `tee /dev/tty` part ensures the script's output is still visible to the user.
+  UPDATED_FILES=$(python3 scripts/hooks/update_shapr_tables.py | tee /dev/tty | grep '✅ Updated' | sed 's/✅ Updated //')
+
+  # If any files were updated, add only those specific files to the index.
+  if [ -n "$UPDATED_FILES" ]; then
+    echo "[pre-commit hook] Staging updated README files..."
+    echo "$UPDATED_FILES" | xargs git add
+  fi
 else
   echo "⚠️  python3 not found, skipping .shapr table update"
 fi
-
-# After the script runs, automatically stage any README.md files that were modified.
-# This ensures the table updates are included in the commit.
-git add -u hardware/**/README.md
 
 exit 0
