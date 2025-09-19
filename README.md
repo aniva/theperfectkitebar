@@ -85,11 +85,14 @@ To explore any component:
    - Images and previews
    - Available variants
 
-Example links:
+Links:
 
-- [Bar Center Piece](hardware/bar/carbon_tube_od24_id22mm/bar_center_piece/README.md)
-- [Swivel](hardware/swivel/sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/README.md)
-- Quick Release → Coming Soon
+- [Bar](hardware/bar/README.md)
+- [Swivel](hardware/swivel/README.md)
+- [Quick Release](hardware/quick_release/README.md)
+- [Trim](hardware/trim/README.md)
+- [Tools](hardware/tools/README.md)
+
 
 ---
 
