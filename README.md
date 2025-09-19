@@ -101,13 +101,14 @@ Unless explicitly specified otherwise in a part's `README.md`, the recommended d
 
 ### Material Recommendations by Use Case
 
-| Part / Component | Recommended Material | 3D Printing Technology | Notes |
+| Part / Component | Recommended Material | Manufacturing Technology | Notes |
 |------------------|----------------------|-------------------------|-------|
-| Most components (default) | [3201PA-F Nylon](https://jlc3dp.com/help/article/3201PA-F-Nylon) | SLS (Selective Laser Sintering) | Standard go-to material for durability and reliability |
-| White-colored parts (e.g., left bar-end, QR case) | [Precimid-1172 Pro Nylon](https://jlc3dp.com/help/article/Precimid-1172-Pro) | SLS | Slightly more expensive, but produces white parts without need for dyeing |
-| V-splitter and Cleat base | [PA12 HP Nylon](https://jlc3dp.com/help/article/PA12-HP-Nylon) | MJF (Multi Jet Fusion) | Offers better strength for small structural parts |
-| Swivel metal parts (housing and shaft) | [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel) | SLM (Selective Laser Melting) | SLM 3D printed, or CNC machined (future: titanium possible) |
+| Most components (default) | [3201PA-F Nylon](https://jlc3dp.com/help/article/3201PA-F-Nylon) | 3D printing using SLS (Selective Laser Sintering) | Standard go-to material for durability and reliability |
+| White-colored parts (e.g., left bar-end, QR case) | [Precimid-1172 Pro Nylon](https://jlc3dp.com/help/article/Precimid-1172-Pro) | 3D printing using SLS | Slightly more expensive, but produces white parts without need for dyeing |
+| V-splitter and Cleat base | [PA12 HP Nylon](https://jlc3dp.com/help/article/PA12-HP-Nylon) | 3D printing using MJF (Multi Jet Fusion) | Offers better strength for small structural parts |
+| Swivel metal parts (housing and shaft) | [Titanium TC4](https://jlc3dp.com/help/article/titanium-tc4) or [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel)| 3D printing using SLM (Selective Laser Melting) | Titanium for minimal weight but more expensive otherwise print from 316L Stainless Steel |
 | Quick Release (QR) mechanism flat parts | Titanium sheet | Flat-cut (Laser, Waterjet) | From titanium sheet of exactly specified thickness |
+| Tools | Refer to [readme](./hardware//tools/README.md) | 3D printed using SLM and SLA | |
 
 > Note: Most online 3D printing services offer part dyeing; however, this is optional as the selected materials provide functional durability without color treatment.
 
