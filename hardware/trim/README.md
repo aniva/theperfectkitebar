@@ -1,4 +1,8 @@
-# V-Splitter
+# Trim
+
+consist of V-splitter and cleat base
+
+## V-Splitter
 
 The **V-Splitter** is an essential part of the trim system. It connects the **main depower (trim) line** to the two **front flying lines**, creating a so called low V-split.
 
@@ -8,7 +12,7 @@ This project supports **only 4mm sheeting rope** throughout — ensuring compati
 
 ---
 
-## Supported Design (TPKB Standard)
+### Supported Design (TPKB Standard)
 
 The following V-Splitter variants are recommended for use with ThePerfectKiteBar system:
 
@@ -19,7 +23,7 @@ The following V-Splitter variants are recommended for use with ThePerfectKiteBar
 | 6mm           | 2mm        | 1       | MJF        | PA12     | [`Files`](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1) | ![v-splitter](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.png) |
 ---
 
-## Optional / Legacy Compatibility
+### Optional / Legacy Compatibility
 
 The following variant is **not part of this system** but provided as an often hard to get replacement part for off-the-shelf bars that use thicker rope and front lines.
 
@@ -32,7 +36,7 @@ The following variant is **not part of this system** but provided as an often ha
 
 ---
 
-## Material & Printing Guidelines
+### Material & Printing Guidelines
 
 - **Technology:** Multi Jet Fusion (MJF) strongly recommended as this is a critical part
 - **Material:** PA12 HP Nylon (UV-resistant and tested in harsh conditions)
@@ -40,12 +44,12 @@ The following variant is **not part of this system** but provided as an often ha
 
 ---
 
-## Assembly Notes
+### Assembly Notes
 
 - Mounts inline between front lines and depower line
 - Position correctly so that safety line (through hole) is aligned with the cleat base
 
-## Native Shapr3D Design Files
+### Native Shapr3D Design Files
 
 The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—so you can open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
 
