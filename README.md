@@ -1,8 +1,8 @@
 # ThePerfectKiteBar (TPKB)
 
-An **open-source kite control bar** designed for **kite-foil enthusiasts** who value flexibility, customization, and full DIY freedom.
+An **open-source kite control bar** designed for **kite-foil enthusiasts** who value flexibility, customization, and complete DIY freedom.
 
-Development began in **2023**, driven by the lack of suitable off-the-shelf products — most commercial options were either too expensive, too complex, unnecessarily heavy, or built around the same design across many brands.
+Development began in **2023**, driven by the lack of suitable off-the-shelf products—most commercial options were either too expensive, overly complex, unnecessarily heavy, or built around identical designs across multiple brands.
 The first functional version of TPKB was **tested in Spring 2024**, followed by multiple iterative refinements based on real-world user experience.
 
 Key design priorities include:
@@ -26,7 +26,7 @@ This project is intended for:
 - Experimental design exploration
 - Field replacement and customization of bar components
 
-All parts are designed with parametric flexibility in mind — allowing for adaptation to different materials, manufacturing methods, and rope/tube sizes.
+All parts are designed with parametric flexibility in mind—allowing for adaptation to different materials, manufacturing methods, and rope/tube sizes.
 
 ---
 
@@ -34,17 +34,17 @@ All parts are designed with parametric flexibility in mind — allowing for adap
 
 The main hardware components of the project are organized under the `/hardware/` directory:
 
-- `/hardware/bar/` → Bar components, including the main tube, end pieces, and center inserts.
-- `/hardware/swivel/` → Swivel component for untwisting lines.
-- `/hardware/quick_release/` → The quick release safety system.
-- `/hardware/trim/` → Depower trim system, including the V-splitter.
-- `/hardware/tools/` → Jigs and tools for assembly.
+- `/hardware/bar/` → Bar components, including the main tube, end pieces, and center inserts
+- `/hardware/swivel/` → Swivel component for untwisting lines
+- `/hardware/quick_release/` → The quick release safety system
+- `/hardware/trim/` → Depower trim system, including the V-splitter
+- `/hardware/tools/` → Jigs and tools for assembly
 
-Each component has its own folder, containing:
+Each component has its own folder containing:
 
-- Its own `README.md` file with details
+- Its own `README.md` file with detailed specifications
 - Subfolders indicating key design constraints (tube diameter, bearing type, rope diameter, etc.)
-- Variants reflecting different design ideas
+- Variants reflecting different design approaches
 
 ---
 
@@ -62,8 +62,8 @@ bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24_22_sls.
 ```
 
 - `bar` folder = part of the bar (vs QR etc.)
-- `carbon_tube_od24_id22mm` = must use carbon tube with these OD/ID
-- `leader_line_3mm` = must use 3mm leadr (steering) lines 
+- `carbon_tube_od24_id22mm` = must use carbon tube with these OD/ID dimensions
+- `leader_line_3mm` = must use 3mm leader (steering) lines 
 - `variant` = 7 
 - `version` = _git commit id_
 
@@ -73,17 +73,16 @@ bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24_22_sls.
 
 To explore any component:
 
-1. Navigate to: `hardware/3D_models/<component_name>/`
-1. Navigate to: `hardware/<component_name>/` and open the `README.md` file in that directory.
-3. Inside you will find:
-   - Part purpose
-   - Design constraints
+1. Navigate to `hardware/<component_name>/` and open the `README.md` file in that directory
+2. Inside you will find:
+   - Part purpose and function
+   - Design constraints and specifications
    - 3D printing instructions
-   - Relevant assembly notes
+   - Assembly notes and requirements
    - Images and previews
    - Available variants
 
-Links:
+**Component Links:**
 
 - [Bar](hardware/bar/README.md)
 - [Swivel](hardware/swivel/README.md)
@@ -98,8 +97,8 @@ Links:
 
 Unless explicitly specified otherwise in a part's `README.md`, the recommended default material for most 3D printed components is:
 
-- [PA12 Nylon (3201PA-F)](https://jlc3dp.com/help/article/3201PA-F-Nylon) — a proven material with excellent UV resistance, toughness, and durability. It has been field-tested over multiple seasons in both snow and water kiting environments, covering a wide range of conditions (from -20°C to +30°C, in both freshwater and seawater).  
-- Non-bar components, such as tools required for assembly, can be made from the cheapest material of your choice (unless otherwise stated in the corresponding README). We have found that CBY-resin offers very good accuracy and an excellent price point for items such as jig adapters, presser feet for sewing, and similar tools.  
+- [PA12 Nylon (3201PA-F)](https://jlc3dp.com/help/article/3201PA-F-Nylon)—a proven material with excellent UV resistance, toughness, and durability. It has been field-tested over multiple seasons in both snow and water kiting environments, covering a wide range of conditions (from -20°C to +30°C, in both freshwater and seawater).
+- Non-bar components, such as tools required for assembly, can be made from the most cost-effective material of your choice (unless otherwise stated in the corresponding README). We have found that CBY-resin offers excellent accuracy and an outstanding price point for items such as jig adapters, presser feet for sewing, and similar tools.
 
 
 ### Material Recommendations by Use Case
@@ -107,12 +106,12 @@ Unless explicitly specified otherwise in a part's `README.md`, the recommended d
 | Part / Component | Recommended Material | Manufacturing Technology | Notes |
 |------------------|----------------------|-------------------------|-------|
 | Most components (default) | [3201PA-F Nylon](https://jlc3dp.com/help/article/3201PA-F-Nylon) | 3D printing using SLS (Selective Laser Sintering) | Standard go-to material for durability and reliability |
-| White-colored parts (e.g., left bar-end, QR case) | [Precimid-1172 Pro Nylon](https://jlc3dp.com/help/article/Precimid-1172-Pro) | 3D printing using SLS | Slightly more expensive, but produces white parts without need for dyeing |
-| V-splitter and Cleat base | [PA12 HP Nylon](https://jlc3dp.com/help/article/PA12-HP-Nylon) | 3D printing using MJF (Multi Jet Fusion) | Offers better strength for small structural parts |
-| Swivel metal parts (housing and shaft) | [Titanium TC4](https://jlc3dp.com/help/article/titanium-tc4) or [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel)| 3D printing using SLM (Selective Laser Melting) | Titanium for minimal weight but more expensive otherwise print from 316L Stainless Steel |
+| White-colored parts (e.g., left bar-end, QR case) | [Precimid-1172 Pro Nylon](https://jlc3dp.com/help/article/Precimid-1172-Pro) | 3D printing using SLS | Slightly more expensive, but produces white parts without dyeing |
+| V-splitter and Cleat base | [PA12 HP Nylon](https://jlc3dp.com/help/article/PA12-HP-Nylon) | 3D printing using MJF (Multi Jet Fusion) | Offers superior strength for small structural parts |
+| Swivel metal parts (housing and shaft) | [Titanium TC4](https://jlc3dp.com/help/article/titanium-tc4) or [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel) | 3D printing using SLM (Selective Laser Melting) | Titanium for minimal weight but more expensive; otherwise print from 316L Stainless Steel |
 | Quick Release (QR) mechanism flat parts | Titanium sheet | Flat-cut (Laser, Waterjet) | From titanium sheet of exactly specified thickness |
-| Tools | Refer to [readme](./hardware//tools/README.md) | 3D printed using SLM and SLA | |
+| Tools | Refer to [readme](./hardware/tools/README.md) | 3D printed using SLM and SLA | Various materials depending on application |
 
-> Note: Most online 3D printing services offer part dyeing; however, this is optional as the selected materials provide functional durability without color treatment.
+> **Note:** Most online 3D printing services offer part dyeing; however, this is optional as the selected materials provide functional durability without color treatment.
 
-> Note 2: Expect printing services like [JLC3PD](https://jlc3dp.com/) to warn you about the printing accuracy of some STL files. It's is safe to ignore as it's doesn't impact performance nor the safety of the prints. Here is a typical email sent by [JLC3PD](./images/jlc3dp_warning.jpeg).
+> **Note 2:** Expect printing services like [JLC3DP](https://jlc3dp.com/) to warn you about the printing accuracy of some STL files. It is safe to ignore these warnings as they don't impact performance or the safety of the prints. Here is a [typical warning email](./images/jlc3dp_warning.jpeg) sent by JLC3DP.
