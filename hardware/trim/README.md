@@ -1,6 +1,6 @@
 # Trim Components
 
-The **Trim** system allows the rider to adjust the power of the kite on the fly by changing the relative length of the front flying lines. It consists of the **V-Splitter** (which connects the depower line to the front lines), the **Cleat Base** (which locks the trim adjuster line), and **Safety Line Stoppers**.
+The **Trim** system allows the rider to adjust the power of the kite on the fly by changing the relative length of the front flying lines. It consists of the **V-Splitter** (which connects the depower line to the front lines) and the **Cleat Base** (which locks the trim adjuster line).
 
 ---
 
@@ -37,22 +37,7 @@ Designed specifically for the standard **4mm sheeting rope** track (Variant 3):
 
 <img src="sheeting_rope_4mm/cleat/variant_3/cleat-base_stopper_4_mjf.png" width="220px">
 
----
 
-## 3. Safety Line Stoppers
-
-The **Safety Line Stopper** slides onto the safety flying line. When the quick release is triggered, the bar slides up the safety line and hits this stopper, which flags out the kite safely without allowing the bar to slide too far up the lines.
-
-### Sizing and Variant Breakdown
-Available for 1.4mm and 1.7mm front lines:
-
-* **For 1.4mm Front Lines**:
-  * **Files**: [STEP](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.step) \| [STL (Stopper)](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.stl) \| [STL (Knot Plug)](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_plug_14_mjf.stl)
-  * **Preview**: <img src="sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.png" width="80px">
-* **For 1.7mm Front Lines**:
-  * **Files**: [STEP](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_17_mjf.step) \| [STL (Stopper)](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_17_mjf.stl) \| [STL (Knot Plug)](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_plug_17_mjf.stl)
-
----
 
 ## Manufacturing & Materials
 
