@@ -1,4 +1,12 @@
 *Zone.Identifier
 *:com.dropbox.attrs
 /hardware/**/*.shapr
-   **/backup/
+**/backup/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+.terraform/
+functions-*.zip
+__pycache__/
+.venv/

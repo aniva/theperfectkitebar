@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-import os, base64, json
+import os
+import base64
+import json
+import time
 from google.cloud import storage
 from google.api_core.exceptions import PreconditionFailed, GoogleAPIError
 
 # Module‐level banner — you'll see this once on cold start.
 print("⚡️ disable_public_access.py v2 loaded ⚡️", flush=True)
 
-def disable_bucket_public_access(event, context):
-    # Function‐entry banner — you'll see this on every Pub/Sub trigger.
+def disable_bucket_public_access(cloud_event):
+    # Function‐entry banner — you'll see this on every trigger.
     print("🚧 [v2] disable_bucket_public_access invoked 🚧", flush=True)
 
     bucket_name = os.environ.get('BUCKET_NAME')
@@ -18,18 +21,19 @@ def disable_bucket_public_access(event, context):
         print("❌ Missing BUCKET_NAME or BUDGET_DISPLAY_NAME", flush=True)
         return ('Missing env var', 500)
 
-    print(f"📨 Raw event: {event}", flush=True)
-    data_b64 = event.get('data')
-    if not data_b64:
-        print("⚠️  No data in Pub/Sub message", flush=True)
-        return ('No data', 400)
-
     try:
+        # Gen 2 Pub/Sub trigger passes CloudEvent. Data contains the message.
+        message_data = cloud_event.data.get('message', {})
+        data_b64 = message_data.get('data')
+        if not data_b64:
+            print("⚠️  No data in Pub/Sub message", flush=True)
+            return ('No data', 400)
+
         decoded = base64.b64decode(data_b64).decode()
         payload = json.loads(decoded)
         print("🔓 Payload:", json.dumps(payload, indent=2), flush=True)
     except Exception as e:
-        print(f"❌ Payload parse error: {e}", flush=True)
+        print(f"❌ Event parse error: {e}", flush=True)
         return ('Bad payload', 400)
 
     incoming = payload.get('budgetDisplayName')
@@ -71,6 +75,7 @@ def disable_bucket_public_access(event, context):
             return ('Disabled', 200)
         except PreconditionFailed as e:
             print(f"⚠️  PreconditionFailed (attempt {i+1}): {e}", flush=True)
+            time.sleep(1)
         except GoogleAPIError as e:
             print(f"❌ API error: {e}", flush=True)
             return ('API error', 500)

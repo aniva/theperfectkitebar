@@ -94,7 +94,7 @@ resource "google_cloudfunctions2_function" "disable_access" {
   description = "Disables public access when budget exceeded"
 
   build_config {
-    runtime     = "python310"
+    runtime     = "python312"
     entry_point = "disable_bucket_public_access"
 
     source {
@@ -135,7 +135,7 @@ resource "google_cloudfunctions2_function" "enable_access" {
   description = "Re-enables public access monthly"
 
   build_config {
-    runtime     = "python310"
+    runtime     = "python312"
     entry_point = "enable_bucket_public_access"
 
     source {
@@ -162,11 +162,7 @@ resource "google_cloudfunctions2_function" "enable_access" {
     }
   }
 
-  # HTTP trigger for manual/scheduler calls
-  event_trigger {
-    event_type = "google.cloud.pubsub.topic.v1.messagePublished"
-    pubsub_topic = google_pubsub_topic.budget_alerts.id
-  }
+  https_trigger {}
 }
 
 # Allow public invocation of the HTTP-enable function
