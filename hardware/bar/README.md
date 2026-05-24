@@ -26,7 +26,7 @@ The **Bar** is the main body of ThePerfectKiteBar system, accommodating end piec
 
 ### Preview
 
-![center piece](carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m3x14_sls.png)
+<img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m3x14_sls.png" width="50%">
 
 ### Specifications
 
