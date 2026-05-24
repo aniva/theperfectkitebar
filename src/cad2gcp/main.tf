@@ -37,6 +37,11 @@ resource "google_project_service" "artifactregistry_api" {
   disable_on_destroy = false
 }
 
+resource "google_project_service" "scheduler_api" {
+  service            = "cloudscheduler.googleapis.com"
+  disable_on_destroy = false
+}
+
 # === CAD Asset Bucket (public) ===
 resource "google_storage_bucket" "cad_assets" {
   name                        = "theperfectkitebar-cad-assets"
@@ -196,17 +201,25 @@ resource "google_cloudfunctions2_function" "enable_access" {
   }
 }
 
-# Allow public invocation of the HTTP-enable function (underlying Cloud Run service)
+# Create dedicated service account for Cloud Scheduler authentication
+resource "google_service_account" "scheduler_sa" {
+  account_id   = "cad-scheduler-sa"
+  display_name = "CAD Scheduler Service Account"
+  project      = var.project_id
+}
+
+# Grant the service account invoker permissions on the underlying Cloud Run service
 resource "google_cloud_run_v2_service_iam_member" "enable_invoker" {
   project  = var.project_id
   location = var.region
   name     = google_cloudfunctions2_function.enable_access.service_config[0].service
   role     = "roles/run.invoker"
-  member   = "allUsers"
+  member   = "serviceAccount:${google_service_account.scheduler_sa.email}"
 }
 
 # === Monthly re-enable job ===
 resource "google_cloud_scheduler_job" "monthly_reenable" {
+  depends_on       = [google_project_service.scheduler_api]
   name             = "reenable-public-access"
   description      = "Re-enable GCS public access each month"
   schedule         = "0 0 1 * *"
@@ -217,7 +230,7 @@ resource "google_cloud_scheduler_job" "monthly_reenable" {
     http_method = "POST"
     uri         = google_cloudfunctions2_function.enable_access.service_config[0].uri
     oidc_token {
-      service_account_email = google_cloudfunctions2_function.enable_access.service_config[0].service_account_email
+      service_account_email = google_service_account.scheduler_sa.email
     }
   }
 
