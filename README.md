@@ -89,6 +89,7 @@ To explore any component:
 - [Quick Release](hardware/quick_release/README.md)
 - [Trim](hardware/trim/README.md)
 - [Tools](hardware/tools/README.md)
+- [Rope Splicing & Cutting Dimensions](docs/rope_dimensions.md)
 
 
 ---

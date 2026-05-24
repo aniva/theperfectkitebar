@@ -1,5 +1,7 @@
 # How to assemble ThePerfectKiteBar
 
+For line cutting targets and rope splicing lengths, refer to the [Rope Splicing & Cutting Dimensions](rope_dimensions.md) guide.
+
 ## Tools Required
 
 You will need the following tools to assemble the bar:
