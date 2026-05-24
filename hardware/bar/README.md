@@ -1,70 +1,58 @@
-# Bar
+# Bar Component
 
-The **Bar** is the main body of ThePerfectKiteBar system, accommodating end pieces, center inserts, and trim components.
+The **Bar** is the core structural element of ThePerfectKiteBar system. It consists of a carbon fiber tube, two protective **Bar Ends** (which secure the steering/leader lines), and a **Central Piece** (which routes the sheeting and safety lines).
 
----
-
-## Bar End
-
-### Preview
-
-![bar end](carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24-22_sls.png)
-
-### Specifications
-
-- **Configuration:** Carbon tube OD 24mm / ID 22mm, Leader lines 3mm, Variant 7
-- **Files:** [`here`](carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7)
-- **Technology:** **SLS 3D Printing**
-- **Material:** **PA12 Nylon**
-- **Fits Carbon Tube:** OD = 24mm, ID = 22mm
-- **Length Inside Tube:** 100mm
-- **Length to Rope:** 25mm
+To accommodate different weight and durability requirements, we support two separate sizing tracks based on the carbon tube dimensions:
+1. **OD 22mm / ID 20mm Track**: Optimized for lighter weight, smaller hands, and compact/joystick bars.
+2. **OD 24mm / ID 22mm Track**: The standard, highly robust profile suitable for all-round conditions.
 
 ---
 
-## Center Piece
+## 1. Bar Ends
 
-### Preview
+The Bar Ends insert 100mm inside the carbon tube to reinforce it against bending stress, channel the steering lines, and provide a secure winding surface.
 
-<img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m3x14_sls.png" width="50%">
-
-### Specifications
-
-- **Configuration:** Carbon tube OD 24mm / ID 22mm, Variant 7
-- **Files:** [`here`](carbon_tube_od24_id22mm/bar_center_piece/variant_7)
-- **Technology:** **SLS 3D Printing**
-- **Material:** **PA12 Nylon**
-- **Fits Carbon Tube:** OD = 24mm, ID = 22mm
-
-#### Central Piece for 22mm Tube
-
-Central piece for a **22mm** carbon tube — Variant 7.
-
-Variant 7 is the result of many design iterations focused on:
-
-- Robustness
-- Aesthetics
-- Minimal offset from the bar center
-- Reliable securing of heat-shrink tubing
+| Carbon Tube Size | Leader Line | Variant 5 (Standard Sweep) | Variant 7 (Contoured / Reinforced) | Subfolder |
+|------------------|-------------|----------------------------|----------------------------|-----------|
+| **OD 22mm / ID 20mm** | 2.5mm max | <img src="carbon_tube_od22_id20mm/bar_end/leader_line_2.5mm/variant_5/bar-end_22-20_sls.png" width="80px"> | <img src="carbon_tube_od22_id20mm/bar_end/leader_line_2.5mm/variant_7/bar-end_22-20_sls.png" width="80px"> | [`22mm Bar Ends`](carbon_tube_od22_id20mm/bar_end) |
+| **OD 24mm / ID 22mm** | 3.0mm max | <img src="carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_5/bar-end_24-22_sls.png" width="80px"> | <img src="carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24-22_sls.png" width="80px"> | [`24mm Bar Ends`](carbon_tube_od24_id22mm/bar_end) |
 
 ---
 
-##### Notes on Versions
+## 2. Center Pieces
 
-The central piece comes in two versions based on bolt size:
+The Central Piece snaps over the middle of the carbon tube. It contains the low-friction entry/exit guide for the polyurethane-covered sheeting lines and safety lines.
 
-| Version    | Description                                                     | Use Case                                                      |
-|------------|-----------------------------------------------------------------|---------------------------------------------------------------|
-| 2.5mm Bolt | Most compact design, optimized for lightweight and minimal size | Recommended for short, joystick-style bars on 22mm tubes      |
-| 3mm Bolt   | Slightly bulkier, more robust version                           | Use if maximum durability is preferred over compactness       |
+All center pieces use the optimized **Variant 7** geometry, but come in two versions based on the securing bolt diameter:
 
-Choose the version based on your design priorities — **compact** vs. **robust**.
+* **2.5mm Bolt version**: Offers a smaller center-recess footprint and maximum weight saving.
+* **3mm Bolt version**: Provides a larger, heavier-duty connection for maximum strength.
 
-##### Assembly Instructions
+| Carbon Tube Size | 2.5mm Bolt Version (Compact) | 3mm Bolt Version (Robust) | Subfolder |
+|------------------|-----------------------------|---------------------------|-----------|
+| **OD 22mm / ID 20mm** | <img src="carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m2.5x12_sls.png" width="80px"> | <img src="carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m3x12_sls.png" width="80px"> | [`22mm Center Piece`](carbon_tube_od22_id20mm/bar_center_piece) |
+| **OD 24mm / ID 22mm** | <img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m2.5x14_sls.png" width="80px"> | <img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m3x14_sls.png" width="80px"> | [`24mm Center Piece`](carbon_tube_od24_id22mm/bar_center_piece) |
 
-Refer to the `README.md` for the 24mm central piece version for general assembly guidelines. Most steps are identical, with minor adjustments for tube diameter and bolt size.
+---
 
-##### Native Shapr3D Design Files
+## Materials & Sourcing
+
+1. **Carbon Tube**:
+   - Buy a pull-wound or roll-wrapped carbon fiber tube (3K gloss or matte) with your choice of track dimensions:
+     - 22mm outer diameter / 20mm inner diameter (wall thickness 1mm)
+     - 24mm outer diameter / 22mm inner diameter (wall thickness 1mm)
+   - Cut to your preferred bar length (usually between 45cm and 55cm).
+2. **3D Printing**:
+   - **Technology**: Selective Laser Sintering (**SLS**) is highly recommended.
+   - **Material**: **PA12 Nylon** (unpolished or polished). Avoid SLA or standard FDM PLA/PETG as they lack the impact resistance and flexibility needed for high-load kite control systems.
+3. **Hardware**:
+   - For 22mm Central Piece: M2.5 or M3 socket head bolt (length 12mm)
+   - For 24mm Central Piece: M2.5 or M3 socket head bolt (length 14mm)
+   - Glue for Bar Ends: Marine grade epoxy (e.g., West System) or flexible polyurethane adhesive (e.g., 3M 5200).
+
+---
+
+## Native Shapr3D Design Files
 
 The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—so you can open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
 
