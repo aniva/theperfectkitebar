@@ -161,8 +161,6 @@ resource "google_cloudfunctions2_function" "enable_access" {
       BUCKET_NAME = google_storage_bucket.cad_assets.name
     }
   }
-
-  https_trigger {}
 }
 
 # Allow public invocation of the HTTP-enable function
@@ -184,9 +182,9 @@ resource "google_cloud_scheduler_job" "monthly_reenable" {
 
   http_target {
     http_method = "POST"
-    uri         = google_cloudfunctions2_function.enable_access.uri
+    uri         = google_cloudfunctions2_function.enable_access.service_config[0].uri
     oidc_token {
-      service_account_email = google_cloudfunctions2_function.enable_access.service_account_email
+      service_account_email = google_cloudfunctions2_function.enable_access.service_config[0].service_account_email
     }
   }
 
