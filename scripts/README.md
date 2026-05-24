@@ -1,41 +1,45 @@
-# Development Setup
+# Developer Automation & Git Hooks
 
-## Installing Git Hooks
+This directory contains utility scripts and Git hooks that automate local CAD file management, keep documentation in sync with cloud storage, and clean up workspace metadata.
 
-This project uses git hooks to automate certain tasks. To install the hooks, follow these steps:
+## The Big Picture: Why are hooks needed?
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/theperfectkitebar.git
-   cd theperfectkitebar
-   ```
+Since Git is not designed to track large binary CAD files (like high-res `.stl` models or parametric `.shapr` source files), we host these files on a Google Cloud Storage (GCS) bucket (`theperfectkitebar-cad-assets`).
 
-2. Run the hook installation script:
-   ```
-   ./scripts/hooks/install_hooks.sh
-   ```
+To make collaboration smooth, we use Git hooks to:
+1. **Sync Assets**: Fetch latest CAD files from GCS to your local `hardware/` directory.
+2. **Synchronize Docs**: Keep download links, file hashes (MD5), and modification dates in README files automatically in sync with the files stored on GCS.
+3. **Clean Metadata**: Strip hidden OS and cloud sync files (e.g. Windows `:Zone.Identifier` or Dropbox attributes) from the repository before commits.
 
-This will set up the following hooks:
-- `pre-commit`: Cleans up filesystem metadata files and updates `.shapr` download tables in READMEs.
-- `pre-push`: Syncs local CAD assets (`.shapr` files) to Google Cloud Storage.
-- `post-merge`: Syncs CAD assets from Google Cloud Storage after a pull or merge.
+---
 
-Make sure you have the necessary dependencies installed (e.g., Python 3) for the hooks to function properly.
+## Installation
 
-## Available Scripts
+To set up the automated hooks on your local machine, run:
 
-This project contains several scripts to automate development tasks. The primary scripts are located in the `scripts/hooks/` directory.
+```bash
+./scripts/hooks/install_hooks.sh
+```
 
-### Hook Scripts
-- **`install_hooks.sh`**: Sets up symbolic links in your `.git/hooks` directory to enable the automated hooks below. This is the only script you need to run manually.
-- **`pre-commit.sh`**: (Runs automatically before each commit)
-  - Cleans up temporary metadata files (`:Zone.Identifier`, `:com.dropbox.attrs`).
-  - Runs `update_shapr_tables.py` to keep README download tables current.
-  - Automatically stages the updated README files.
-- **`pre-push.sh`**: (Runs automatically before you push) Uploads local CAD files (e.g., `.shapr`) from the `hardware/` directory to the Google Cloud Storage bucket using `gsutil rsync`.
-- **`post-merge.sh`**: (Runs automatically after a pull or merge) Downloads the latest CAD files from GCS to your local `hardware/` directory, ensuring your workspace is up to date.
+This script creates symbolic links in your local `.git/hooks/` directory to point to the active scripts in `scripts/hooks/`.
 
-### Utility Scripts
-- **`update_shapr_tables.py`**: A Python script that scans for `.shapr` files, fetches their metadata from GCS, and updates the download tables within any `README.md` file that contains the special markers.
-- **`sync_from_gcs.py`**: A Python script that intelligently downloads files from GCS, using MD5 hashes to avoid re-downloading up-to-date files. This is called by the `post-merge` hook.
-- **`util/check_step_headers.sh`**: A shell script to validate that `.step` files have the correct `ISO-10303-21` header, ensuring they are not corrupted.
+---
+
+## Script Reference
+
+### Hooks
+* **`install_hooks.sh`**: Installs symlinks from `.git/hooks/` to the project's scripts.
+* **`pre-commit.sh`** (runs automatically before each commit):
+  * Cleans up OS/Dropbox metadata files (`:Zone.Identifier`, `:com.dropbox.attrs`) to prevent Git pollution.
+  * Runs `update_shapr_tables.py` to auto-generate markdown download tables in component READMEs.
+  * Automatically stages any modified READMEs.
+
+### Python Utilities
+* **`update_shapr_tables.py`**:
+  * Scans local directories for `.shapr` source files.
+  * Fetches file metadata (MD5 hashes, last-modified dates) from the GCS JSON API.
+  * Dynamically updates markdown tables inside READMEs between `<!-- BEGIN_SHAPR_TABLE -->` and `<!-- END_SHAPR_TABLE -->` tags.
+* **`sync_from_gcs.py`**:
+  * Syncs public GCS assets locally into your `hardware/` directory.
+  * Compares local MD5 hashes with GCS metadata to perform smart, delta-only updates.
+  * Backs up overwritten files into timestamped local `backup/` folders so you never lose local edits.
