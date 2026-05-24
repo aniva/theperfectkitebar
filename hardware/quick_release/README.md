@@ -79,7 +79,7 @@ From any laser/waterjet cutting service (e.g., SendCutSend)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-shackle_m6_0.125.png" width="200">|
+| [`qr-shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-shackle_m6_0.125.png" width="200">|
 | [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.125.png" width="200">|
 | [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.187.png" width="200">|
 
@@ -88,7 +88,7 @@ From a print shop with SLS 3D printing technology (e.g., jlc3dp.com)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr-case_m6_sls.stl`](./hardware/quick_release/6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.png" width="200">| 
+| [`qr-case_m6_sls.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-case_m6_sls.png" width="200">| 
 | [`slider-rope-wheel_8.7x12.5.stl`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.stl) | Material 3201PA-F Nylon or 1172Pro Nylon | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/slider-rope-wheel_8.7x12.5.png" width="200">|
 
 Additional parts procured from hardware suppliers, e.g. aliexpress.com, amazon.com, or [macmastercarr](https://www.mcmaster.com/)
@@ -148,7 +148,7 @@ From any laser/waterjet cutting service (e.g., SendCutSend)
 
 | File Name | Parameters | Quantity | Image |
 |---|---|---|---|
-| [`qr_shackle_m6-clpin_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr_shackle_m6-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6_0.125.png" width="200">|
+| [`qr-shackle_m6-clpin_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_6/qr-shackle_m6-clpin_m6_0.125.png" width="200">|
 | [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.125" | 2 pieces |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.125.png" width="200">|
 | [`qr-claw_m8_for_shackle_m6.dxf`](./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6.dxf) | Material: Grade 5 Titanium, Thickness: 0.187" | 1 piece |<img src="./6mm_bolt/titanium_gr5_0.125_0.187in/variant_5/qr-claw_m8_for_shackle_m6_0.187.png" width="200">|
 
