@@ -1,55 +1,67 @@
-# Trim
+# Trim Components
 
-consist of V-splitter and cleat base
-
-## V-Splitter
-
-The **V-Splitter** is an essential part of the trim system. It connects the **main depower (trim) line** to the two **front flying lines**, creating a so called low V-split.
-
-This V-splitter design features a **top horizontal part** where the front lines attach. When the top of the V-splitter sits **perfectly horizontal** (assuming kite is at 12 o'clock), it visually confirms that the **back (power) lines have been trimmed to equal length**, ensuring precise and symmetrical trim. This makes trim or not trim decision easy if you see that v-splitter is side-ways - probably is good idea to trim.
-
-This project supports **only 4mm sheeting rope** throughout — ensuring compatibility, low weight, and modularity across all bar components. See note below about splitter for 8mm sheeting rope.
+The **Trim** system allows the rider to adjust the power of the kite on the fly by changing the relative length of the front flying lines. It consists of the **V-Splitter** (which connects the depower line to the front lines), the **Cleat Base** (which locks the trim adjuster line), and **Safety Line Stoppers**.
 
 ---
 
-### Supported Design (TPKB Standard)
+## 1. V-Splitters
 
-The following V-Splitter variants are recommended for use with ThePerfectKiteBar system:
+The V-Splitter connects the single **sheeting (depower) line** to the two **front flying lines** (low V-split configuration). 
 
-| Sheeting Rope | Front Line | Variant | Technology | Material | Files | Preview |
-|---------------|------------|---------|------------|----------|-------|---------|
-| 4mm           | 1.4mm      | 3       | MJF        | PA12     | [`Files`](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3) | ![v-splitter](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3/v-splitter_4x14_mjf.png) |
-| 4mm           | 1.7mm      | 3       | MJF        | PA12     | [`Files`](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3) | ![v-splitter](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.png) |
-| 6mm           | 2mm        | 1       | MJF        | PA12     | [`Files`](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1) | ![v-splitter](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.png) |
----
+### Trim Symmetrical Guide
+The top bar of the V-Splitter is designed to sit **perfectly horizontal** when the kite is at 12 o'clock. If the V-Splitter is tilted sideways, it visually signals to the rider that the lines are out of trim, indicating it's time to adjust.
 
-### Optional / Legacy Compatibility
+### Sizing and Variant Breakdown
+Different variants are optimized for specific sheeting rope and front flying line diameters:
 
-The following variant is **not part of this system** but provided as an often hard to get replacement part for off-the-shelf bars that use thicker rope and front lines.
-
-| Sheeting Rope | Front Line | Variant | Technology | Material | Files |
-|---------------|------------|---------|------------|----------|-------|
-| 8mm           | 2mm        | 3       | MJF        | PA12     | [`Files`](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3) |
-
-> ⚠️ Use only if you are adapting the V-splitter for a different bar system.  
-> This is not compatible with the TPKB bar or trim system at the moment.
+| Sheeting Rope | Front Line | Variant | Description | CAD/3D Files | Preview Image |
+|---------------|------------|---------|-------------|--------------|---------------|
+| **4mm** | 1.4mm | **Variant 3** | **TPKB Standard.** Features smooth-radius safety line routing and reinforced structure. | [STEP](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3/v-splitter_4x14_mjf.step) \| [STL](sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3/v-splitter_4x14_mjf.stl) | <img src="sheeting_rope_4mm/front_line_1.4mm/v-splitter/variant_3/v-splitter_4x14_mjf.png" width="80px"> |
+| **4mm** | 1.7mm | **Variant 3** | **TPKB Heavy Duty.** Similar to the 1.4mm variant but optimized for thicker 1.7mm front lines. | [STEP](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.step) \| [STL](sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.stl) | <img src="sheeting_rope_4mm/front_line_1.7mm/v-splitter/variant_3/v-splitter_4x17_mjf.png" width="80px"> |
+| **6mm** | 2.0mm | **Variant 1** | Standard geometry designed for heavier 6mm depower lines and 2.0mm front lines. | [STEP](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.step) \| [STL](sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.stl) | <img src="sheeting_rope_6mm/front_line_2mm/v-splitter/variant_1/v-splitter_6x20_mjf.png" width="80px"> |
+| **8mm (Legacy)** | 2.0mm | **Variant 3** | Legacy compatibility part for thick 8mm depower lines on standard off-the-shelf bars. *Not used in standard TPKB.* | [STEP](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3/v-splitter_8x2_mjf.step) \| [STL](sheeting_rope_8mm/front_line_2mm/v-splitter/variant_3/v-splitter_8x2_mjf.stl) | *(None)* |
 
 ---
 
-### Material & Printing Guidelines
+## 2. Cleat Base & Stopper
 
-- **Technology:** Multi Jet Fusion (MJF) strongly recommended as this is a critical part
-- **Material:** PA12 HP Nylon (UV-resistant and tested in harsh conditions)
-- **Coloring:** Optional, default grey or black; dyeing not required
+The **Cleat Base** mounts on the sheeting line directly below the V-Splitter. It houses the mechanical clam cleat to lock the trim adjustment rope securely in place under load. The matching **Trim Stopper** acts as a physical block to prevent the control bar from sliding too high.
+
+### Sizing and Variant Breakdown
+Designed specifically for the standard **4mm sheeting rope** track (Variant 3):
+
+* **Cleat Base**: The main structural body housing the cleat.
+  * **Files**: [STEP (Parametric)](sheeting_rope_4mm/cleat/variant_3/cleat-base_stopper_4_mjf.step) \| [STL (Print-Ready)](sheeting_rope_4mm/cleat/variant_3/cleat-base_4_mjf.stl)
+* **Trim Stopper**: Installed on the sheeting line as a limit stop.
+  * **Files**: [STL (Print-Ready)](sheeting_rope_4mm/cleat/variant_3/trim_stopper_4_mjf.stl)
+
+<img src="sheeting_rope_4mm/cleat/variant_3/cleat-base_stopper_4_mjf.png" width="220px">
 
 ---
 
-### Assembly Notes
+## 3. Safety Line Stoppers
 
-- Mounts inline between front lines and depower line
-- Position correctly so that safety line (through hole) is aligned with the cleat base
+The **Safety Line Stopper** slides onto the safety flying line. When the quick release is triggered, the bar slides up the safety line and hits this stopper, which flags out the kite safely without allowing the bar to slide too far up the lines.
 
-### Native Shapr3D Design Files
+### Sizing and Variant Breakdown
+Available for 1.4mm and 1.7mm front lines:
+
+* **For 1.4mm Front Lines**:
+  * **Files**: [STEP](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.step) \| [STL (Stopper)](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.stl) \| [STL (Knot Plug)](sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_plug_14_mjf.stl)
+  * **Preview**: <img src="sheeting_rope_4mm/front_line_1.4mm/safety_stopper/variant_3/line_stopper_14_mjf.png" width="80px">
+* **For 1.7mm Front Lines**:
+  * **Files**: [STEP](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_17_mjf.step) \| [STL (Stopper)](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_17_mjf.stl) \| [STL (Knot Plug)](sheeting_rope_4mm/front_line_1.7mm/safety_stopper/variant_3/line_stopper_plug_17_mjf.stl)
+
+---
+
+## Manufacturing & Materials
+
+* **Technology**: **Multi Jet Fusion (MJF)** is highly recommended. These are structural, high-stress parts that require isotropic strength and high dimensional accuracy.
+* **Material**: **PA12 HP Nylon** (black or dark grey, unpolished or polished). Excellent UV and saltwater resistance.
+
+---
+
+## Native Shapr3D Design Files
 
 The following `.shapr` files are the editable source models created in Shapr3D. Each file includes full parametric definitions—sketches, constraints, and feature history—so you can open and modify them directly in Shapr3D (iOS/iPadOS/macOS).
 
