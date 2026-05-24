@@ -16,6 +16,27 @@ provider "google" {
   region  = var.region
 }
 
+# === Enable Required APIs ===
+resource "google_project_service" "run_api" {
+  service            = "run.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "eventarc_api" {
+  service            = "eventarc.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "cloudfunctions_api" {
+  service            = "cloudfunctions.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "artifactregistry_api" {
+  service            = "artifactregistry.googleapis.com"
+  disable_on_destroy = false
+}
+
 # === CAD Asset Bucket (public) ===
 resource "google_storage_bucket" "cad_assets" {
   name                        = "theperfectkitebar-cad-assets"
@@ -89,6 +110,12 @@ resource "google_storage_bucket_object" "shapr_placeholder" {
 
 # === disablePublicAccess (Gen 2, Pub/Sub) ===
 resource "google_cloudfunctions2_function" "disable_access" {
+  depends_on = [
+    google_project_service.run_api,
+    google_project_service.eventarc_api,
+    google_project_service.cloudfunctions_api,
+    google_project_service.artifactregistry_api
+  ]
   name        = "disablePublicAccess"
   location    = var.region
   description = "Disables public access when budget exceeded"
@@ -130,6 +157,12 @@ resource "google_cloudfunctions2_function" "disable_access" {
 
 # === enablePublicAccess (Gen 2, HTTP) ===
 resource "google_cloudfunctions2_function" "enable_access" {
+  depends_on = [
+    google_project_service.run_api,
+    google_project_service.eventarc_api,
+    google_project_service.cloudfunctions_api,
+    google_project_service.artifactregistry_api
+  ]
   name        = "enablePublicAccess"
   location    = var.region
   description = "Re-enables public access monthly"
@@ -163,13 +196,13 @@ resource "google_cloudfunctions2_function" "enable_access" {
   }
 }
 
-# Allow public invocation of the HTTP-enable function
-resource "google_cloudfunctions2_function_iam_member" "enable_invoker" {
-  project        = var.project_id
-  location       = var.region
-  cloud_function = google_cloudfunctions2_function.enable_access.name
-  role           = "roles/run.invoker"
-  member         = "allUsers"
+# Allow public invocation of the HTTP-enable function (underlying Cloud Run service)
+resource "google_cloud_run_v2_service_iam_member" "enable_invoker" {
+  project  = var.project_id
+  location = var.region
+  name     = google_cloudfunctions2_function.enable_access.service_config[0].service
+  role     = "roles/run.invoker"
+  member   = "allUsers"
 }
 
 # === Monthly re-enable job ===
