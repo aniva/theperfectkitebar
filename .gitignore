@@ -10,3 +10,4 @@
 functions-*.zip
 __pycache__/
 .venv/
+/local_assets/
