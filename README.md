@@ -90,8 +90,8 @@ To explore any component:
 - [Trim](hardware/trim/README.md)
 - [Tools](hardware/tools/README.md)
 - [Rope Splicing & Cutting Dimensions Guide](docs/rope_dimensions.md)
-- [Interactive Splicing & Sizing Calculator](docs/rope_calculator.html)
-- [Bungee & Accessory Sizing Guide](docs/bungee_calculator.html)
+- [Interactive Splicing & Sizing Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html)
+- [Bungee & Accessory Sizing Guide](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html)
 
 
 ---

@@ -1,6 +1,6 @@
 # Rope Splicing & Cutting Dimensions Companion Guide
 
-This document serves as the companion guide to the unified [Interactive Splicing & Sizing Calculator](rope_calculator.html). It explains the routing physics, splicing guidelines, and mathematical models for building a premium, custom kiteboarding control bar.
+This document serves as the companion guide to the unified [Interactive Rope Splicing & Sizing Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html). It explains the routing physics, splicing guidelines, and mathematical models for building a premium, custom kiteboarding control bar.
 
 The system parameters are classified into three main groups to match the labeling on the interactive routing schematic:
 - **Group A (Sheeting Rope & Throw)**: Main sheeting line specs, throw length, loop ends, and tail lengths.
@@ -62,7 +62,7 @@ These parameters are adjustable via left-right sliders in the main calculator:
 
 ## 2. Splicing Formulas Reference
 
-These formulas are implemented dynamically in the [Interactive Calculator](rope_calculator.html):
+These formulas are implemented dynamically in the [Interactive Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html):
 
 ### Sheeting Line Sizing
 * **Required Rope Length**:
@@ -98,7 +98,7 @@ These formulas are implemented dynamically in the [Interactive Calculator](rope_
 
 ## 3. Recommended Build Procedure
 
-1. **Calculate & Cut**: Enter your desired throw and depower move in the [Interactive Calculator](rope_calculator.html) to obtain your custom target lengths.
+1. **Calculate & Cut**: Enter your desired throw and depower move in the [Interactive Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html) to obtain your custom target lengths.
 2. **Sheeting Line Splice**:
    * Splice the 4 cm loop at one end of the 4.0mm sheeting line.
    * Lock-stitch the bury.
