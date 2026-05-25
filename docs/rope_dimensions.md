@@ -65,33 +65,33 @@ These parameters are adjustable via left-right sliders in the main calculator:
 These formulas are implemented dynamically in the [Interactive Calculator](rope_calculator.html):
 
 ### Sheeting Line Sizing
-* **Raw Calculated Length**:
-  $$\text{Raw Length} = (\text{Throw (A1)} \times 2) + \frac{\text{Depower Move (B7)}}{\text{Depower Ratio (B8)}} + \text{Line Tail (A4)} + \text{Splice Loop (A3, 4cm)} + \text{Block Height (B6)}$$
-* **Measured Finished Length**:
-  $$\text{Finished Length} = \text{Raw Length} - \text{Line Tail (A4)} - \text{Block Height (B6)} - \text{Cleat Length (B2)}$$
+* **Required Rope Length**:
+  $$\text{Required Length} = (\text{Throw} \times 2) + \frac{\text{Depower Move}}{\text{Depower Ratio}} + \text{Line Tail} + \text{Splice Loop} + \text{Block Height} - 10\text{ cm}$$
+  * *Example (65cm Throw, 25cm Move)*: $(65 \times 2) + (25 / 0.5) + 9 + 4 + 2.5 - 10 = 185.5\text{ cm}$
 
-### Leader & Safety Sizing
-* **Leader Line Raw Cut**: $(\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Leader Adjustment (C2)}) \times (1 + \text{Splicing Shrinkage}) + \text{Leader Adjustment (C2)}$
-* **Leader Line Finished**: $\text{Raw Cut} - \text{Bottom Loop (3.5 cm)} - \text{Top Loop (2.5 cm)} = \text{Raw Cut} - 6\text{ cm}$
-* **Safety Line Raw Cut**: $\text{Sheeting Raw} - \text{Depower Move (B7)}$
-* **Safety Line Finished**: $\text{Sheeting Finished} - \text{Depower Move (B7)}$
+### Steering Leader & Safety Line Sizing
+* **Leader Line Required Rope Length**:
+  $$\text{Leader Required} = (\text{Throw} + \text{Depower Move} + \text{Leader Adjustment}) \times (1 + \text{Splicing Shrinkage}) + \text{Leader Adjustment}$$
+  * *Example (65cm Throw, 25cm Move, 30cm Leader Adjustment, 20% Splicing Shrinkage)*: $(65 + 25 + 30) \times (1 + 0.20) + 30 = 174.0\text{ cm}$
+* **Safety Line Required Rope Length**:
+  $$\text{Safety Required} = \text{Sheeting Required} - \text{Depower Move}$$
+  * *Example (185.5cm Sheeting, 25cm Move)*: $185.5 - 25 = 160.5\text{ cm}$
 
 ### Steering & Power Pigtails
-The rope diameter and splicing bury dynamically adapt based on the selected Bar Outer Diameter (B1):
-* **Splicing Bury**: $\text{Rope Diameter} \times \text{Bury Ratio}$
-* **Steering Pigtail (Loop-to-Loop)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Loop Knot Length (4 cm)} + \text{Pigtail Loop Length (3.5 cm)}$
-  * *Default (22mm OD, 2.5mm rope)*: $40 + 2 \times 12.5 \times 1.2 + 4 + 3.5 = 77.5\text{ cm}$
-  * *Default (24mm OD, 3.0mm rope)*: $40 + 2 \times 15.0 \times 1.2 + 4 + 3.5 = 83.5\text{ cm}$
-* **Power Pigtail (Loop-to-Knot)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Power Adjustment} + \text{Pigtail Loop Length (3.5 cm)}$
-  * *Default (22mm OD, 2.5mm rope)*: $40 + 2 \times 12.5 \times 1.2 + 20 + 3.5 = 93.5\text{ cm}$
-  * *Default (24mm OD, 3.0mm rope)*: $40 + 2 \times 15.0 \times 1.2 + 20 + 3.5 = 99.5\text{ cm}$
+* **Splicing Bury**: $\text{Bury} = \text{Rope Diameter} \times \text{Bury Ratio}$
+  * *Example (0.30 cm Rope Diameter for 24mm Bar OD, 50x Bury Ratio)*: $0.30 \times 50 = 15.0\text{ cm}$
+  * *Example (0.25 cm Rope Diameter for 22mm Bar OD, 50x Bury Ratio)*: $0.25 \times 50 = 12.5\text{ cm}$
+* **Steering Pigtail (Loop-to-Loop)**:
+  $$\text{Steering Pigtail} = \text{Finished Length} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Loop Knot Length} + \text{Pigtail Loop Length}$$
+  * *Example (40cm Finished Length, 15cm Bury, 20% Splicing Shrinkage, 4cm Knot, 3.5cm Loop)*: $40 + 2 \times 15 \times 1.20 + 4 + 3.5 = 83.5\text{ cm}$
+* **Power Pigtail (Adjustable Loop-to-Knot)**:
+  $$\text{Power Pigtail (Adjustable)} = \text{Finished Length} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Power Adjustment} + \text{Pigtail Loop Length}$$
+  * *Example (40cm Finished Length, 15cm Bury, 20% Splicing Shrinkage, 20cm Power Adjustment, 3.5cm Loop)*: $40 + 2 \times 15 \times 1.20 + 20 + 3.5 = 99.5\text{ cm}$
 
 ### Accessories & Chafe Sleeve
-* **Chafe Sleeve Raw Length**: $\text{Throw (A1)} \times 1.28 + 5$
-* **Chafe Sleeve Cut Target**: $\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Splice Loop Length (A3)}$
 * **Bungee for 65mm Bar End**: $30.0\text{ cm}$ ($25\text{cm base} + 5\text{cm tail}$)
 * **Bungee for 100mm Bar End**: $24.0\text{ cm}$ ($19\text{cm base} + 5\text{cm tail}$)
-* **PU Center Tube Length**: $100\text{ mm}$ (runs inside Bar center)
+* **PU length for bar end (half for each end)**: $100\text{ mm}$ (default)
 * **Safety Bungee for QR**: $35.0\text{ cm}$ (2.5mm elastic core)
 
 ---

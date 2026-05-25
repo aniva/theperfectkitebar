@@ -783,47 +783,30 @@
             <div class="calc-card" id="card-sheeting">
                 <div class="card-header">
                     <h3>Sheeting Line & Chafe Sleeve <span class="section-badge">Group A, B</span></h3>
-                    <p>Calculates the physical line length and the target finished/measured length of the 4.0mm sheeting line and protective sleeve.</p>
+                    <p>Calculates required rope length for the 4.0mm sheeting line and protective sleeve.</p>
                 </div>
                 <div class="results-container">
                     <div class="result-tile" id="tile-sheeting-raw">
-                        <span class="result-label">Sheeting Line Raw Calculated</span>
+                        <span class="result-label">Sheeting Line Required Rope Length</span>
                         <div class="result-value-row">
-                            <span class="result-value" id="sheetingRawVal">195.5</span>
+                            <span class="result-value" id="sheetingRawVal">185.5</span>
                             <span class="result-unit">cm</span>
                         </div>
-                        <span class="result-value-alt" id="sheetingRawValFt">6.41 ft</span>
-                    </div>
-                    <div class="result-tile" id="tile-sheeting-fin">
-                        <span class="result-label">Sheeting Line Measured Finished</span>
-                        <div class="result-value-row">
-                            <span class="result-value" id="sheetingFinishedVal">178.0</span>
-                            <span class="result-unit">cm</span>
-                        </div>
-                        <span class="result-value-alt" id="sheetingFinishedValFt">5.84 ft</span>
-                    </div>
-                    <div class="result-tile" id="tile-chafe-raw">
-                        <span class="result-label">Chafe Sleeve Raw Length</span>
-                        <div class="result-value-row">
-                            <span class="result-value" id="chafeRawVal">88.2</span>
-                            <span class="result-unit">cm</span>
-                        </div>
-                        <span class="result-value-alt" id="chafeRawValFt">2.89 ft</span>
+                        <span class="result-value-alt" id="sheetingRawValFt">6.09 ft</span>
                     </div>
                     <div class="result-tile" id="tile-chafe-cut">
-                        <span class="result-label">Chafe Sleeve Cut Target</span>
+                        <span class="result-label">Chafe Sleeve Required Length</span>
                         <div class="result-value-row">
-                            <span class="result-value" id="chafeCutVal">94.0</span>
+                            <span class="result-value" id="chafeCutVal">97.0</span>
                             <span class="result-unit">cm</span>
                         </div>
-                        <span class="result-value-alt" id="chafeCutValFt">3.08 ft</span>
+                        <span class="result-value-alt" id="chafeCutValFt">3.18 ft</span>
                     </div>
                 </div>
                 <div class="formula-box">
                     <div class="formula-title">Mathematical Formulas</div>
-                    <div>Sheeting Raw = (Throw × 2) + (Depower Move / Depower Ratio) + Line Tail + Splice Loop + Block Height</div>
-                    <div style="margin-top: 0.25rem;">Sheeting Finished = Sheeting Raw - Line Tail - Block Height - Cleat Length</div>
-                    <div style="margin-top: 0.25rem;">Sleeve Raw = Throw × 1.28 + 5 | Sleeve Cut Target = Throw + Depower Move + Splice Loop</div>
+                    <div>Sheeting Required Rope Length = (Throw × 2) + (Depower Move / Depower Ratio) + Line Tail + Splice Loop + Block Height - 10 cm</div>
+                    <div style="margin-top: 0.25rem;">Chafe Sleeve Required Length = Throw + Depower Move + Splice Loop + 3 cm</div>
                 </div>
             </div>
 
@@ -831,48 +814,30 @@
             <div class="calc-card" id="card-leaders">
                 <div class="card-header">
                     <h3>Steering Leaders & Safety Line <span class="section-badge" id="diameter-badge-1">using 3.0mm rope</span></h3>
-                    <p>Calculates leader line values inside bar ends and the safety override line running parallel to the sheeting line.</p>
+                    <p>Calculates required rope lengths for the steering leaders and safety override line.</p>
                 </div>
                 <div class="results-container">
                     <div class="result-tile" id="tile-leader-raw">
-                        <span class="result-label">Leader Line Raw Cut</span>
+                        <span class="result-label">Leader Line Required Rope Length</span>
                         <div class="result-value-row">
                             <span class="result-value" id="leaderRawVal">174.0</span>
                             <span class="result-unit">cm</span>
                         </div>
                         <span class="result-value-alt" id="leaderRawValFt">5.71 ft</span>
                     </div>
-                    <div class="result-tile" id="tile-leader-fin">
-                        <span class="result-label">Leader Line Finished</span>
-                        <div class="result-value-row">
-                            <span class="result-value" id="leaderFinVal">169.0</span>
-                            <span class="result-unit">cm</span>
-                        </div>
-                        <span class="result-value-alt" id="leaderFinValFt">5.54 ft</span>
-                    </div>
                     <div class="result-tile" id="tile-safety-raw">
-                        <span class="result-label">Safety Line Raw Cut</span>
+                        <span class="result-label">Safety Line Required Rope Length</span>
                         <div class="result-value-row">
-                            <span class="result-value" id="safetyRawVal">170.5</span>
+                            <span class="result-value" id="safetyRawVal">160.5</span>
                             <span class="result-unit">cm</span>
                         </div>
-                        <span class="result-value-alt" id="safetyRawValFt">5.59 ft</span>
-                    </div>
-                    <div class="result-tile" id="tile-safety-fin">
-                        <span class="result-label">Safety Line Finished</span>
-                        <div class="result-value-row">
-                            <span class="result-value" id="safetyFinVal">153.0</span>
-                            <span class="result-unit">cm</span>
-                        </div>
-                        <span class="result-value-alt" id="safetyFinValFt">5.02 ft</span>
+                        <span class="result-value-alt" id="safetyRawValFt">5.27 ft</span>
                     </div>
                 </div>
                 <div class="formula-box">
                     <div class="formula-title">Mathematical Formulas</div>
-                    <div>Leader Raw = (Throw + Depower Move + Leader Adjustment) × (1 + Splicing Shrinkage) + Leader Adjustment</div>
-                    <div style="margin-top: 0.25rem;">Leader Finished = Leader Raw - Bottom Loop (3.5cm) - Top Loop (2.5cm)</div>
-                    <div style="margin-top: 0.25rem;">Safety Raw = Sheeting Raw - Depower Move (Cleat to Block) [approx. reference]</div>
-                    <div style="margin-top: 0.25rem;">Safety Finished = Sheeting Finished - Depower Move [approx. reference]</div>
+                    <div>Leader Required Rope Length = (Throw + Depower Move + Leader Adjustment) × (1 + Splicing Shrinkage) + Leader Adjustment</div>
+                    <div style="margin-top: 0.25rem;">Safety Required Rope Length = Sheeting Required Rope Length - Depower Move [approx. reference]</div>
                 </div>
             </div>
 
@@ -892,7 +857,7 @@
                         <span class="result-value-alt" id="steerPigValFt">2.74 ft</span>
                     </div>
                     <div class="result-tile" id="tile-power-pig">
-                        <span class="result-label">Power Pigtail (Loop-to-Knot)</span>
+                        <span class="result-label">Power Pigtail (Adjustable Loop-to-Knot)</span>
                         <div class="result-value-row">
                             <span class="result-value" id="powerPigVal">99.5</span>
                             <span class="result-unit">cm</span>
@@ -903,7 +868,7 @@
                 <div class="formula-box">
                     <div class="formula-title">Mathematical Formulas (Bury = Rope Dia. × Bury Ratio)</div>
                     <div>Steering Pigtail = Finished Length + 2 × Bury × (1 + Splicing Shrinkage) + Loop Knot Length (4) + Pigtail Loop Length (3.5)</div>
-                    <div style="margin-top: 0.25rem;">Power Pigtail = Finished Length + 2 × Bury × (1 + Splicing Shrinkage) + Power Adjustment + Pigtail Loop Length (3.5)</div>
+                    <div style="margin-top: 0.25rem;">Power Pigtail (Adjustable) = Finished Length + 2 × Bury × (1 + Splicing Shrinkage) + Power Adjustment + Pigtail Loop Length (3.5)</div>
                 </div>
             </div>
 
@@ -931,7 +896,7 @@
                         <span class="result-value-alt">19cm base + 5cm tail</span>
                     </div>
                     <div class="result-tile" id="tile-putube">
-                        <span class="result-label">PU Center Tube Length</span>
+                        <span class="result-label">PU length for bar end (half for each end)</span>
                         <div class="result-value-row">
                             <span class="result-value" id="puTubeVal">100.0</span>
                             <span class="result-unit">mm</span>
@@ -1261,40 +1226,28 @@
 
             // Calculations
             // 1. Sheeting Line
-            const sheetingRaw = (desiredThrow * 2) + (depowerMove / CONSTANTS.depowerRatio) + CONSTANTS.depowerLineTail + CONSTANTS.spliceLoop + CONSTANTS.blockHeight;
-            const sheetingFinished = sheetingRaw - CONSTANTS.depowerLineTail - CONSTANTS.blockHeight - CONSTANTS.cleatLength;
+            const sheetingRaw = (desiredThrow * 2) + (depowerMove / CONSTANTS.depowerRatio) + CONSTANTS.depowerLineTail + CONSTANTS.spliceLoop + CONSTANTS.blockHeight - 10;
 
             document.getElementById('sheetingRawVal').innerText = sheetingRaw.toFixed(1);
             document.getElementById('sheetingRawValFt').innerText = `${(sheetingRaw * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('sheetingFinishedVal').innerText = sheetingFinished.toFixed(1);
-            document.getElementById('sheetingFinishedValFt').innerText = `${(sheetingFinished * CM_TO_FT).toFixed(2)} ft`;
 
             // 2. Chafe Sleeve
-            const chafeRaw = desiredThrow * (1 + CONSTANTS.chafeSleeveShrink) + CONSTANTS.chafeSleeveBury;
-            const chafeCut = desiredThrow + depowerMove + CONSTANTS.spliceLoop;
+            const chafeCut = desiredThrow + depowerMove + CONSTANTS.spliceLoop + 3;
 
-            document.getElementById('chafeRawVal').innerText = chafeRaw.toFixed(1);
-            document.getElementById('chafeRawValFt').innerText = `${(chafeRaw * CM_TO_FT).toFixed(2)} ft`;
             document.getElementById('chafeCutVal').innerText = chafeCut.toFixed(1);
             document.getElementById('chafeCutValFt').innerText = `${(chafeCut * CM_TO_FT).toFixed(2)} ft`;
 
             // 3. Leader Lines
             const leaderRaw = (desiredThrow + depowerMove + leaderAdjustment) * (1 + splicingShrinkage) + leaderAdjustment;
-            const leaderFinished = leaderRaw - CONSTANTS.leaderBottomLoop - CONSTANTS.leaderTopLoop;
 
             document.getElementById('leaderRawVal').innerText = leaderRaw.toFixed(1);
             document.getElementById('leaderRawValFt').innerText = `${(leaderRaw * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('leaderFinVal').innerText = leaderFinished.toFixed(1);
-            document.getElementById('leaderFinValFt').innerText = `${(leaderFinished * CM_TO_FT).toFixed(2)} ft`;
 
-            // 4. Safety Line (approx sheeting minus depower length)
+            // 4. Safety Line
             const safetyRaw = sheetingRaw - depowerMove;
-            const safetyFinished = sheetingFinished - depowerMove;
 
             document.getElementById('safetyRawVal').innerText = safetyRaw.toFixed(1);
             document.getElementById('safetyRawValFt').innerText = `${(safetyRaw * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('safetyFinVal').innerText = safetyFinished.toFixed(1);
-            document.getElementById('safetyFinValFt').innerText = `${(safetyFinished * CM_TO_FT).toFixed(2)} ft`;
 
             // 5. Pigtails (splicing bury is dynamic based on rope diameter and ratio)
             const pigtailBury = leaderRopeDiameter * buryRatio; // e.g. 0.25 * 50 = 12.5cm
@@ -1353,15 +1306,9 @@
 
         // Connect tiles to respective SVG Groups and Diagram Cards
         wireHighlight('card-sheeting', 'tile-sheeting-raw', ['svg-sheeting'], ['diag-sec-assembly']);
-        wireHighlight('card-sheeting', 'tile-sheeting-fin', ['svg-sheeting'], ['diag-sec-assembly']);
-        wireHighlight('card-sheeting', 'tile-chafe-raw', ['svg-chafe'], ['diag-sec-assembly']);
         wireHighlight('card-sheeting', 'tile-chafe-cut', ['svg-chafe'], ['diag-sec-assembly']);
-
         wireHighlight('card-leaders', 'tile-leader-raw', ['svg-leader', 'svg-barend-leader'], ['diag-sec-assembly', 'diag-sec-barend']);
-        wireHighlight('card-leaders', 'tile-leader-fin', ['svg-leader', 'svg-barend-leader'], ['diag-sec-assembly', 'diag-sec-barend']);
         wireHighlight('card-leaders', 'tile-safety-raw', ['svg-safety'], ['diag-sec-assembly']);
-        wireHighlight('card-leaders', 'tile-safety-fin', ['svg-safety'], ['diag-sec-assembly']);
-
         wireHighlight('card-pigtails', 'tile-steer-pig', ['svg-leader'], ['diag-sec-assembly']);
         wireHighlight('card-pigtails', 'tile-power-pig', ['svg-leader'], ['diag-sec-assembly']);
 
