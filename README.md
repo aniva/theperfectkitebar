@@ -89,7 +89,9 @@ To explore any component:
 - [Quick Release](hardware/quick_release/README.md)
 - [Trim](hardware/trim/README.md)
 - [Tools](hardware/tools/README.md)
-- [Rope Splicing & Cutting Dimensions](docs/rope_dimensions.md)
+- [Rope Splicing & Cutting Dimensions Guide](docs/rope_dimensions.md)
+- [Interactive Splicing & Sizing Calculator](docs/rope_calculator.html)
+- [Bungee & Accessory Sizing Guide](docs/bungee_calculator.html)
 
 
 ---

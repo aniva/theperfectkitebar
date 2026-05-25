@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPKB Bungee & Accessory Sizing Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #475569;
+            --success: #10b981;
+            --btn-bg: #334155;
+            --btn-hover: #475569;
+            --rope-blue: #3b82f6;
+            --rope-red: #ef4444;
+            --glow-color: rgba(99, 102, 241, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Inputs Panel */
+        .sidebar {
+            width: 360px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            overflow-y: auto;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-header p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .nav-btn {
+            width: 100%;
+            padding: 0.65rem;
+            background-color: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .nav-btn:hover {
+            background-color: #4f46e5;
+        }
+
+        /* Viewport Layout */
+        .viewport {
+            display: flex;
+            flex: 1;
+            height: 100vh;
+        }
+
+        /* Scrollable Results Center */
+        .main-content {
+            flex: 1;
+            padding: 2.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .main-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .calc-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent);
+        }
+
+        .card-header h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .section-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            background-color: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-header p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .result-tile {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-value-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .result-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .result-unit {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .result-value-alt {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px dashed var(--border);
+            border-radius: 6px;
+            padding: 0.85rem;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .formula-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .guidance-box {
+            background-color: rgba(16, 185, 129, 0.04);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .guidance-icon {
+            font-size: 1.25rem;
+            color: var(--success);
+            line-height: 1;
+        }
+
+        .guidance-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .guidance-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Fixed Schematic Panel on the Right */
+        .diagram-panel {
+            width: 320px;
+            background-color: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            height: 100vh;
+            flex-shrink: 0;
+        }
+
+        .diagram-container {
+            width: 100%;
+            height: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diagram-container svg {
+            width: 100%;
+            height: 100%;
+            max-height: 520px;
+        }
+
+        .diagram-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Panel -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>⚙️ Accessory Specs</h2>
+            <p>Bungee & Tube Specifications</p>
+        </div>
+
+        <!-- Navigation Button to Sheeting Page -->
+        <a href="rope_calculator.html" class="nav-btn">⬅️ Sheeting Calculator</a>
+    </div>
+
+    <!-- Main Results Viewport -->
+    <div class="viewport">
+        <div class="main-content">
+            <div class="main-header">
+                <h1>TPKB Bungee & Accessory Sizing Guide</h1>
+                <p>Cutting guidelines and specifications for accessory bungees, quick-release components, and protective tubing.</p>
+            </div>
+
+            <div class="cards-grid" style="display: flex; flex-direction: column; gap: 2rem;">
+                
+                <!-- Card 1: Bar End Bungee Sizing -->
+                <div class="calc-card" id="card-bar-bungees">
+                    <div class="card-header">
+                        <h3>Bar End Bungees <span class="section-badge">Bar Accessories</span></h3>
+                        <p>Cutting lengths for elastic bungees placed in the control bar ends (using a fixed 5 cm knot tail allowance).</p>
+                    </div>
+
+                    <div class="results-container">
+                        <!-- Bungee for 65mm end -->
+                        <div class="result-tile">
+                            <span class="result-label">Bungee for 65mm Bar End</span>
+                            <div class="result-value-row">
+                                <span class="result-value">30</span>
+                                <span class="result-unit">cm</span>
+                            </div>
+                            <span class="result-value-alt">Static Base: 25 cm + 5 cm Tail</span>
+                        </div>
+
+                        <!-- Bungee for 100mm end -->
+                        <div class="result-tile">
+                            <span class="result-label">Bungee for 100mm Bar End</span>
+                            <div class="result-value-row">
+                                <span class="result-value">37</span>
+                                <span class="result-unit">cm</span>
+                            </div>
+                            <span class="result-value-alt">Static Base: 32 cm + 5 cm Tail</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Quick Release Bungee Sizing -->
+                <div class="calc-card" id="card-qr-bungee">
+                    <div class="card-header">
+                        <h3>Quick Release (QR) Safety Bungee <span class="section-badge">QR Loop Sizing</span></h3>
+                        <p>Cutting guidelines for the safety line bungee within the quick release mechanism.</p>
+                    </div>
+
+                    <div class="results-container">
+                        <!-- QR Bungee Raw Cut -->
+                        <div class="result-tile">
+                            <span class="result-label">QR Bungee Cut Target</span>
+                            <div class="result-value-row">
+                                <span class="result-value">35</span>
+                                <span class="result-unit">cm</span>
+                            </div>
+                            <span class="result-value-alt">Includes knotting allowance</span>
+                        </div>
+
+                        <!-- QR Bungee Used -->
+                        <div class="result-tile">
+                            <span class="result-label">Finished Used Length</span>
+                            <div class="result-value-row">
+                                <span class="result-value">27</span>
+                                <span class="result-unit">cm</span>
+                            </div>
+                            <span class="result-value-alt">Actual length after trimming knots</span>
+                        </div>
+                    </div>
+
+                    <!-- Guidance Box -->
+                    <div class="guidance-box">
+                        <div class="guidance-icon">💡</div>
+                        <div class="guidance-text">
+                            <h4>Rigging Tip</h4>
+                            <p>Rig the safety bungee with 4mm titanium bolts inside the QR claw. Knot both ends, tighten thoroughly, and cut off the excess tails to leave exactly **27 cm** of tensioned bungee active in the assembly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: PU Tubing Reference -->
+                <div class="calc-card" id="card-pu-tubing">
+                    <div class="card-header">
+                        <h3>PU Tubing Sizing <span class="section-badge">Center Insert</span></h3>
+                        <p>Finished cutting specifications for the Polyurethane (PU) protective tube lining the control bar center hole.</p>
+                    </div>
+
+                    <div class="results-container">
+                        <div class="result-tile">
+                            <span class="result-label">Target PU Tube Length</span>
+                            <div class="result-value-row">
+                                <span class="result-value">100</span>
+                                <span class="result-unit">mm</span>
+                            </div>
+                            <span class="result-value-alt">Lined for OD 24 mm Carbon Bar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagram Panel (Schematic Placeholder) -->
+        <div class="diagram-panel">
+            <div class="diagram-title">Bungee & Accessory Layout</div>
+            <div class="diagram-container">
+                <svg viewBox="0 0 300 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Placeholder Frame -->
+                    <rect x="10" y="10" width="280" height="500" rx="15" fill="#1e293b" stroke="#475569" stroke-width="2" stroke-dasharray="6 4" />
+                    <!-- Placeholder Text -->
+                    <text x="150" y="240" fill="#94a3b8" font-family="inherit" font-size="14" font-weight="600" text-anchor="middle">Accessory SVG Placeholder</text>
+                    <text x="150" y="265" fill="#64748b" font-family="inherit" font-size="11" text-anchor="middle">Insert bungee & bar end layout here</text>
+                    
+                    <!-- Decorative Elements representing bungee ends -->
+                    <circle cx="150" cy="120" r="20" fill="#334155" stroke="#475569" stroke-width="1.5" />
+                    <text x="150" y="124" fill="#a5b4fc" font-family="inherit" font-size="12" font-weight="700" text-anchor="middle">QR</text>
+
+                    <rect x="80" y="320" width="140" height="24" rx="4" fill="#334155" stroke="#475569" stroke-width="1.5" />
+                    <text x="150" y="336" fill="#a5b4fc" font-family="inherit" font-size="11" font-weight="700" text-anchor="middle">Bar Ends (65mm / 100mm)</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

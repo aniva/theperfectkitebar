@@ -1,0 +1,73 @@
+<svg viewBox="0 0 300 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #1e293b;">
+    <!-- SECTION 6: UPPER BLOCK -->
+    <g id="svg-sec6">
+        <path d="M120 20 h60 v15 a15 15 0 0 1 -15 15 h-30 a15 15 0 0 1 -15 -15 Z" fill="#475569" stroke="#64748b" stroke-width="2" />
+        <circle cx="150" cy="35" r="5" fill="#0f172a" />
+        <rect x="110" y="3" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="150" y="15" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">6 (Block)</text>
+    </g>
+
+    <!-- SECTION 5: TRIM ADJUSTMENT LOOPS -->
+    <g id="svg-sec5">
+        <!-- Upgoing loop line (right) -->
+        <path d="M165 220 V35" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" />
+        <!-- Loop over upper block wheel -->
+        <path d="M165 35 A 15 15 0 0 0 135 35" stroke="#3b82f6" stroke-width="3" fill="none" />
+        <!-- Downgoing loop line (left) -->
+        <path d="M135 35 V220" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" />
+        <rect x="210" y="110" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="250" y="122" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">5 (Trim)</text>
+    </g>
+
+    <!-- SECTION 4: CLEAT BASE -->
+    <g id="svg-sec4">
+        <path d="M125 220 h50 v40 a10 10 0 0 1 -10 10 h-30 a10 10 0 0 1 -10 -10 Z" fill="#475569" stroke="#64748b" stroke-width="2" />
+        <circle cx="140" cy="245" r="3" fill="#94a3b8" />
+        <circle cx="160" cy="245" r="3" fill="#94a3b8" />
+        <!-- Smooth routing from right throw to upgoing trim -->
+        <path d="M157 260 C157 245, 165 235, 165 220" stroke="#3b82f6" stroke-width="3.5" fill="none" />
+        <!-- Sheeting rope tail exiting cleat on the left with handle -->
+        <path d="M135 220 C135 240, 125 245, 95 255 C85 260, 80 268, 80 273" stroke="#3b82f6" stroke-width="3.5" fill="none" stroke-linecap="round" />
+        <rect x="72" y="273" width="16" height="8" rx="2.5" fill="#3b82f6" stroke="#334155" stroke-width="1.5" />
+        <rect x="25" y="233" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="65" y="245" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">4 (Cleat)</text>
+    </g>
+
+    <!-- SECTION 1: BAR THROW LINE -->
+    <g id="svg-sec1">
+        <!-- Single throw line -->
+        <path d="M157 270 V380" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" />
+        <rect x="25" y="315" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="65" y="327" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">1 (Throw)</text>
+    </g>
+
+    <!-- SECTION 2: BAR & CENTER PIECE -->
+    <g id="svg-sec2">
+        <path d="M10 380 h280 v30 h-280 Z" fill="#1e293b" stroke="#334155" stroke-width="2" />
+        <path d="M130 375 h40 v40 h-40 Z" fill="#475569" stroke="#64748b" stroke-width="2" />
+        <rect x="210" y="383" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="250" y="395" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">2 (Bar)</text>
+    </g>
+
+    <!-- SECTION 3: LOOP BELOW BAR -->
+    <g id="svg-sec3">
+        <!-- Loop connection anchored at top of center piece -->
+        <path d="M157 380 V410 C157 442, 143 442, 143 410 V375" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round" />
+        <circle cx="143" cy="375" r="4.5" fill="#3b82f6" stroke="#1e293b" stroke-width="1.5" />
+        <circle cx="150" cy="435" r="7" fill="#1e293b" stroke="#475569" stroke-width="2" />
+        <rect x="25" y="445" width="80" height="24" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+        <text x="65" y="457" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" dominant-baseline="middle">3 (Loop)</text>
+    </g>
+
+    <!-- RED LINE: STEERING LEADER & PIGTAIL -->
+    <g id="svg-pigtail">
+        <!-- Bungee loop -->
+        <path d="M265 410 v15 c0 5 -15 5 -15 0 v-15" stroke="#ef4444" stroke-width="3" fill="none" />
+        <!-- Leader Line -->
+        <path d="M265 380 V200" stroke="#ef4444" stroke-width="3" fill="none" />
+        <!-- Loop-to-loop node -->
+        <circle cx="265" cy="200" r="4.5" fill="#ef4444" stroke="#475569" stroke-width="1" />
+        <!-- Pigtail loop -->
+        <path d="M265 200 V40 c0 -8 10 -8 10 0 V200" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    </g>
+</svg>
