@@ -55,8 +55,8 @@ These parameters are adjustable via left-right sliders in the main calculator:
 * **Splicing Shrinkage**: General shrinkage rate applied to any splice. Range `10%` to `30%` (default `20%`).
 * **Bury Ratio**: General bury length multiplier. Range `40x` to `60x` rope diameter (default `50x`).
 * **Leader Adjustment (C2)**: Adjustment span for leader lines. Range `20` to `50` cm (default `30` cm).
-* **Power Pigtail Adjustment**: Front line trim adjuster span. Range `10` to `30` cm (default `20` cm).
-* **Pigtail Finished Length (C4)**: Raw base finished target length. Range `30` to `50` cm (default `40` cm).
+* **Power Pigtail Adjustment**: Front line trim adjuster span. Range `10` to `30` cm (default `20` cm). Pigtail Finished Length (C4) must always be at least 20cm longer than this.
+* **Pigtail Finished Length (C4)**: Raw base finished target length. Range `30` to `50` cm (default `40` cm). Must always be at least 20cm longer than the Power Pigtail Adjustment.
 
 ---
 

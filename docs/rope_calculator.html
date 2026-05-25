@@ -678,6 +678,7 @@
                 <span class="input-unit">cm</span>
             </div>
             <input type="range" class="input-slider" id="powerAdjustmentSlider" min="10" max="30" value="20">
+            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.15rem;">Finished length (C4) must be at least 20cm longer than this.</p>
         </div>
 
         <!-- Changeable: Pigtail Finished Length -->
@@ -691,6 +692,7 @@
                 <span class="input-unit">cm</span>
             </div>
             <input type="range" class="input-slider" id="pigtailFinishedLengthSlider" min="30" max="50" value="40">
+            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.15rem;">Must be at least 20cm longer than Power Adjustment.</p>
         </div>
 
         <!-- FIXED PARAMETERS -->
@@ -1153,8 +1155,8 @@
 
         const CM_TO_FT = 0.0328084;
 
-        // Sync inputs
-        function setupSync(numId, sliderId, displayId, unit) {
+        // Sync inputs with optional constraint callback
+        function setupSync(numId, sliderId, displayId, unit, callback) {
             const num = document.getElementById(numId);
             const slider = document.getElementById(sliderId);
             const display = document.getElementById(displayId);
@@ -1163,13 +1165,45 @@
                 num.addEventListener('input', () => {
                     slider.value = num.value;
                     display.innerText = `${num.value} ${unit}`;
+                    if (callback) callback();
                     calculate();
                 });
                 slider.addEventListener('input', () => {
                     num.value = slider.value;
                     display.innerText = `${slider.value} ${unit}`;
+                    if (callback) callback();
                     calculate();
                 });
+            }
+        }
+
+        // Enforce physical constraints: finished length must be >= power adjustment + 20cm
+        function enforceConstraints(changedId) {
+            const powerAdjEl = document.getElementById('powerAdjustment');
+            const powerAdjSlider = document.getElementById('powerAdjustmentSlider');
+            const powerAdjVal = document.getElementById('powerAdjustmentVal');
+
+            const pigtailLenEl = document.getElementById('pigtailFinishedLength');
+            const pigtailLenSlider = document.getElementById('pigtailFinishedLengthSlider');
+            const pigtailLenVal = document.getElementById('pigtailFinishedLengthVal');
+
+            let powerAdj = parseFloat(powerAdjEl.value) || 20;
+            let pigtailLen = parseFloat(pigtailLenEl.value) || 40;
+
+            if (changedId === 'powerAdjustment') {
+                if (pigtailLen < powerAdj + 20) {
+                    pigtailLen = powerAdj + 20;
+                    pigtailLenEl.value = pigtailLen;
+                    pigtailLenSlider.value = pigtailLen;
+                    pigtailLenVal.innerText = `${pigtailLen} cm`;
+                }
+            } else if (changedId === 'pigtailFinishedLength') {
+                if (powerAdj > pigtailLen - 20) {
+                    powerAdj = pigtailLen - 20;
+                    powerAdjEl.value = powerAdj;
+                    powerAdjSlider.value = powerAdj;
+                    powerAdjVal.innerText = `${powerAdj} cm`;
+                }
             }
         }
 
@@ -1178,8 +1212,12 @@
         setupSync('splicingShrinkage', 'splicingShrinkageSlider', 'splicingShrinkageVal', '%');
         setupSync('buryRatio', 'buryRatioSlider', 'buryRatioVal', 'x');
         setupSync('leaderAdjustment', 'leaderAdjustmentSlider', 'leaderAdjustmentVal', 'cm');
-        setupSync('powerAdjustment', 'powerAdjustmentSlider', 'powerAdjustmentVal', 'cm');
-        setupSync('pigtailFinishedLength', 'pigtailFinishedLengthSlider', 'pigtailFinishedLengthVal', 'cm');
+        setupSync('powerAdjustment', 'powerAdjustmentSlider', 'powerAdjustmentVal', 'cm', () => {
+            enforceConstraints('powerAdjustment');
+        });
+        setupSync('pigtailFinishedLength', 'pigtailFinishedLengthSlider', 'pigtailFinishedLengthVal', 'cm', () => {
+            enforceConstraints('pigtailFinishedLength');
+        });
 
         document.getElementById('outerDiameter').addEventListener('change', calculate);
 
