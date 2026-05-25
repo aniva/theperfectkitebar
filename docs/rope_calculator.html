@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPKB Rope Splicing & Sizing Calculator</title>
+    <title>TPKB Splicing & Sizing Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131c2e;
+            --bg-tertiary: #1e293b;
             --accent: #6366f1;
             --accent-glow: rgba(99, 102, 241, 0.15);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --border: #475569;
+            --border: #334155;
             --success: #10b981;
-            --btn-bg: #334155;
-            --btn-hover: #475569;
             --rope-blue: #3b82f6;
+            --rope-orange: #f97316;
             --rope-red: #ef4444;
+            --rope-green: #10b981;
             --glow-color: rgba(99, 102, 241, 0.6);
         }
 
@@ -40,7 +40,7 @@
             overflow: hidden;
         }
 
-        /* Sidebar Inputs Panel */
+        /* 3-Column Layout */
         .sidebar {
             width: 360px;
             background-color: var(--bg-secondary);
@@ -56,6 +56,45 @@
             flex-shrink: 0;
         }
 
+        .main-content {
+            flex: 1;
+            padding: 2.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: 100vh;
+        }
+
+        .diagrams-column {
+            width: 400px;
+            background-color: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+            height: 100vh;
+            flex-shrink: 0;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+
+        /* Sidebar Elements */
         .sidebar-header {
             margin-bottom: 0.25rem;
         }
@@ -78,7 +117,7 @@
         .reset-btn {
             width: 100%;
             padding: 0.65rem;
-            background-color: var(--btn-bg);
+            background-color: var(--bg-tertiary);
             border: 1px solid var(--border);
             border-radius: 8px;
             color: var(--text-primary);
@@ -94,32 +133,8 @@
         }
 
         .reset-btn:hover {
-            background-color: var(--btn-hover);
+            background-color: #475569;
             border-color: var(--text-secondary);
-        }
-
-        .nav-btn {
-            width: 100%;
-            padding: 0.65rem;
-            background-color: var(--accent);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .nav-btn:hover {
-            background-color: #4f46e5;
         }
 
         .input-group {
@@ -145,7 +160,6 @@
             font-size: 0.825rem;
             font-weight: 600;
             color: var(--text-secondary);
-            text-transform: capitalize;
         }
 
         .input-val-display {
@@ -205,7 +219,7 @@
             width: 100%;
             height: 4px;
             border-radius: 2px;
-            background: var(--bg-tertiary);
+            background: var(--border);
             outline: none;
             margin-top: 0.15rem;
         }
@@ -225,7 +239,6 @@
             transform: scale(1.25);
         }
 
-        /* Fixed Constants Box in Sidebar */
         .constants-section {
             background-color: var(--bg-primary);
             border: 1px solid var(--border);
@@ -252,8 +265,6 @@
             color: var(--text-secondary);
             padding: 0.2rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            border-radius: 2px;
-            transition: background-color 0.2s;
         }
 
         .constant-row:hover {
@@ -274,25 +285,9 @@
             color: var(--text-primary);
         }
 
-        /* Main Area Layout */
-        .viewport {
-            display: flex;
-            flex: 1;
-            height: 100vh;
-        }
-
-        /* Scrollable Results Center */
-        .main-content {
-            flex: 1;
-            padding: 2.5rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
+        /* Middle Column - Results */
         .main-header h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: -0.025em;
             margin-bottom: 0.4rem;
@@ -303,7 +298,7 @@
 
         .main-header p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
 
@@ -311,14 +306,14 @@
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.75rem;
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1.15rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .calc-card::before {
@@ -331,8 +326,13 @@
             background-color: var(--accent);
         }
 
+        .calc-card.highlighted {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+        }
+
         .card-header h3 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -353,35 +353,39 @@
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            display: inline-flex;
-            align-items: center;
         }
 
         .card-header p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.825rem;
             margin-top: 0.25rem;
         }
 
         .results-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.85rem;
         }
 
         .result-tile {
             background-color: var(--bg-primary);
             border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 1.25rem;
+            padding: 1.15rem;
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .result-tile:hover, .result-tile.highlighted {
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.15);
         }
 
         .result-label {
-            font-size: 0.75rem;
+            font-size: 0.725rem;
             font-weight: 600;
             color: var(--text-secondary);
             text-transform: uppercase;
@@ -391,23 +395,23 @@
         .result-value-row {
             display: flex;
             align-items: baseline;
-            gap: 0.4rem;
+            gap: 0.3rem;
         }
 
         .result-value {
-            font-size: 1.75rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-primary);
         }
 
         .result-unit {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--accent);
         }
 
         .result-value-alt {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 0.15rem;
         }
@@ -416,9 +420,9 @@
             background-color: rgba(0, 0, 0, 0.2);
             border: 1px dashed var(--border);
             border-radius: 6px;
-            padding: 0.85rem;
+            padding: 0.8rem;
             font-family: monospace;
-            font-size: 0.8rem;
+            font-size: 0.775rem;
             color: var(--text-secondary);
             line-height: 1.4;
         }
@@ -436,7 +440,7 @@
             background-color: rgba(16, 185, 129, 0.04);
             border: 1px solid rgba(16, 185, 129, 0.2);
             border-radius: 10px;
-            padding: 1.25rem;
+            padding: 1.15rem;
             display: flex;
             gap: 0.75rem;
         }
@@ -448,44 +452,33 @@
         }
 
         .guidance-text h4 {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
 
         .guidance-text p {
-            font-size: 0.85rem;
+            font-size: 0.825rem;
             color: var(--text-secondary);
             line-height: 1.4;
         }
 
-        /* Fixed Schematic Panel on the Right */
-        .diagram-panel {
-            width: 320px;
-            background-color: var(--bg-secondary);
-            border-left: 1px solid var(--border);
+        /* Right Column - Diagrams */
+        .diagram-section {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            height: 100vh;
-            flex-shrink: 0;
+            gap: 0.75rem;
+            transition: border-color 0.3s;
         }
 
-        .diagram-container {
-            width: 100%;
-            height: 85%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .diagram-container svg {
-            width: 100%;
-            height: 100%;
-            max-height: 520px;
+        .diagram-section.highlighted {
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
         }
 
         .diagram-title {
@@ -494,41 +487,64 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
-            text-align: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
         }
 
-        /* SVG Schematic Styling */
+        .diagram-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+
+        .diagram-container svg {
+            width: 100%;
+            height: auto;
+            max-height: 380px;
+        }
+
+        /* Interactive SVG Elements */
         .schematic-item {
-            transition: stroke 0.3s, stroke-width 0.3s, fill 0.3s, filter 0.3s;
+            transition: stroke 0.3s, stroke-width 0.3s, fill 0.3s, opacity 0.3s, filter 0.3s;
         }
 
         .schematic-item.interactive {
             cursor: pointer;
         }
 
-        /* Schematic Label Numbers */
         .label-bg {
             fill: var(--bg-primary);
             stroke: var(--border);
             stroke-width: 1px;
             rx: 4px;
         }
+
         .label-text {
             fill: var(--text-secondary);
             font-family: inherit;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-anchor: middle;
             dominant-baseline: middle;
         }
 
-        /* Hover / Focus Highlights */
+        /* Hover Glow Styles */
         .highlighted .schematic-item.rope-blue,
         .schematic-item.rope-blue:hover {
             stroke: #60a5fa !important;
             stroke-width: 5px !important;
             filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.8));
+        }
+
+        .highlighted .schematic-item.rope-orange,
+        .schematic-item.rope-orange:hover {
+            stroke: #fb923c !important;
+            stroke-width: 5px !important;
+            filter: drop-shadow(0 0 6px rgba(251, 146, 60, 0.8));
         }
 
         .highlighted .schematic-item.rope-red,
@@ -538,17 +554,25 @@
             filter: drop-shadow(0 0 6px rgba(248, 113, 113, 0.8));
         }
 
+        .highlighted .schematic-item.rope-green,
+        .schematic-item.rope-green:hover {
+            stroke: #34d399 !important;
+            stroke-width: 4px !important;
+            filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.8));
+        }
+
         .highlighted .schematic-item.hardware-fill,
         .schematic-item.hardware-fill:hover {
             fill: var(--accent) !important;
             stroke: var(--text-primary) !important;
-            filter: drop-shadow(0 0 4px var(--glow-color));
+            filter: drop-shadow(0 0 5px var(--glow-color));
         }
 
         .highlighted .label-bg {
             stroke: var(--accent) !important;
             fill: var(--accent-glow) !important;
         }
+
         .highlighted .label-text {
             fill: var(--text-primary) !important;
         }
@@ -556,20 +580,16 @@
 </head>
 <body>
 
-    <!-- Sidebar: Section 1 Inputs -->
+    <!-- 1. LEFT COLUMN: inputs & constants -->
     <div class="sidebar">
         <div class="sidebar-header">
             <h2>⚙️ System Inputs</h2>
             <p>Adjustable & Fixed Specs</p>
         </div>
 
-        <!-- Reset Button -->
         <button class="reset-btn" id="resetBtn">🔄 Reset to Defaults</button>
 
-        <!-- Navigation Button to Bungee Page -->
-        <a href="bungee_calculator.html" class="nav-btn">➡️ Bungee & Accessories Guide</a>
-
-        <!-- Desired Throw -->
+        <!-- Changeable: Desired Throw -->
         <div class="input-group" id="group-throw">
             <div class="input-label-container">
                 <span class="input-label">Desired Throw (A1)</span>
@@ -582,7 +602,7 @@
             <input type="range" class="input-slider" id="desiredThrowSlider" min="40" max="70" value="65">
         </div>
 
-        <!-- Depower Move -->
+        <!-- Changeable: Depower Move -->
         <div class="input-group" id="group-move">
             <div class="input-label-container">
                 <span class="input-label">Depower Move [Cleat to Block] (B7)</span>
@@ -595,42 +615,45 @@
             <input type="range" class="input-slider" id="depowerMoveSlider" min="10" max="50" value="25">
         </div>
 
-        <!-- Outer Diameter Selection -->
+        <!-- Changeable: Bar Outer Diameter (B1) -->
         <div class="input-group" id="group-diameter">
             <div class="input-label-container">
-                <span class="input-label">Outer Diameter (B1)</span>
+                <span class="input-label">Bar Outer Diameter (B1)</span>
             </div>
             <div class="input-field-wrapper">
                 <select id="outerDiameter">
-                    <option value="21">21 mm</option>
-                    <option value="22">22 mm</option>
-                    <option value="23">23 mm</option>
-                    <option value="24" selected>24 mm</option>
+                    <option value="22">22 mm (uses 2.5mm rope)</option>
+                    <option value="24" selected>24 mm (uses 3.0mm rope)</option>
                 </select>
             </div>
         </div>
 
-        <!-- Fixed Constants Section -->
+        <!-- FIXED PARAMETERS -->
         <div class="constants-section">
             <div class="constants-title">
-                <span>Fixed Hardware Spec</span>
+                <span>Group A Parameters</span>
                 <span>Value</span>
             </div>
-            <div class="constant-row" id="row-ratio">
-                <span class="constant-name">Depower Ratio (B8)</span>
-                <span class="constant-val">1/2</span>
+            <div class="constant-row" id="row-sheeting-diam">
+                <span class="constant-name">Sheeting Line Diam. (A2)</span>
+                <span class="constant-val">0.4 cm (4.0mm)</span>
+            </div>
+            <div class="constant-row" id="row-loop-len">
+                <span class="constant-name">Splice Loop Length (A3)</span>
+                <span class="constant-val">4 cm</span>
             </div>
             <div class="constant-row" id="row-tail">
                 <span class="constant-name">Depower Line Tail (A4)</span>
                 <span class="constant-val">9 cm</span>
             </div>
-            <div class="constant-row" id="row-block-diam">
-                <span class="constant-name">Upper Block Diam. (B5)</span>
-                <span class="constant-val">1 cm</span>
+            <div class="constant-row" id="row-sleeve-fit">
+                <span class="constant-name">Chafe Sleeve Size</span>
+                <span class="constant-val">ID 4-6mm</span>
             </div>
-            <div class="constant-row" id="row-block-height">
-                <span class="constant-name">Upper Block Height (B6)</span>
-                <span class="constant-val">2.5 cm</span>
+
+            <div class="constants-title" style="margin-top: 0.85rem; border-top: 1px dashed var(--border); padding-top: 0.6rem;">
+                <span>Group B Parameters</span>
+                <span>Value</span>
             </div>
             <div class="constant-row" id="row-cleat-len">
                 <span class="constant-name">Cleat Length (B2)</span>
@@ -644,17 +667,21 @@
                 <span class="constant-name">Cleat Holes (B4)</span>
                 <span class="constant-val">4</span>
             </div>
-            <div class="constant-row" id="row-sheeting-diam">
-                <span class="constant-name">Sheeting Line Diam. (A2)</span>
-                <span class="constant-val">0.4 cm</span>
+            <div class="constant-row" id="row-block-diam">
+                <span class="constant-name">Upper Block Diam. (B5)</span>
+                <span class="constant-val">1 cm</span>
             </div>
-            <div class="constant-row" id="row-loop-len">
-                <span class="constant-name">Splice Loop Length (A3)</span>
-                <span class="constant-val">4 cm</span>
+            <div class="constant-row" id="row-block-height">
+                <span class="constant-name">Upper Block Height (B6)</span>
+                <span class="constant-val">2.5 cm</span>
+            </div>
+            <div class="constant-row" id="row-ratio">
+                <span class="constant-name">Depower Ratio (B8)</span>
+                <span class="constant-val">1/2 (2:1)</span>
             </div>
 
             <div class="constants-title" style="margin-top: 0.85rem; border-top: 1px dashed var(--border); padding-top: 0.6rem;">
-                <span>Fixed Splicing Spec</span>
+                <span>Group C Parameters</span>
                 <span>Value</span>
             </div>
             <div class="constant-row" id="row-leader-shrink">
@@ -673,353 +700,372 @@
                 <span class="constant-name">Pigtail Finished Len. (C4)</span>
                 <span class="constant-val">40 cm</span>
             </div>
+            <div class="constant-row" id="row-pigtail-shrink">
+                <span class="constant-name">Pigtail Splicing Shrink</span>
+                <span class="constant-val">20%</span>
+            </div>
+            <div class="constant-row" id="row-pigtail-knot">
+                <span class="constant-name">Pigtail Loop Knot Length</span>
+                <span class="constant-val">4 cm</span>
+            </div>
         </div>
     </div>
 
-    <!-- Main Output Panel Area -->
-    <div class="viewport">
-        <div class="main-content">
-            <div class="main-header">
-                <h1>TPKB Rope Splicing & Sizing Calculator</h1>
-                <p>Modify inputs in the sidebar. Hover over inputs or result tiles to see where they correspond on the routing schematic on the right.</p>
-            </div>
-
-            <div class="cards-grid" style="display: flex; flex-direction: column; gap: 2rem;">
-                <!-- Card 1: Sheeting Line Sizing -->
-                <div class="calc-card" id="card-sheeting">
-                    <div class="card-header">
-                        <h3>Sheeting (Depower) Line <span class="section-badge">A1, A2, A3, A4, B2, B6, B7, B8</span></h3>
-                        <p>Calculates the physical line length and the target finished/measured length of the 4.0mm sheeting line (runs through chicken loop, bar, cleat, and upper block).</p>
-                    </div>
-
-                    <div class="results-container">
-                        <!-- Calculated Length -->
-                        <div class="result-tile" id="tile-raw">
-                            <span class="result-label">Calculated Raw Length</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="calcRawLength">195.5</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="calcRawLengthFt">6.41 ft</span>
-                        </div>
-
-                        <!-- Measured Length -->
-                        <div class="result-tile" id="tile-measured">
-                            <span class="result-label">Measured Finished Length</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="measuredLength">178.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="measuredLengthFt">5.84 ft</span>
-                        </div>
-                    </div>
-
-                    <!-- Formula Box -->
-                    <div class="formula-box">
-                        <div class="formula-title">Mathematical Formulas (Derived from Row 34)</div>
-                        <div>Raw Calculated = (Desired Throw (A1) × 2) + (Depower Move (B7) / Depower Ratio (B8)) + Depower Line Tail (A4) + Splice Loop Length (A3) + Upper Block Height (B6)</div>
-                        <div style="margin-top: 0.25rem;">Measured Finished = Raw Calculated - Depower Line Tail (A4) - Upper Block Height (B6) - Cleat Length (B2)</div>
-                    </div>
-
-                    <!-- Build Guidance Box -->
-                    <div class="guidance-box">
-                        <div class="guidance-icon">💡</div>
-                        <div class="guidance-text">
-                            <h4>Cutting Recommendation</h4>
-                            <p>For your current settings, cut a sheeting line of **185 cm** (about 6.07 ft). Splice the loop end first, assemble it on the bar, and pull it through the cleat. Then trim off the excess tail down to your target tail length.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Bungee & Bungee Line Sizing -->
-                <div class="calc-card" id="card-bungee">
-                    <div class="card-header">
-                        <h3>Bungee & Steering Leader Lines <span class="section-badge">A1, B1, B2, B5, B7, C1, C2</span></h3>
-                        <p>Calculates dimensions for the steering leader lines inside the bar ends (runs inside Bar B1) and the internal elastic bungee core.</p>
-                    </div>
-
-                    <div class="results-container">
-                        <!-- Bungee Core Length -->
-                        <div class="result-tile" id="tile-bungee-len">
-                            <span class="result-label">Bungee Core (2.5mm)</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="bungeeLength">32.5</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="bungeeLengthFt">1.07 ft</span>
-                        </div>
-
-                        <!-- Leader Line Raw -->
-                        <div class="result-tile" id="tile-leader-raw">
-                            <span class="result-label">Leader Line Raw Cut</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="leaderRaw">174.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="leaderRawFt">5.71 ft</span>
-                        </div>
-
-                        <!-- Leader Line Finished -->
-                        <div class="result-tile" id="tile-leader-fin">
-                            <span class="result-label">Leader Line Finished</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="leaderFinished">169.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="leaderFinishedFt">5.54 ft</span>
-                        </div>
-
-                        <!-- Bungee Line Raw -->
-                        <div class="result-tile" id="tile-bungee-raw">
-                            <span class="result-label">Bungee Line Raw Cut</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="bungeeLineRaw">242.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="bungeeLineRawFt">7.94 ft</span>
-                        </div>
-
-                        <!-- Bungee Line Finished -->
-                        <div class="result-tile" id="tile-bungee-fin">
-                            <span class="result-label">Bungee Line Finished</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="bungeeLineFinished">171.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="bungeeLineFinishedFt">5.61 ft</span>
-                        </div>
-                    </div>
-
-                    <!-- Formula Box -->
-                    <div class="formula-box">
-                        <div class="formula-title">Mathematical Formulas (Derived from Rows 15-25, 36-37, 40)</div>
-                        <div>Bungee Core Length = Depower Move (B7) × Bungee Stretch (130%)</div>
-                        <div style="margin-top: 0.25rem;">Leader Line Raw Cut = (Desired Throw (A1) + Depower Move (B7) + Leader Adjustment (C2)) × (1 + Leader Splicing Shrink (C1)) + Leader Adjustment (C2)</div>
-                        <div style="margin-top: 0.25rem;">Leader Line Finished = Leader Line Raw Cut - (2 × Leader Splice Loop (2.5cm)) [runs inside Bar (B1)]</div>
-                        <div style="margin-top: 0.25rem;">Bungee Line Raw Cut = (Leader Line Finished (B1) - Block Diameter (B5) - Cleat Length (B2)) / (1 - Bungee Insert Shrinkage (33%))</div>
-                        <div style="margin-top: 0.25rem;">Bungee Line Finished = Leader Line Finished (B1) + Knot Length (2cm)</div>
-                    </div>
-
-                    <!-- Build Guidance Box -->
-                    <div class="guidance-box">
-                        <div class="guidance-icon">💡</div>
-                        <div class="guidance-text">
-                            <h4>Build Recommendation</h4>
-                            <p>To tension the steering lines, cut a bungee line of **150 cm** (5 ft). Insert a **32 cm** bungee elastic core inside it. The insertion causes the line to shrink from 242 cm down to 171 cm finished length.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Pigtails Sizing -->
-                <div class="calc-card" id="card-pigtails">
-                    <div class="card-header">
-                        <h3>Steering & Power Pigtails <span class="section-badge">C3, C4</span></h3>
-                        <p>Calculates raw cutting targets for Dyneema pigtails (connects above Upper Block (B5/B6) and Steering Leader (B1)).</p>
-                    </div>
-
-                    <div class="results-container">
-                        <!-- Steering Pigtail -->
-                        <div class="result-tile" id="tile-pig-steer">
-                            <span class="result-label">Steering Pigtail (Loop-to-Loop)</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="pigtailSteering">77.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="pigtailSteeringFt">2.53 ft</span>
-                            <span class="result-label" style="margin-top: 0.25rem; font-size: 0.65rem;">Suggested Cut: 100 cm (3 ft)</span>
-                        </div>
-
-                        <!-- Power Pigtail -->
-                        <div class="result-tile" id="tile-pig-power">
-                            <span class="result-label">Power Pigtail (Loop-to-Knot)</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="pigtailPower">94.0</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="pigtailPowerFt">3.08 ft</span>
-                            <span class="result-label" style="margin-top: 0.25rem; font-size: 0.65rem;">Suggested Cut: 124 cm (4 ft)</span>
-                        </div>
-                    </div>
-
-                    <!-- Formula Box -->
-                    <div class="formula-box">
-                        <div class="formula-title">Mathematical Formulas (Derived from Rows 51-59)</div>
-                        <div>Splicing Bury = Rope Diameter (0.25cm) × Splicing Bury Ratio (C3) = 12.5 cm</div>
-                        <div style="margin-top: 0.25rem;">Steering Pigtail Raw Cut = Pigtail Finished Length (C4) + 2 × Splicing Bury × (1 + Splicing Shrinkage (20%)) + Loop Knot Length (4cm) + Steering Loop Length (3cm)</div>
-                        <div style="margin-top: 0.25rem;">Power Pigtail Raw Cut = Pigtail Finished Length (C4) + 2 × Splicing Bury × (1 + Splicing Shrinkage (20%)) + Power Adjustment Length (20cm) + Power Loop Length (4cm)</div>
-                    </div>
-
-                    <!-- Build Guidance Box -->
-                    <div class="guidance-box">
-                        <div class="guidance-icon">💡</div>
-                        <div class="guidance-text">
-                            <h4>Build Recommendation</h4>
-                            <p>For Steering pigtails, cut **100 cm** of 2.5mm Dyneema. For Adjustable Power pigtails, cut **124 cm**. Splicing a 12.5 cm bury at each loop ensures maximum strength.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Sourcing & Hardware Reference -->
-                <div class="calc-card" id="card-hardware">
-                    <div class="card-header">
-                        <h3>Chafe Sleeve, Power Leader & Accessories <span class="section-badge">A1, A3, B1, B2, B6, B7</span></h3>
-                        <p>Calculates the chafe sleeve (runs over Throw (A1)), power leader line (runs from Cleat (B2) to Upper Block (B6)), and lists required accessories.</p>
-                    </div>
-
-                    <div class="results-container">
-                        <!-- Chafe Sleeve -->
-                        <div class="result-tile" id="tile-chafe">
-                            <span class="result-label">Chafe Sleeve (ID 4-6mm)</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="chafeSleeve">88.2</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="chafeSleeveFt">2.89 ft</span>
-                            <span class="result-label" style="margin-top: 0.25rem; font-size: 0.65rem;" id="chafeSleeveCutDisplay">Cut Target: 94 cm</span>
-                        </div>
-
-                        <!-- Power Leader -->
-                        <div class="result-tile" id="tile-power-leader">
-                            <span class="result-label">Power Leader Line</span>
-                            <div class="result-value-row">
-                                <span class="result-value" id="powerLeader">230.5</span>
-                                <span class="result-unit">cm</span>
-                            </div>
-                            <span class="result-value-alt" id="powerLeaderFt">7.56 ft</span>
-                            <span class="result-label" style="margin-top: 0.25rem; font-size: 0.65rem;">Cut Target: 230.5 cm</span>
-                        </div>
-                    </div>
-
-                    <!-- Accessories & Sourcing Details -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
-                        <div class="formula-box" style="margin-top: 0;">
-                            <div class="formula-title">Camera Spacing from V-Splitter</div>
-                            <div>• Insta360 / 360 Cameras: <strong>20 cm</strong> (8 in)</div>
-                            <div style="margin-top: 0.25rem;">• GoPro / Action Cameras: <strong>61 cm</strong> (2 ft)</div>
-                        </div>
-                        <div class="formula-box" style="margin-top: 0;">
-                            <div class="formula-title">Accessory Bungees & Tubes</div>
-                            <div>• QR Bungee (4mm bolts): <strong>35 cm</strong> (cut)</div>
-                            <div style="margin-top: 0.25rem;">• Bungee for 65mm end (OD 24 bar): <strong>30 cm</strong></div>
-                            <div style="margin-top: 0.25rem;">• PU Tube length (OD 24 bar): <strong>100 mm</strong></div>
-                        </div>
-                    </div>
-
-                    <!-- Formula Box -->
-                    <div class="formula-box">
-                        <div class="formula-title">Mathematical Formulas (Derived from Rows 26-27, 34, 41)</div>
-                        <div>Chafe Sleeve Raw Length = Desired Throw (A1) × (1 + Sleeve Shrink (28%)) + Sleeve Bury (5cm)</div>
-                        <div style="margin-top: 0.25rem;">Chafe Sleeve Cut Target = Desired Throw (A1) + Depower Move (B7) + Splice Loop Length (A3)</div>
-                        <div>Power Leader Line = Desired Throw (A1) + Leader Line Finished (B1) + Block Height (B6) - Cleat Length (B2)</div>
-                    </div>
-                </div>
-            </div>
+    <!-- 2. MIDDLE COLUMN: calculation outputs -->
+    <div class="main-content">
+        <div class="main-header">
+            <h1>TPKB Rigging & Splicing Calculator</h1>
+            <p>Unified dimensions calculator for sheeting lines, safety cores, steering leaders, and pigtails. Hover over values to view them in the right-side diagrams.</p>
         </div>
 
-        <!-- Diagram Panel (Schematic) -->
-        <div class="diagram-panel">
-            <div class="diagram-title">Line Routing Schematic</div>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <!-- Card 1: Sheeting & Chafe Sleeve -->
+            <div class="calc-card" id="card-sheeting">
+                <div class="card-header">
+                    <h3>Sheeting Line & Chafe Sleeve <span class="section-badge">Group A, B</span></h3>
+                    <p>Calculates the physical line length and the target finished/measured length of the 4.0mm sheeting line and protective sleeve.</p>
+                </div>
+                <div class="results-container">
+                    <div class="result-tile" id="tile-sheeting-raw">
+                        <span class="result-label">Sheeting Line Raw Calculated</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="sheetingRawVal">195.5</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="sheetingRawValFt">6.41 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-sheeting-fin">
+                        <span class="result-label">Sheeting Line Measured Finished</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="sheetingFinishedVal">178.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="sheetingFinishedValFt">5.84 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-chafe-raw">
+                        <span class="result-label">Chafe Sleeve Raw Length</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="chafeRawVal">88.2</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="chafeRawValFt">2.89 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-chafe-cut">
+                        <span class="result-label">Chafe Sleeve Cut Target</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="chafeCutVal">94.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="chafeCutValFt">3.08 ft</span>
+                    </div>
+                </div>
+                <div class="formula-box">
+                    <div class="formula-title">Mathematical Formulas</div>
+                    <div>Sheeting Raw = (Throw × 2) + (Depower Move / Depower Ratio) + Line Tail + Splice Loop + Block Height</div>
+                    <div style="margin-top: 0.25rem;">Sheeting Finished = Sheeting Raw - Line Tail - Block Height - Cleat Length</div>
+                    <div style="margin-top: 0.25rem;">Sleeve Raw = Throw × 1.28 + 5 | Sleeve Cut Target = Throw + Depower Move + Splice Loop</div>
+                </div>
+            </div>
+
+            <!-- Card 2: Leader & Safety Lines -->
+            <div class="calc-card" id="card-leaders">
+                <div class="card-header">
+                    <h3>Steering Leaders & Safety Line <span class="section-badge" id="diameter-badge-1">using 3.0mm rope</span></h3>
+                    <p>Calculates leader line values inside bar ends and the safety override line running parallel to the sheeting line.</p>
+                </div>
+                <div class="results-container">
+                    <div class="result-tile" id="tile-leader-raw">
+                        <span class="result-label">Leader Line Raw Cut</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="leaderRawVal">174.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="leaderRawValFt">5.71 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-leader-fin">
+                        <span class="result-label">Leader Line Finished</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="leaderFinVal">169.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="leaderFinValFt">5.54 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-safety-raw">
+                        <span class="result-label">Safety Line Raw Cut</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="safetyRawVal">170.5</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="safetyRawValFt">5.59 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-safety-fin">
+                        <span class="result-label">Safety Line Finished</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="safetyFinVal">153.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="safetyFinValFt">5.02 ft</span>
+                    </div>
+                </div>
+                <div class="formula-box">
+                    <div class="formula-title">Mathematical Formulas</div>
+                    <div>Leader Raw = (Throw + Depower Move + Leader Adjustment) × (1 + Leader Splicing Shrink) + Leader Adjustment</div>
+                    <div style="margin-top: 0.25rem;">Safety Raw = Sheeting Raw - Depower Move (Cleat to Block) [approx. reference]</div>
+                    <div style="margin-top: 0.25rem;">Safety Finished = Sheeting Finished - Depower Move [approx. reference]</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Pigtails Sizing -->
+            <div class="calc-card" id="card-pigtails">
+                <div class="card-header">
+                    <h3>Steering & Power Pigtails <span class="section-badge" id="diameter-badge-2">using 3.0mm rope</span></h3>
+                    <p>Splicing dimensions for pigtail ends based on selected rope diameter.</p>
+                </div>
+                <div class="results-container">
+                    <div class="result-tile" id="tile-steer-pig">
+                        <span class="result-label">Steering Pigtail (Loop-to-Loop)</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="steerPigVal">83.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="steerPigValFt">2.72 ft</span>
+                    </div>
+                    <div class="result-tile" id="tile-power-pig">
+                        <span class="result-label">Power Pigtail (Loop-to-Knot)</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="powerPigVal">100.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt" id="powerPigValFt">3.28 ft</span>
+                    </div>
+                </div>
+                <div class="formula-box">
+                    <div class="formula-title">Mathematical Formulas (Bury = Rope Dia. × 50)</div>
+                    <div>Steering Pigtail = Finished Length (40) + 2 × Bury × (1 + Splicing Shrinkage) + Loop Knot Length (4) + Steering Loop Length (3)</div>
+                    <div style="margin-top: 0.25rem;">Power Pigtail = Finished Length (40) + 2 × Bury × (1 + Splicing Shrinkage) + Power Adjustment (20) + Power Loop Length (4)</div>
+                </div>
+            </div>
+
+            <!-- Card 4: Accessory Reference -->
+            <div class="calc-card" id="card-accessories">
+                <div class="card-header">
+                    <h3>Accessory Bungees & Tubes <span class="section-badge">Static hardware reference</span></h3>
+                    <p>Fixed specifications for bar-end bungees, quick-release safety bungee, and protective tubing.</p>
+                </div>
+                <div class="results-container">
+                    <div class="result-tile" id="tile-bungee-65">
+                        <span class="result-label">Bungee for 65mm end</span>
+                        <div class="result-value-row">
+                            <span class="result-value">30.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt">25cm base + 5cm tail</span>
+                    </div>
+                    <div class="result-tile" id="tile-bungee-100">
+                        <span class="result-label">Bungee for 100mm end</span>
+                        <div class="result-value-row">
+                            <span class="result-value">24.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt">19cm base + 5cm tail</span>
+                    </div>
+                    <div class="result-tile" id="tile-putube">
+                        <span class="result-label">PU Center Tube Length</span>
+                        <div class="result-value-row">
+                            <span class="result-value" id="puTubeVal">100.0</span>
+                            <span class="result-unit">mm</span>
+                        </div>
+                        <span class="result-value-alt">Lined for OD 24mm Bar</span>
+                    </div>
+                    <div class="result-tile" id="tile-bungee-qr">
+                        <span class="result-label">Safety Bungee for QR</span>
+                        <div class="result-value-row">
+                            <span class="result-value">35.0</span>
+                            <span class="result-unit">cm</span>
+                        </div>
+                        <span class="result-value-alt">2.5mm elastic core</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 3. RIGHT COLUMN: interactive SVG layout diagrams -->
+    <div class="diagrams-column">
+        
+        <!-- SVG 1: Bar Assembly Routing -->
+        <div class="diagram-section" id="diag-sec-assembly">
+            <div class="diagram-title">Diagram 1: Bar Assembly Routing</div>
             <div class="diagram-container">
-                <svg viewBox="0 0 300 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- SECTION 6: UPPER BLOCK -->
-                    <g id="svg-sec6" class="schematic-item interactive">
-                        <path d="M120 20 h60 v15 a15 15 0 0 1 -15 15 h-30 a15 15 0 0 1 -15 -15 Z" fill="#475569" stroke="#64748b" stroke-width="2" class="schematic-item hardware-fill" />
+                <svg viewBox="0 0 300 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- BACKGROUND MESH -->
+                    <rect x="0" y="0" width="300" height="480" rx="10" fill="#0d1321" />
+                    
+                    <!-- UPPER BLOCK -->
+                    <g id="svg-block" class="schematic-item interactive">
+                        <path d="M120 20 h60 v15 a15 15 0 0 1 -15 15 h-30 a15 15 0 0 1 -15 -15 Z" fill="#475569" stroke="#64748b" stroke-width="1.5" class="schematic-item hardware-fill" />
                         <circle cx="150" cy="35" r="5" fill="#0f172a" />
-                        
-                        <rect x="110" y="3" width="80" height="24" class="label-bg" />
-                        <text x="150" y="15" class="label-text">B5/B6 (Block)</text>
+                        <rect x="110" y="3" width="80" height="15" rx="3" class="label-bg" />
+                        <text x="150" y="11" class="label-text">B5/B6 (Block)</text>
                     </g>
 
-                    <!-- SECTION 5: TRIM ADJUSTMENT LOOPS -->
-                    <g id="svg-sec5" class="schematic-item interactive">
-                        <!-- Upgoing loop line (now on the right) -->
-                        <path d="M165 220 V35" stroke="var(--rope-blue)" stroke-width="3" stroke-linecap="round" class="schematic-item rope-blue" />
-                        <!-- Loop over upper block wheel -->
-                        <path d="M165 35 A 15 15 0 0 0 135 35" stroke="var(--rope-blue)" stroke-width="3" fill="none" class="schematic-item rope-blue" />
-                        <!-- Downgoing loop line (now on the left) -->
-                        <path d="M135 35 V220" stroke="var(--rope-blue)" stroke-width="3" stroke-linecap="round" class="schematic-item rope-blue" />
-                        
-                        <rect x="210" y="110" width="80" height="24" class="label-bg" />
-                        <text x="250" y="122" class="label-text">B7/B8 (Trim)</text>
+                    <!-- CHAFE SLEEVE (Throw area wrapper) -->
+                    <g id="svg-chafe" class="schematic-item interactive">
+                        <rect x="142" y="220" width="16" height="110" rx="4" fill="rgba(148, 163, 184, 0.08)" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 2" />
+                        <rect x="20" y="270" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="55" y="279" class="label-text">Chafe Sleeve</text>
                     </g>
 
-                    <!-- SECTION 4: CLEAT BASE -->
-                    <g id="svg-sec4" class="schematic-item interactive">
-                        <path d="M125 220 h50 v40 a10 10 0 0 1 -10 10 h-30 a10 10 0 0 1 -10 -10 Z" fill="#475569" stroke="#64748b" stroke-width="2" class="schematic-item hardware-fill" />
-                        <circle cx="140" cy="245" r="3" fill="#94a3b8" />
-                        <circle cx="160" cy="245" r="3" fill="#94a3b8" />
-                        
-                        <!-- Smooth routing from center throw to upgoing trim -->
-                        <path d="M150 260 C150 245, 165 235, 165 220" stroke="var(--rope-blue)" stroke-width="3.5" fill="none" class="schematic-item rope-blue" />
-                        
-                        <!-- Sheeting rope tail exiting cleat on the left with handle -->
-                        <path d="M135 220 C135 240, 125 245, 95 255 C85 260, 80 268, 80 273" stroke="var(--rope-blue)" stroke-width="3.5" fill="none" stroke-linecap="round" class="schematic-item rope-blue" />
-                        <rect x="72" y="273" width="16" height="8" rx="2.5" fill="var(--rope-blue)" stroke="#334155" stroke-width="1.5" class="schematic-item rope-blue" />
-                        
-                        <rect x="25" y="233" width="80" height="24" class="label-bg" />
-                        <text x="65" y="245" class="label-text">B2-B4 (Cleat)</text>
+                    <!-- SHEETING LINE (Blue) -->
+                    <g id="svg-sheeting" class="schematic-item interactive">
+                        <!-- Upgoing sheeting rope from center -->
+                        <path d="M147 260 V220 M147 220 V35" stroke="var(--rope-blue)" stroke-width="3" stroke-linecap="round" class="schematic-item rope-blue" />
+                        <path d="M147 35 A 8 8 0 0 0 153 35" stroke="var(--rope-blue)" stroke-width="3" fill="none" class="schematic-item rope-blue" />
+                        <!-- Downgoing sheeting line -->
+                        <path d="M153 35 V220" stroke="var(--rope-blue)" stroke-width="3" stroke-linecap="round" class="schematic-item rope-blue" />
+                        <!-- Sheeting loop below bar -->
+                        <path d="M147 360 V420 C147 430, 153 430, 153 420 V360" stroke="var(--rope-blue)" stroke-width="3.5" fill="none" stroke-linecap="round" class="schematic-item rope-blue" />
+                        <!-- Exiting Tail -->
+                        <path d="M153 220 C153 235, 120 240, 100 245" stroke="var(--rope-blue)" stroke-width="2.5" fill="none" stroke-linecap="round" class="schematic-item rope-blue" />
+                        <rect x="90" y="242" width="10" height="6" rx="1.5" fill="var(--rope-blue)" />
                     </g>
 
-                    <!-- SECTION 1: BAR THROW LINE -->
-                    <g id="svg-sec1" class="schematic-item interactive">
-                        <!-- Single centered throw line -->
-                        <path d="M150 260 V380" stroke="var(--rope-blue)" stroke-width="4" stroke-linecap="round" class="schematic-item rope-blue" />
-                        
-                        <rect x="25" y="315" width="80" height="24" class="label-bg" />
-                        <text x="65" y="327" class="label-text">A1 (Throw)</text>
+                    <!-- SAFETY LINE (Orange) -->
+                    <g id="svg-safety" class="schematic-item interactive">
+                        <!-- Safety Line running parallel to sheeting line -->
+                        <path d="M157 435 V325 M157 325 V220 M157 220 V45" stroke="var(--rope-orange)" stroke-width="2" stroke-linecap="round" class="schematic-item rope-orange" />
+                        <!-- Knot above the bar throw -->
+                        <circle cx="157" cy="45" r="3" fill="var(--rope-orange)" class="schematic-item rope-orange" />
+                        <rect x="210" y="130" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="245" y="139" class="label-text">Safety Line</text>
                     </g>
 
-                    <!-- SECTION 2: BAR & CENTER PIECE -->
-                    <g id="svg-sec2" class="schematic-item interactive">
-                        <!-- Control Bar body (grip) -->
-                        <path d="M10 380 h280 v30 h-280 Z" fill="#1e293b" stroke="#334155" stroke-width="2" class="schematic-item" />
-                        <!-- Central Piece snapping part -->
-                        <path d="M130 375 h40 v40 h-40 Z" fill="#475569" stroke="#64748b" stroke-width="2" class="schematic-item hardware-fill" />
-                        
-                        <rect x="210" y="383" width="80" height="24" class="label-bg" />
-                        <text x="250" y="395" class="label-text">B1 (Bar)</text>
+                    <!-- CLEAT BASE -->
+                    <g id="svg-cleat" class="schematic-item interactive">
+                        <rect x="135" y="210" width="30" height="15" rx="3" fill="#475569" stroke="#64748b" stroke-width="1.5" class="schematic-item hardware-fill" />
+                        <rect x="210" y="208" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="245" y="217" class="label-text">B2-B4 (Cleat)</text>
                     </g>
 
-                    <!-- SECTION 3: LOOP BELOW BAR (CHICKEN LOOP ATTACHMENT) -->
-                    <g id="svg-sec3" class="schematic-item interactive">
-                        <!-- Loop connection - forming the single continuous rope loop -->
-                        <path d="M150 380 V435" stroke="var(--rope-blue)" stroke-width="4" stroke-linecap="round" class="schematic-item rope-blue" />
-                        <path d="M150 435 C150 435, 162 445, 162 460 C162 475, 138 475, 138 460 C138 445, 150 435, 150 435" stroke="var(--rope-blue)" stroke-width="4" fill="none" stroke-linecap="round" class="schematic-item rope-blue" />
-                        
-                        <rect x="25" y="445" width="80" height="24" class="label-bg" />
-                        <text x="65" y="457" class="label-text">A2/A3 (Loop)</text>
+                    <!-- PU TUBE (Inside bar center) -->
+                    <g id="svg-putube" class="schematic-item interactive">
+                        <!-- Tube covering center hole -->
+                        <rect x="144" y="325" width="12" height="35" rx="2" fill="rgba(248, 250, 252, 0.25)" stroke="#f8fafc" stroke-width="1" class="schematic-item" />
+                        <rect x="20" y="325" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="55" y="334" class="label-text">PU Tube</text>
                     </g>
 
-                    <!-- RED LINE: STEERING LEADER & PIGTAIL (ON THE RIGHT SIDE) -->
-                    <g id="svg-pigtail" class="schematic-item interactive">
-                        <!-- Bungee loop at the bottom of the bar end (reduced size by 60%) -->
-                        <path d="M265 410 v15 c0 5 -15 5 -15 0 v-15" stroke="var(--rope-red)" stroke-width="3" fill="none" class="schematic-item rope-red" />
-                        
-                        <!-- Leader Line routing up through the bar end -->
-                        <path d="M265 380 V209" stroke="var(--rope-red)" stroke-width="3" fill="none" class="schematic-item rope-red" />
-                        
-                        <!-- Interlocking loop-to-loop connector shape (red) -->
-                        <ellipse cx="265" cy="204" rx="3.5" ry="5.5" stroke="var(--rope-red)" stroke-width="2.5" fill="none" class="schematic-item rope-red" />
-                        <ellipse cx="265" cy="197" rx="5.5" ry="3.5" stroke="var(--rope-red)" stroke-width="2.5" fill="none" class="schematic-item rope-red" />
-                        
-                        <!-- Pigtail loop above the bar reaching to the top of the block -->
-                        <path d="M265 193.5 V40 c0 -8 10 -8 10 0 V193.5" stroke="var(--rope-red)" stroke-width="2.5" fill="none" stroke-linecap="round" class="schematic-item rope-red" />
+                    <!-- BAR BODY -->
+                    <g id="svg-bar" class="schematic-item interactive">
+                        <!-- Bar tube outline -->
+                        <rect x="20" y="330" width="260" height="25" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5" class="schematic-item" />
+                        <!-- Center piece hole -->
+                        <rect x="140" y="328" width="20" height="29" rx="3" fill="#475569" stroke="#64748b" stroke-width="1.5" class="schematic-item hardware-fill" />
+                        <rect x="210" y="358" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="245" y="367" class="label-text">B1 (Bar)</text>
+                    </g>
+
+                    <!-- LEADER LINES & PIGTAILS (Red, on the right bar end) -->
+                    <g id="svg-leader" class="schematic-item interactive">
+                        <!-- Right bar end connector loop -->
+                        <path d="M275 342 h10 v-60 C285 240, 275 220, 260 210 V190" stroke="var(--rope-red)" stroke-width="2.5" fill="none" stroke-linecap="round" class="schematic-item rope-red" />
+                        <!-- Pigtail connecting loop-to-loop -->
+                        <ellipse cx="260" cy="188" rx="3" ry="5" stroke="var(--rope-red)" stroke-width="2" fill="none" class="schematic-item rope-red" />
+                        <ellipse cx="260" cy="180" rx="5" ry="3" stroke="var(--rope-red)" stroke-width="2" fill="none" class="schematic-item rope-red" />
+                        <!-- Power and Steering line links -->
+                        <path d="M260 178 V60" stroke="var(--rope-red)" stroke-width="2" stroke-linecap="round" class="schematic-item rope-red" />
+                        <rect x="210" y="278" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="245" y="287" class="label-text">Leaders (C4)</text>
+                    </g>
+
+                    <!-- QUICK RELEASE SAFETY -->
+                    <g id="svg-qr" class="schematic-item interactive">
+                        <!-- QR Claw & Ring housing -->
+                        <path d="M125 430 h50 v25 a10 10 0 0 1 -10 10 h-30 a10 10 0 0 1 -10 -10 Z" fill="#475569" stroke="#64748b" stroke-width="1.5" class="schematic-item hardware-fill" />
+                        <circle cx="150" cy="442" r="4" fill="#0f172a" />
+                        <rect x="20" y="430" width="70" height="18" rx="3" class="label-bg" />
+                        <text x="55" y="439" class="label-text">Quick Release</text>
                     </g>
                 </svg>
             </div>
         </div>
+
+        <!-- SVG 2: Bar End for Bungee -->
+        <div class="diagram-section" id="diag-sec-barend">
+            <div class="diagram-title">Diagram 2: Bar End Bungee System</div>
+            <div class="diagram-container">
+                <svg viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="300" height="120" rx="10" fill="#0d1321" />
+                    
+                    <!-- Hollow Bar end cross-section -->
+                    <g class="schematic-item">
+                        <rect x="30" y="35" width="240" height="50" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+                        <rect x="30" y="45" width="220" height="30" fill="#0f172a" />
+                    </g>
+
+                    <!-- Leader Line (Red) -->
+                    <g id="svg-barend-leader" class="schematic-item interactive">
+                        <path d="M10 60 h100" stroke="var(--rope-red)" stroke-width="3" stroke-linecap="round" class="schematic-item rope-red" />
+                        <!-- Leader stopper knot -->
+                        <circle cx="110" cy="60" r="5" fill="var(--rope-red)" class="schematic-item rope-red" />
+                        <text x="65" y="25" class="label-text" fill="var(--rope-red)">Leader Line</text>
+                    </g>
+
+                    <!-- Bungee Core (Green dashed) inside leader line -->
+                    <g id="svg-barend-bungee" class="schematic-item interactive">
+                        <!-- Zigzag or dashed bungee representation -->
+                        <path d="M110 60 h150" stroke="var(--rope-green)" stroke-width="2.5" stroke-dasharray="5 3" class="schematic-item rope-green" />
+                        <!-- Anchor knot -->
+                        <circle cx="260" cy="60" r="5" fill="var(--rope-green)" class="schematic-item rope-green" />
+                        <text x="180" y="105" class="label-text" fill="var(--rope-green)">Internal Bungee Core</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- SVG 3: QR for Bungee -->
+        <div class="diagram-section" id="diag-sec-qr">
+            <div class="diagram-title">Diagram 3: Quick Release Safety Bungee</div>
+            <div class="diagram-container">
+                <svg viewBox="0 0 300 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="300" height="160" rx="10" fill="#0d1321" />
+
+                    <!-- Quick Release Housing Cuff -->
+                    <rect x="110" y="15" width="80" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" class="schematic-item" />
+                    <!-- Release Latch / Claw -->
+                    <rect x="135" y="5" width="30" height="15" rx="2" fill="#475569" stroke="#64748b" stroke-width="1.5" class="schematic-item hardware-fill" />
+
+                    <!-- Safety line path through QR -->
+                    <path d="M150 0 V140" stroke="var(--rope-orange)" stroke-width="2" opacity="0.4" />
+
+                    <!-- QR Bungee core inside the claw (Green dashed) -->
+                    <g id="svg-qr-bungee" class="schematic-item interactive">
+                        <!-- Curved bungee elastic tensioner -->
+                        <path d="M130 55 C130 90, 170 90, 170 55" stroke="var(--rope-green)" stroke-width="3" stroke-dasharray="4 2" fill="none" class="schematic-item rope-green" />
+                        <circle cx="130" cy="55" r="4" fill="var(--rope-green)" />
+                        <circle cx="170" cy="55" r="4" fill="var(--rope-green)" />
+                        <text x="150" y="115" class="label-text" fill="var(--rope-green)">QR Safety Bungee (35cm)</text>
+                    </g>
+
+                    <circle cx="150" cy="28" r="3" fill="#ef4444" />
+                </svg>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Slicing Calculator Engine JS -->
+    <!-- Slicing Engine JS -->
     <script>
-        // System Defaults & User-adjustable fields
+        // System Defaults & Changeable values
         const DEFAULTS = {
             desiredThrow: 65,
             depowerMove: 25,
             outerDiameter: "24"
         };
 
-        // Fixed Design Constants (Not editable by user)
+        // Fixed Design Constants
         const CONSTANTS = {
             depowerRatio: 0.5,
             depowerLineTail: 9,
@@ -1028,39 +1074,33 @@
             cleatLength: 6.0,
             cleatWidth: 1.0,
             cleatHoles: 4,
-            sheetingDiameter: 0.4,
+            sheetingDiameter: 0.4, // 4mm sheeting rope
             spliceLoop: 4.0,
             
-            // Section 2: Bungee Sizing constants
-            bungeeLineDiameter: 0.25,
-            bungeeLineSpliceLoop: 2.5,
-            bungeeStretch: 1.30, // 130%
-            bungeeRelaxedPercent: 0.60, // 60%
-            bungeeOvershoot: 10.0,
-            bungeeInsertShrinkage: 0.33, // 33%
-            
-            // Section 2: Leader Line constants
-            leaderLineDiameter: 0.3,
-            leaderLineSpliceLoop: 2.5,
-            leaderSplicingShrinkage: 0.20, // 20%
+            // Leader / Bungee parameters
+            leaderSplicingShrinkage: 0.20,
             leaderAdjustment: 30.0,
+            leaderLineSpliceLoop: 2.5,
+            bungeeInsertShrinkage: 0.33,
+            bungeeStretch: 1.30,
             
-            // Section 4: Chafe Sleeve constants
-            chafeSleeveBury: 5.0,
-            chafeSleeveShrink: 0.28, // 28%
-            
-            // Section 3: Pigtail Sizing constants
-            pigtailRopeDiameter: 0.25,
+            // Pigtails sizing
             pigtailBuryRatio: 50,
             pigtailFinishedLength: 40.0,
             steeringLoopLength: 3.0,
             loopKnotLength: 4.0,
             powerLoopLength: 4.0,
             powerAdjustment: 20.0,
-            pigtailSplicingShrinkage: 0.20 // 20%
+            pigtailSplicingShrinkage: 0.20,
+            
+            // Chafe sleeve
+            chafeSleeveShrink: 0.28,
+            chafeSleeveBury: 5.0
         };
 
-        // Sync range inputs with number inputs
+        const CM_TO_FT = 0.0328084;
+
+        // Sync inputs
         function setupSync(numId, sliderId, displayId, unit) {
             const num = document.getElementById(numId);
             const slider = document.getElementById(sliderId);
@@ -1082,11 +1122,9 @@
 
         setupSync('desiredThrow', 'desiredThrowSlider', 'desiredThrowVal', 'cm');
         setupSync('depowerMove', 'depowerMoveSlider', 'depowerMoveVal', 'cm');
-
-        // Other input events
         document.getElementById('outerDiameter').addEventListener('change', calculate);
 
-        // Reset to defaults function
+        // Reset
         document.getElementById('resetBtn').addEventListener('click', () => {
             for (const [id, val] of Object.entries(DEFAULTS)) {
                 const el = document.getElementById(id);
@@ -1103,227 +1141,156 @@
             calculate();
         });
 
-        // Conversion Factor
-        const CM_TO_FT = 0.0328084;
-
+        // Main Calculation Function
         function calculate() {
-            // Inputs
+            // Adjustable Inputs
             const desiredThrow = parseFloat(document.getElementById('desiredThrow').value) || 0;
             const depowerMove = parseFloat(document.getElementById('depowerMove').value) || 0;
-            const outerDiameter = parseFloat(document.getElementById('outerDiameter').value) || 24; // in mm
+            const outerDiameter = parseFloat(document.getElementById('outerDiameter').value) || 24;
 
-            // Constants
-            const depowerRatio = CONSTANTS.depowerRatio;
-            const depowerLineTail = CONSTANTS.depowerLineTail;
-            const blockHeight = CONSTANTS.blockHeight;
-            const cleatLength = CONSTANTS.cleatLength;
-            const spliceLoop = CONSTANTS.spliceLoop;
-            const blockDiameter = CONSTANTS.blockDiameter;
-            const bungeeStretch = CONSTANTS.bungeeStretch;
-            const leaderAdjustment = CONSTANTS.leaderAdjustment;
-            const leaderSplicingShrinkage = CONSTANTS.leaderSplicingShrinkage;
-            const leaderLineSpliceLoop = CONSTANTS.leaderLineSpliceLoop;
-            const bungeeInsertShrinkage = CONSTANTS.bungeeInsertShrinkage;
-            const pigtailRopeDiameter = CONSTANTS.pigtailRopeDiameter;
-            const pigtailBuryRatio = CONSTANTS.pigtailBuryRatio;
-            const pigtailFinishedLength = CONSTANTS.pigtailFinishedLength;
-            const steeringLoopLength = CONSTANTS.steeringLoopLength;
-            const powerLoopLength = CONSTANTS.powerLoopLength;
-            const powerAdjustment = CONSTANTS.powerAdjustment;
-            const chafeSleeveShrink = CONSTANTS.chafeSleeveShrink;
-            const chafeSleeveBury = CONSTANTS.chafeSleeveBury;
+            // Rope selection rules based on Bar OD
+            const is22mm = (outerDiameter === 22);
+            const leaderRopeDiameter = is22mm ? 0.25 : 0.30; // 2.5mm vs 3mm
+            const ropeLabel = is22mm ? "2.5mm" : "3.0mm";
 
-            // 1. Sheeting Line Calculations
-            const rawLength = (desiredThrow * 2) + (depowerMove / depowerRatio) + depowerLineTail + spliceLoop + blockHeight;
-            const finishedLength = rawLength - depowerLineTail - blockHeight - cleatLength;
+            // Update badges in UI cards
+            document.getElementById('diameter-badge-1').innerText = `using ${ropeLabel} rope`;
+            document.getElementById('diameter-badge-2').innerText = `using ${ropeLabel} rope`;
+            document.getElementById('puTubeVal').innerText = is22mm ? "100.0" : "100.0"; // both are 100mm but keeps context
 
-            // Display Sheeting Line
-            document.getElementById('calcRawLength').innerText = rawLength.toFixed(1);
-            document.getElementById('calcRawLengthFt').innerText = `${(rawLength * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('measuredLength').innerText = finishedLength.toFixed(1);
-            document.getElementById('measuredLengthFt').innerText = `${(finishedLength * CM_TO_FT).toFixed(2)} ft`;
+            // Calculations
+            // 1. Sheeting Line
+            const sheetingRaw = (desiredThrow * 2) + (depowerMove / CONSTANTS.depowerRatio) + CONSTANTS.depowerLineTail + CONSTANTS.spliceLoop + CONSTANTS.blockHeight;
+            const sheetingFinished = sheetingRaw - CONSTANTS.depowerLineTail - CONSTANTS.blockHeight - CONSTANTS.cleatLength;
 
-            // 2. Bungee & Steering Leader Lines Calculations
-            const bungeeLen = depowerMove * bungeeStretch;
-            const leaderRawVal = (desiredThrow + depowerMove + leaderAdjustment) * (1 + leaderSplicingShrinkage) + leaderAdjustment;
-            const leaderFinishedVal = leaderRawVal - (2 * leaderLineSpliceLoop);
-            const bungeeLineRawVal = (leaderFinishedVal - blockDiameter - cleatLength) / (1 - bungeeInsertShrinkage);
-            const bungeeLineFinishedVal = leaderFinishedVal + 2; // Knot Length is 2cm
+            document.getElementById('sheetingRawVal').innerText = sheetingRaw.toFixed(1);
+            document.getElementById('sheetingRawValFt').innerText = `${(sheetingRaw * CM_TO_FT).toFixed(2)} ft`;
+            document.getElementById('sheetingFinishedVal').innerText = sheetingFinished.toFixed(1);
+            document.getElementById('sheetingFinishedValFt').innerText = `${(sheetingFinished * CM_TO_FT).toFixed(2)} ft`;
 
-            // Display Bungee & Leader
-            document.getElementById('bungeeLength').innerText = bungeeLen.toFixed(1);
-            document.getElementById('bungeeLengthFt').innerText = `${(bungeeLen * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('leaderRaw').innerText = leaderRawVal.toFixed(1);
-            document.getElementById('leaderRawFt').innerText = `${(leaderRawVal * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('leaderFinished').innerText = leaderFinishedVal.toFixed(1);
-            document.getElementById('leaderFinishedFt').innerText = `${(leaderFinishedVal * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('bungeeLineRaw').innerText = bungeeLineRawVal.toFixed(1);
-            document.getElementById('bungeeLineRawFt').innerText = `${(bungeeLineRawVal * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('bungeeLineFinished').innerText = bungeeLineFinishedVal.toFixed(1);
-            document.getElementById('bungeeLineFinishedFt').innerText = `${(bungeeLineFinishedVal * CM_TO_FT).toFixed(2)} ft`;
+            // 2. Chafe Sleeve
+            const chafeRaw = desiredThrow * (1 + CONSTANTS.chafeSleeveShrink) + CONSTANTS.chafeSleeveBury;
+            const chafeCut = desiredThrow + depowerMove + CONSTANTS.spliceLoop;
 
-            // 3. Pigtails Calculations
-            const pigtailBury = pigtailRopeDiameter * pigtailBuryRatio; // 12.5 cm
-            const steeringPigtailVal = pigtailFinishedLength + (2 * pigtailBury * (1 + pigtailSplicingShrinkage)) + loopKnotLength + steeringLoopLength;
-            const powerPigtailVal = pigtailFinishedLength + (2 * pigtailBury * (1 + pigtailSplicingShrinkage)) + powerAdjustment + powerLoopLength;
+            document.getElementById('chafeRawVal').innerText = chafeRaw.toFixed(1);
+            document.getElementById('chafeRawValFt').innerText = `${(chafeRaw * CM_TO_FT).toFixed(2)} ft`;
+            document.getElementById('chafeCutVal').innerText = chafeCut.toFixed(1);
+            document.getElementById('chafeCutValFt').innerText = `${(chafeCut * CM_TO_FT).toFixed(2)} ft`;
 
-            // Display Pigtails
-            document.getElementById('pigtailSteering').innerText = steeringPigtailVal.toFixed(1);
-            document.getElementById('pigtailSteeringFt').innerText = `${(steeringPigtailVal * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('pigtailPower').innerText = powerPigtailVal.toFixed(1);
-            document.getElementById('pigtailPowerFt').innerText = `${(powerPigtailVal * CM_TO_FT).toFixed(2)} ft`;
+            // 3. Leader Lines
+            const leaderRaw = (desiredThrow + depowerMove + CONSTANTS.leaderAdjustment) * (1 + CONSTANTS.leaderSplicingShrinkage) + CONSTANTS.leaderAdjustment;
+            const leaderFinished = leaderRaw - (2 * CONSTANTS.leaderLineSpliceLoop);
 
-            // 4. Chafe Sleeve & Power Leader Calculations
-            const chafeSleeveVal = desiredThrow * (1 + chafeSleeveShrink) + chafeSleeveBury;
-            const chafeSleeveCutTarget = desiredThrow + depowerMove + spliceLoop;
-            const powerLeaderVal = desiredThrow + leaderFinishedVal + blockHeight - cleatLength;
+            document.getElementById('leaderRawVal').innerText = leaderRaw.toFixed(1);
+            document.getElementById('leaderRawValFt').innerText = `${(leaderRaw * CM_TO_FT).toFixed(2)} ft`;
+            document.getElementById('leaderFinVal').innerText = leaderFinished.toFixed(1);
+            document.getElementById('leaderFinValFt').innerText = `${(leaderFinished * CM_TO_FT).toFixed(2)} ft`;
 
-            // Display Chafe Sleeve & Power Leader
-            document.getElementById('chafeSleeve').innerText = chafeSleeveVal.toFixed(1);
-            document.getElementById('chafeSleeveFt').innerText = `${(chafeSleeveVal * CM_TO_FT).toFixed(2)} ft`;
-            document.getElementById('chafeSleeveCutDisplay').innerText = `Cut Target: ${chafeSleeveCutTarget.toFixed(0)} cm`;
-            document.getElementById('powerLeader').innerText = powerLeaderVal.toFixed(1);
-            document.getElementById('powerLeaderFt').innerText = `${(powerLeaderVal * CM_TO_FT).toFixed(2)} ft`;
+            // 4. Safety Line (approx sheeting minus depower length)
+            const safetyRaw = sheetingRaw - depowerMove;
+            const safetyFinished = sheetingFinished - depowerMove;
+
+            document.getElementById('safetyRawVal').innerText = safetyRaw.toFixed(1);
+            document.getElementById('safetyRawValFt').innerText = `${(safetyRaw * CM_TO_FT).toFixed(2)} ft`;
+            document.getElementById('safetyFinVal').innerText = safetyFinished.toFixed(1);
+            document.getElementById('safetyFinValFt').innerText = `${(safetyFinished * CM_TO_FT).toFixed(2)} ft`;
+
+            // 5. Pigtails (splicing bury is dynamic based on rope diameter)
+            const pigtailBury = leaderRopeDiameter * CONSTANTS.pigtailBuryRatio; // 12.5cm or 15.0cm
+            const steerPig = CONSTANTS.pigtailFinishedLength + 2 * pigtailBury * (1 + CONSTANTS.pigtailSplicingShrinkage) + CONSTANTS.loopKnotLength + CONSTANTS.steeringLoopLength;
+            const powerPig = CONSTANTS.pigtailFinishedLength + 2 * pigtailBury * (1 + CONSTANTS.pigtailSplicingShrinkage) + CONSTANTS.powerAdjustment + CONSTANTS.powerLoopLength;
+
+            document.getElementById('steerPigVal').innerText = steerPig.toFixed(1);
+            document.getElementById('steerPigValFt').innerText = `${(steerPig * CM_TO_FT).toFixed(2)} ft`;
+            document.getElementById('powerPigVal').innerText = powerPig.toFixed(1);
+            document.getElementById('powerPigValFt').innerText = `${(powerPig * CM_TO_FT).toFixed(2)} ft`;
         }
 
-        // --- Interactive SVG Highlighting Mechanics ---
-        function attachHighlight(triggerEl, svgGroupId) {
-            const el = document.getElementById(triggerEl);
-            const group = document.getElementById(svgGroupId);
+        // --- HOVER INTERACTIVE ACTIONS ---
+        function wireHighlight(cardId, tileId, svgGroupIds, diagSecIds) {
+            const card = document.getElementById(cardId);
+            const tile = document.getElementById(tileId);
 
-            if (el && group) {
-                el.addEventListener('mouseenter', () => {
-                    group.classList.add('highlighted');
-                    el.classList.add('highlighted');
+            function add() {
+                if (card) card.classList.add('highlighted');
+                if (tile) tile.classList.add('highlighted');
+                svgGroupIds.forEach(id => {
+                    const g = document.getElementById(id);
+                    if (g) g.classList.add('highlighted');
                 });
-                el.addEventListener('mouseleave', () => {
-                    group.classList.remove('highlighted');
-                    el.classList.remove('highlighted');
-                });
-                // Also highlight corresponding sidebar item on SVG group hover
-                group.addEventListener('mouseenter', () => {
-                    group.classList.add('highlighted');
-                    el.classList.add('highlighted');
-                });
-                group.addEventListener('mouseleave', () => {
-                    group.classList.remove('highlighted');
-                    el.classList.remove('highlighted');
+                diagSecIds.forEach(id => {
+                    const sec = document.getElementById(id);
+                    if (sec) sec.classList.add('highlighted');
                 });
             }
-        }
 
-        // Bind sidebar inputs to SVG groups
-        attachHighlight('group-throw', 'svg-sec1');
-        attachHighlight('group-move', 'svg-sec5');
-        attachHighlight('group-diameter', 'svg-sec2');
-
-        // Bind constant rows to SVG groups
-        attachHighlight('row-ratio', 'svg-sec5');
-        attachHighlight('row-tail', 'svg-sec4');
-        attachHighlight('row-block-diam', 'svg-sec6');
-        attachHighlight('row-block-height', 'svg-sec6');
-        attachHighlight('row-cleat-len', 'svg-sec4');
-        attachHighlight('row-cleat-wid', 'svg-sec4');
-        attachHighlight('row-holes', 'svg-sec4');
-        attachHighlight('row-sheeting-diam', 'svg-sec3');
-        attachHighlight('row-loop-len', 'svg-sec3');
-
-        // Bind new splicing spec constant rows to steering line SVG group
-        attachHighlight('row-leader-shrink', 'svg-pigtail');
-        attachHighlight('row-leader-adj', 'svg-pigtail');
-        attachHighlight('row-pigtail-bury', 'svg-pigtail');
-        attachHighlight('row-pigtail-len', 'svg-pigtail');
-
-        // Bind main outputs cards to respective SVG groups
-        const cardSheeting = document.getElementById('card-sheeting');
-        if (cardSheeting) {
-            cardSheeting.addEventListener('mouseenter', () => {
-                document.getElementById('svg-sec1').classList.add('highlighted');
-                document.getElementById('svg-sec3').classList.add('highlighted');
-                document.getElementById('svg-sec4').classList.add('highlighted');
-                document.getElementById('svg-sec5').classList.add('highlighted');
-                document.getElementById('svg-sec6').classList.add('highlighted');
-            });
-            cardSheeting.addEventListener('mouseleave', () => {
-                document.getElementById('svg-sec1').classList.remove('highlighted');
-                document.getElementById('svg-sec3').classList.remove('highlighted');
-                document.getElementById('svg-sec4').classList.remove('highlighted');
-                document.getElementById('svg-sec5').classList.remove('highlighted');
-                document.getElementById('svg-sec6').classList.remove('highlighted');
-            });
-        }
-
-        const cardBungee = document.getElementById('card-bungee');
-        if (cardBungee) {
-            cardBungee.addEventListener('mouseenter', () => {
-                document.getElementById('svg-pigtail').classList.add('highlighted');
-                document.getElementById('svg-sec2').classList.add('highlighted');
-            });
-            cardBungee.addEventListener('mouseleave', () => {
-                document.getElementById('svg-pigtail').classList.remove('highlighted');
-                document.getElementById('svg-sec2').classList.remove('highlighted');
-            });
-        }
-
-        const cardPigtails = document.getElementById('card-pigtails');
-        if (cardPigtails) {
-            cardPigtails.addEventListener('mouseenter', () => {
-                document.getElementById('svg-pigtail').classList.add('highlighted');
-            });
-            cardPigtails.addEventListener('mouseleave', () => {
-                document.getElementById('svg-pigtail').classList.remove('highlighted');
-            });
-        }
-
-        const cardHardware = document.getElementById('card-hardware');
-        if (cardHardware) {
-            cardHardware.addEventListener('mouseenter', () => {
-                document.getElementById('svg-sec1').classList.add('highlighted');
-                document.getElementById('svg-sec4').classList.add('highlighted');
-                document.getElementById('svg-sec6').classList.add('highlighted');
-            });
-            cardHardware.addEventListener('mouseleave', () => {
-                document.getElementById('svg-sec1').classList.remove('highlighted');
-                document.getElementById('svg-sec4').classList.remove('highlighted');
-                document.getElementById('svg-sec6').classList.remove('highlighted');
-            });
-        }
-
-        // Helper to bind individual result tiles to SVG groups
-        function attachTileHighlight(tileId, svgGroupIds) {
-            const tile = document.getElementById(tileId);
-            if (!tile) return;
-            
-            tile.addEventListener('mouseenter', () => {
-                tile.classList.add('highlighted');
+            function remove() {
+                if (card) card.classList.remove('highlighted');
+                if (tile) tile.classList.remove('highlighted');
                 svgGroupIds.forEach(id => {
-                    const group = document.getElementById(id);
-                    if (group) group.classList.add('highlighted');
+                    const g = document.getElementById(id);
+                    if (g) g.classList.remove('highlighted');
+                });
+                diagSecIds.forEach(id => {
+                    const sec = document.getElementById(id);
+                    if (sec) sec.classList.remove('highlighted');
+                });
+            }
+
+            if (tile) {
+                tile.addEventListener('mouseenter', add);
+                tile.addEventListener('mouseleave', remove);
+            }
+            svgGroupIds.forEach(id => {
+                const g = document.getElementById(id);
+                if (g) {
+                    g.addEventListener('mouseenter', add);
+                    g.addEventListener('mouseleave', remove);
+                }
+            });
+        }
+
+        // Connect tiles to respective SVG Groups and Diagram Cards
+        wireHighlight('card-sheeting', 'tile-sheeting-raw', ['svg-sheeting'], ['diag-sec-assembly']);
+        wireHighlight('card-sheeting', 'tile-sheeting-fin', ['svg-sheeting'], ['diag-sec-assembly']);
+        wireHighlight('card-sheeting', 'tile-chafe-raw', ['svg-chafe'], ['diag-sec-assembly']);
+        wireHighlight('card-sheeting', 'tile-chafe-cut', ['svg-chafe'], ['diag-sec-assembly']);
+
+        wireHighlight('card-leaders', 'tile-leader-raw', ['svg-leader', 'svg-barend-leader'], ['diag-sec-assembly', 'diag-sec-barend']);
+        wireHighlight('card-leaders', 'tile-leader-fin', ['svg-leader', 'svg-barend-leader'], ['diag-sec-assembly', 'diag-sec-barend']);
+        wireHighlight('card-leaders', 'tile-safety-raw', ['svg-safety'], ['diag-sec-assembly']);
+        wireHighlight('card-leaders', 'tile-safety-fin', ['svg-safety'], ['diag-sec-assembly']);
+
+        wireHighlight('card-pigtails', 'tile-steer-pig', ['svg-leader'], ['diag-sec-assembly']);
+        wireHighlight('card-pigtails', 'tile-power-pig', ['svg-leader'], ['diag-sec-assembly']);
+
+        wireHighlight('card-accessories', 'tile-bungee-65', ['svg-barend-bungee'], ['diag-sec-barend']);
+        wireHighlight('card-accessories', 'tile-bungee-100', ['svg-barend-bungee'], ['diag-sec-barend']);
+        wireHighlight('card-accessories', 'tile-putube', ['svg-putube'], ['diag-sec-assembly']);
+        wireHighlight('card-accessories', 'tile-bungee-qr', ['svg-qr-bungee'], ['diag-sec-qr']);
+
+        // Wire inputs highlighting
+        function wireInputHighlight(inputId, svgGroupIds) {
+            const el = document.getElementById(inputId);
+            if (!el) return;
+            el.addEventListener('mouseenter', () => {
+                svgGroupIds.forEach(id => {
+                    const g = document.getElementById(id);
+                    if (g) g.classList.add('highlighted');
                 });
             });
-            tile.addEventListener('mouseleave', () => {
-                tile.classList.remove('highlighted');
+            el.addEventListener('mouseleave', () => {
                 svgGroupIds.forEach(id => {
-                    const group = document.getElementById(id);
-                    if (group) group.classList.remove('highlighted');
+                    const g = document.getElementById(id);
+                    if (g) g.classList.remove('highlighted');
                 });
             });
         }
+        wireInputHighlight('group-throw', ['svg-bar']);
+        wireInputHighlight('group-move', ['svg-block', 'svg-sheeting']);
+        wireInputHighlight('group-diameter', ['svg-bar']);
 
-        // Bind result tiles to specific diagram sections
-        attachTileHighlight('tile-raw', ['svg-sec1', 'svg-sec3', 'svg-sec4', 'svg-sec5', 'svg-sec6']);
-        attachTileHighlight('tile-measured', ['svg-sec1', 'svg-sec3', 'svg-sec5']);
-        attachTileHighlight('tile-bungee-len', ['svg-pigtail']);
-        attachTileHighlight('tile-leader-raw', ['svg-pigtail', 'svg-sec2']);
-        attachTileHighlight('tile-leader-fin', ['svg-pigtail', 'svg-sec2']);
-        attachTileHighlight('tile-bungee-raw', ['svg-pigtail', 'svg-sec2']);
-        attachTileHighlight('tile-bungee-fin', ['svg-pigtail', 'svg-sec2']);
-        attachTileHighlight('tile-pig-steer', ['svg-pigtail']);
-        attachTileHighlight('tile-pig-power', ['svg-pigtail']);
-        attachTileHighlight('tile-chafe', ['svg-sec1']);
-        attachTileHighlight('tile-power-leader', ['svg-sec1', 'svg-sec4', 'svg-sec6']);
-
-        // Run initial calculation
+        // Run calculations on startup
         calculate();
     </script>
 </body>

@@ -1,6 +1,6 @@
 # Rope Splicing & Cutting Dimensions Companion Guide
 
-This document serves as the companion guide to the [Interactive Rope Splicing & Sizing Calculator](rope_calculator.html) and the [Bungee & Accessory Sizing Guide](bungee_calculator.html). It explains the routing physics, splicing guidelines, and mathematical models for building a premium, custom kiteboarding control bar.
+This document serves as the companion guide to the unified [Interactive Splicing & Sizing Calculator](rope_calculator.html). It explains the routing physics, splicing guidelines, and mathematical models for building a premium, custom kiteboarding control bar.
 
 The system parameters are classified into three main groups to match the labeling on the interactive routing schematic:
 - **Group A (Sheeting Rope & Throw)**: Main sheeting line specs, throw length, loop ends, and tail lengths.
@@ -68,22 +68,28 @@ These formulas are implemented dynamically in the [Interactive Calculator](rope_
 * **Measured Finished Length**:
   $$\text{Finished Length} = \text{Raw Length} - \text{Line Tail (A4)} - \text{Block Height (B6)} - \text{Cleat Length (B2)}$$
 
-### Bungee & Leader Sizing
-* **Bungee Core Length**: $\text{Depower Move (B7)} \times 1.30 = 32.5\text{ cm}$
+### Leader & Safety Sizing
 * **Leader Line Raw Cut**: $(\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Leader Adjustment (C2)}) \times (1 + \text{Leader Splicing Shrink (C1)}) + \text{Leader Adjustment (C2)}$
 * **Leader Line Finished**: $\text{Raw Cut} - (2 \times 2.5\text{ Splice Loop}) = 169.0\text{ cm}$ [runs inside Bar (B1)]
-* **Bungee Line Raw Cut**: $\frac{\text{Leader Finished (B1)} - \text{Block Diam (B5)} - \text{Cleat Length (B2)}}{1 - 0.33}$
-* **Bungee Line Finished**: $\text{Leader Finished (B1)} + 2\text{ cm (Knot Length)}$
+* **Safety Line Raw Cut**: $\text{Sheeting Raw} - \text{Depower Move (B7)}$
+* **Safety Line Finished**: $\text{Sheeting Finished} - \text{Depower Move (B7)}$
 
 ### Steering & Power Pigtails
-* **Splicing Bury**: $\text{Rope Diameter (0.25 cm)} \times \text{Bury Ratio (C3)} = 12.5\text{ cm}$
-* **Steering Pigtail (Loop-to-Loop)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Loop Knot Length (4 cm)} + \text{Steering Loop Length (3 cm)} = 77.0\text{ cm}$
-* **Power Pigtail (Loop-to-Knot)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Power Adjustment (20 cm)} + \text{Power Loop Length (4 cm)} = 94.0\text{ cm}$
+The rope diameter and splicing bury dynamically adapt based on the selected Bar Outer Diameter (B1):
+* **22mm Bar OD**: Utilizes 2.5mm Dyneema. Splicing Bury = $\text{Rope Diameter (0.25 cm)} \times \text{Bury Ratio (C3)} = 12.5\text{ cm}$
+  * **Steering Pigtail (Loop-to-Loop)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Loop Knot Length (4 cm)} + \text{Steering Loop Length (3 cm)} = 77.0\text{ cm}$
+  * **Power Pigtail (Loop-to-Knot)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Power Adjustment (20 cm)} + \text{Power Loop Length (4 cm)} = 94.0\text{ cm}$
+* **24mm Bar OD**: Utilizes 3.0mm Dyneema. Splicing Bury = $\text{Rope Diameter (0.30 cm)} \times \text{Bury Ratio (C3)} = 15.0\text{ cm}$
+  * **Steering Pigtail (Loop-to-Loop)**: $\text{Finished (40)} + 2 \times \text{Bury} \times (1.2) + \text{Loop Knot (4)} + \text{Steering Loop (3)} = 83.0\text{ cm}$
+  * **Power Pigtail (Loop-to-Knot)**: $\text{Finished (40)} + 2 \times \text{Bury} \times (1.2) + \text{Adjustment (20)} + \text{Power Loop (4)} = 100.0\text{ cm}$
 
 ### Accessories & Chafe Sleeve
 * **Chafe Sleeve Raw Length**: $\text{Throw (A1)} \times 1.28 + 5$
 * **Chafe Sleeve Cut Target**: $\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Splice Loop Length (A3)}$
-* **Power Leader Line**: $\text{Throw (A1)} + \text{Leader Finished (B1)} + \text{Block Height (B6)} - \text{Cleat Length (B2)}$
+* **Bungee for 65mm Bar End**: $30.0\text{ cm}$ ($25\text{cm base} + 5\text{cm tail}$)
+* **Bungee for 100mm Bar End**: $24.0\text{ cm}$ ($19\text{cm base} + 5\text{cm tail}$)
+* **PU Center Tube Length**: $100\text{ mm}$ (runs inside Bar center)
+* **Safety Bungee for QR**: $35.0\text{ cm}$ (2.5mm elastic core)
 
 ---
 
