@@ -50,11 +50,13 @@ The **Depower Ratio** is the 2:1 block-and-tackle mechanical advantage of the tr
 
 ---
 
-### Splicing Specs `(C1, C2, C3, C4)`
-* **Leader Splicing Shrink (C1)**: Splicing shrinkage rate for leader lines, fixed at `20%`.
-* **Leader Adjustment (C2)**: Leader line adjustment span, fixed at `30 cm`.
-* **Pigtail Bury Ratio (C3)**: Dyneema splicing bury ratio, fixed at `50x` rope diameter.
-* **Pigtail Finished Len. (C4)**: Target pigtail connection length, fixed at `40 cm`.
+#### Splicing Specs & Adjustable Parameters `(Group C)`
+These parameters are adjustable via left-right sliders in the main calculator:
+* **Splicing Shrinkage**: General shrinkage rate applied to any splice. Range `10%` to `30%` (default `20%`).
+* **Bury Ratio**: General bury length multiplier. Range `40x` to `60x` rope diameter (default `50x`).
+* **Leader Adjustment (C2)**: Adjustment span for leader lines. Range `20` to `50` cm (default `30` cm).
+* **Power Pigtail Adjustment**: Front line trim adjuster span. Range `10` to `30` cm (default `20` cm).
+* **Pigtail Finished Length (C4)**: Raw base finished target length. Range `30` to `50` cm (default `40` cm).
 
 ---
 
@@ -64,24 +66,25 @@ These formulas are implemented dynamically in the [Interactive Calculator](rope_
 
 ### Sheeting Line Sizing
 * **Raw Calculated Length**:
-  $$\text{Raw Length} = (\text{Throw (A1)} \times 2) + \frac{\text{Depower Move (B7)}}{\text{Depower Ratio (B8)}} + \text{Line Tail (A4)} + \text{Splice Loop (A3)} + \text{Block Height (B6)}$$
+  $$\text{Raw Length} = (\text{Throw (A1)} \times 2) + \frac{\text{Depower Move (B7)}}{\text{Depower Ratio (B8)}} + \text{Line Tail (A4)} + \text{Splice Loop (A3, 4cm)} + \text{Block Height (B6)}$$
 * **Measured Finished Length**:
   $$\text{Finished Length} = \text{Raw Length} - \text{Line Tail (A4)} - \text{Block Height (B6)} - \text{Cleat Length (B2)}$$
 
 ### Leader & Safety Sizing
-* **Leader Line Raw Cut**: $(\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Leader Adjustment (C2)}) \times (1 + \text{Leader Splicing Shrink (C1)}) + \text{Leader Adjustment (C2)}$
-* **Leader Line Finished**: $\text{Raw Cut} - (2 \times 2.5\text{ Splice Loop}) = 169.0\text{ cm}$ [runs inside Bar (B1)]
+* **Leader Line Raw Cut**: $(\text{Throw (A1)} + \text{Depower Move (B7)} + \text{Leader Adjustment (C2)}) \times (1 + \text{Splicing Shrinkage}) + \text{Leader Adjustment (C2)}$
+* **Leader Line Finished**: $\text{Raw Cut} - \text{Bottom Loop (3.5 cm)} - \text{Top Loop (2.5 cm)} = \text{Raw Cut} - 6\text{ cm}$
 * **Safety Line Raw Cut**: $\text{Sheeting Raw} - \text{Depower Move (B7)}$
 * **Safety Line Finished**: $\text{Sheeting Finished} - \text{Depower Move (B7)}$
 
 ### Steering & Power Pigtails
 The rope diameter and splicing bury dynamically adapt based on the selected Bar Outer Diameter (B1):
-* **22mm Bar OD**: Utilizes 2.5mm Dyneema. Splicing Bury = $\text{Rope Diameter (0.25 cm)} \times \text{Bury Ratio (C3)} = 12.5\text{ cm}$
-  * **Steering Pigtail (Loop-to-Loop)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Loop Knot Length (4 cm)} + \text{Steering Loop Length (3 cm)} = 77.0\text{ cm}$
-  * **Power Pigtail (Loop-to-Knot)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage (20\%)}) + \text{Power Adjustment (20 cm)} + \text{Power Loop Length (4 cm)} = 94.0\text{ cm}$
-* **24mm Bar OD**: Utilizes 3.0mm Dyneema. Splicing Bury = $\text{Rope Diameter (0.30 cm)} \times \text{Bury Ratio (C3)} = 15.0\text{ cm}$
-  * **Steering Pigtail (Loop-to-Loop)**: $\text{Finished (40)} + 2 \times \text{Bury} \times (1.2) + \text{Loop Knot (4)} + \text{Steering Loop (3)} = 83.0\text{ cm}$
-  * **Power Pigtail (Loop-to-Knot)**: $\text{Finished (40)} + 2 \times \text{Bury} \times (1.2) + \text{Adjustment (20)} + \text{Power Loop (4)} = 100.0\text{ cm}$
+* **Splicing Bury**: $\text{Rope Diameter} \times \text{Bury Ratio}$
+* **Steering Pigtail (Loop-to-Loop)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Loop Knot Length (4 cm)} + \text{Pigtail Loop Length (3.5 cm)}$
+  * *Default (22mm OD, 2.5mm rope)*: $40 + 2 \times 12.5 \times 1.2 + 4 + 3.5 = 77.5\text{ cm}$
+  * *Default (24mm OD, 3.0mm rope)*: $40 + 2 \times 15.0 \times 1.2 + 4 + 3.5 = 83.5\text{ cm}$
+* **Power Pigtail (Loop-to-Knot)**: $\text{Finished Length (C4)} + 2 \times \text{Bury} \times (1 + \text{Splicing Shrinkage}) + \text{Power Adjustment} + \text{Pigtail Loop Length (3.5 cm)}$
+  * *Default (22mm OD, 2.5mm rope)*: $40 + 2 \times 12.5 \times 1.2 + 20 + 3.5 = 93.5\text{ cm}$
+  * *Default (24mm OD, 3.0mm rope)*: $40 + 2 \times 15.0 \times 1.2 + 20 + 3.5 = 99.5\text{ cm}$
 
 ### Accessories & Chafe Sleeve
 * **Chafe Sleeve Raw Length**: $\text{Throw (A1)} \times 1.28 + 5$

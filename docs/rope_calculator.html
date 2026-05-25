@@ -628,6 +628,71 @@
             </div>
         </div>
 
+        <!-- Changeable: General Splicing Shrinkage -->
+        <div class="input-group" id="group-shrinkage">
+            <div class="input-label-container">
+                <span class="input-label">Splicing Shrinkage</span>
+                <span class="input-val-display" id="splicingShrinkageVal">20 %</span>
+            </div>
+            <div class="input-field-wrapper">
+                <input type="number" id="splicingShrinkage" value="20" min="10" max="30" step="1">
+                <span class="input-unit">%</span>
+            </div>
+            <input type="range" class="input-slider" id="splicingShrinkageSlider" min="10" max="30" value="20">
+        </div>
+
+        <!-- Changeable: General Bury Ratio -->
+        <div class="input-group" id="group-bury-ratio">
+            <div class="input-label-container">
+                <span class="input-label">Splicing Bury Ratio</span>
+                <span class="input-val-display" id="buryRatioVal">50 x</span>
+            </div>
+            <div class="input-field-wrapper">
+                <input type="number" id="buryRatio" value="50" min="40" max="60" step="1">
+                <span class="input-unit">x</span>
+            </div>
+            <input type="range" class="input-slider" id="buryRatioSlider" min="40" max="60" value="50">
+        </div>
+
+        <!-- Changeable: Leader Adjustment -->
+        <div class="input-group" id="group-leader-adj">
+            <div class="input-label-container">
+                <span class="input-label">Leader Line Adjustment (C2)</span>
+                <span class="input-val-display" id="leaderAdjustmentVal">30 cm</span>
+            </div>
+            <div class="input-field-wrapper">
+                <input type="number" id="leaderAdjustment" value="30" min="20" max="50" step="1">
+                <span class="input-unit">cm</span>
+            </div>
+            <input type="range" class="input-slider" id="leaderAdjustmentSlider" min="20" max="50" value="30">
+        </div>
+
+        <!-- Changeable: Power Pigtail Adjustment -->
+        <div class="input-group" id="group-power-adj">
+            <div class="input-label-container">
+                <span class="input-label">Power Pigtail Adjustment</span>
+                <span class="input-val-display" id="powerAdjustmentVal">20 cm</span>
+            </div>
+            <div class="input-field-wrapper">
+                <input type="number" id="powerAdjustment" value="20" min="10" max="30" step="1">
+                <span class="input-unit">cm</span>
+            </div>
+            <input type="range" class="input-slider" id="powerAdjustmentSlider" min="10" max="30" value="20">
+        </div>
+
+        <!-- Changeable: Pigtail Finished Length -->
+        <div class="input-group" id="group-pigtail-len">
+            <div class="input-label-container">
+                <span class="input-label">Pigtail Finished Length (C4)</span>
+                <span class="input-val-display" id="pigtailFinishedLengthVal">40 cm</span>
+            </div>
+            <div class="input-field-wrapper">
+                <input type="number" id="pigtailFinishedLength" value="40" min="30" max="50" step="1">
+                <span class="input-unit">cm</span>
+            </div>
+            <input type="range" class="input-slider" id="pigtailFinishedLengthSlider" min="30" max="50" value="40">
+        </div>
+
         <!-- FIXED PARAMETERS -->
         <div class="constants-section">
             <div class="constants-title">
@@ -635,11 +700,11 @@
                 <span>Value</span>
             </div>
             <div class="constant-row" id="row-sheeting-diam">
-                <span class="constant-name">Sheeting Line Diam. (A2)</span>
+                <span class="constant-name">Sheeting Rope Diam. (A2)</span>
                 <span class="constant-val">0.4 cm (4.0mm)</span>
             </div>
             <div class="constant-row" id="row-loop-len">
-                <span class="constant-name">Splice Loop Length (A3)</span>
+                <span class="constant-name">Sheeting Splice Loop (A3)</span>
                 <span class="constant-val">4 cm</span>
             </div>
             <div class="constant-row" id="row-tail">
@@ -684,25 +749,17 @@
                 <span>Group C Parameters</span>
                 <span>Value</span>
             </div>
-            <div class="constant-row" id="row-leader-shrink">
-                <span class="constant-name">Leader Splicing Shrink (C1)</span>
-                <span class="constant-val">20%</span>
+            <div class="constant-row" id="row-leader-loop-bottom">
+                <span class="constant-name">Leader Splice Loop Bottom</span>
+                <span class="constant-val">3.5 cm</span>
             </div>
-            <div class="constant-row" id="row-leader-adj">
-                <span class="constant-name">Leader Adjustment (C2)</span>
-                <span class="constant-val">30 cm</span>
+            <div class="constant-row" id="row-leader-loop-top">
+                <span class="constant-name">Leader Splice Loop Top</span>
+                <span class="constant-val">2.5 cm</span>
             </div>
-            <div class="constant-row" id="row-pigtail-bury">
-                <span class="constant-name">Pigtail Bury Ratio (C3)</span>
-                <span class="constant-val">50x</span>
-            </div>
-            <div class="constant-row" id="row-pigtail-len">
-                <span class="constant-name">Pigtail Finished Len. (C4)</span>
-                <span class="constant-val">40 cm</span>
-            </div>
-            <div class="constant-row" id="row-pigtail-shrink">
-                <span class="constant-name">Pigtail Splicing Shrink</span>
-                <span class="constant-val">20%</span>
+            <div class="constant-row" id="row-pigtail-loop">
+                <span class="constant-name">Pigtail Loop Length</span>
+                <span class="constant-val">3.5 cm</span>
             </div>
             <div class="constant-row" id="row-pigtail-knot">
                 <span class="constant-name">Pigtail Loop Knot Length</span>
@@ -810,7 +867,8 @@
                 </div>
                 <div class="formula-box">
                     <div class="formula-title">Mathematical Formulas</div>
-                    <div>Leader Raw = (Throw + Depower Move + Leader Adjustment) × (1 + Leader Splicing Shrink) + Leader Adjustment</div>
+                    <div>Leader Raw = (Throw + Depower Move + Leader Adjustment) × (1 + Splicing Shrinkage) + Leader Adjustment</div>
+                    <div style="margin-top: 0.25rem;">Leader Finished = Leader Raw - Bottom Loop (3.5cm) - Top Loop (2.5cm)</div>
                     <div style="margin-top: 0.25rem;">Safety Raw = Sheeting Raw - Depower Move (Cleat to Block) [approx. reference]</div>
                     <div style="margin-top: 0.25rem;">Safety Finished = Sheeting Finished - Depower Move [approx. reference]</div>
                 </div>
@@ -820,30 +878,30 @@
             <div class="calc-card" id="card-pigtails">
                 <div class="card-header">
                     <h3>Steering & Power Pigtails <span class="section-badge" id="diameter-badge-2">using 3.0mm rope</span></h3>
-                    <p>Splicing dimensions for pigtail ends based on selected rope diameter.</p>
+                    <p>Splicing dimensions for pigtail ends based on selected rope diameter and bury ratios.</p>
                 </div>
                 <div class="results-container">
                     <div class="result-tile" id="tile-steer-pig">
                         <span class="result-label">Steering Pigtail (Loop-to-Loop)</span>
                         <div class="result-value-row">
-                            <span class="result-value" id="steerPigVal">83.0</span>
+                            <span class="result-value" id="steerPigVal">83.5</span>
                             <span class="result-unit">cm</span>
                         </div>
-                        <span class="result-value-alt" id="steerPigValFt">2.72 ft</span>
+                        <span class="result-value-alt" id="steerPigValFt">2.74 ft</span>
                     </div>
                     <div class="result-tile" id="tile-power-pig">
                         <span class="result-label">Power Pigtail (Loop-to-Knot)</span>
                         <div class="result-value-row">
-                            <span class="result-value" id="powerPigVal">100.0</span>
+                            <span class="result-value" id="powerPigVal">99.5</span>
                             <span class="result-unit">cm</span>
                         </div>
-                        <span class="result-value-alt" id="powerPigValFt">3.28 ft</span>
+                        <span class="result-value-alt" id="powerPigValFt">3.26 ft</span>
                     </div>
                 </div>
                 <div class="formula-box">
-                    <div class="formula-title">Mathematical Formulas (Bury = Rope Dia. × 50)</div>
-                    <div>Steering Pigtail = Finished Length (40) + 2 × Bury × (1 + Splicing Shrinkage) + Loop Knot Length (4) + Steering Loop Length (3)</div>
-                    <div style="margin-top: 0.25rem;">Power Pigtail = Finished Length (40) + 2 × Bury × (1 + Splicing Shrinkage) + Power Adjustment (20) + Power Loop Length (4)</div>
+                    <div class="formula-title">Mathematical Formulas (Bury = Rope Dia. × Bury Ratio)</div>
+                    <div>Steering Pigtail = Finished Length + 2 × Bury × (1 + Splicing Shrinkage) + Loop Knot Length (4) + Pigtail Loop Length (3.5)</div>
+                    <div style="margin-top: 0.25rem;">Power Pigtail = Finished Length + 2 × Bury × (1 + Splicing Shrinkage) + Power Adjustment + Pigtail Loop Length (3.5)</div>
                 </div>
             </div>
 
@@ -1062,7 +1120,12 @@
         const DEFAULTS = {
             desiredThrow: 65,
             depowerMove: 25,
-            outerDiameter: "24"
+            outerDiameter: "24",
+            splicingShrinkage: 20,
+            buryRatio: 50,
+            leaderAdjustment: 30,
+            powerAdjustment: 20,
+            pigtailFinishedLength: 40
         };
 
         // Fixed Design Constants
@@ -1077,21 +1140,11 @@
             sheetingDiameter: 0.4, // 4mm sheeting rope
             spliceLoop: 4.0,
             
-            // Leader / Bungee parameters
-            leaderSplicingShrinkage: 0.20,
-            leaderAdjustment: 30.0,
-            leaderLineSpliceLoop: 2.5,
-            bungeeInsertShrinkage: 0.33,
-            bungeeStretch: 1.30,
-            
-            // Pigtails sizing
-            pigtailBuryRatio: 50,
-            pigtailFinishedLength: 40.0,
-            steeringLoopLength: 3.0,
+            // Splicing loops
+            leaderBottomLoop: 3.5,
+            leaderTopLoop: 2.5,
+            pigtailLoopLength: 3.5,
             loopKnotLength: 4.0,
-            powerLoopLength: 4.0,
-            powerAdjustment: 20.0,
-            pigtailSplicingShrinkage: 0.20,
             
             // Chafe sleeve
             chafeSleeveShrink: 0.28,
@@ -1122,6 +1175,12 @@
 
         setupSync('desiredThrow', 'desiredThrowSlider', 'desiredThrowVal', 'cm');
         setupSync('depowerMove', 'depowerMoveSlider', 'depowerMoveVal', 'cm');
+        setupSync('splicingShrinkage', 'splicingShrinkageSlider', 'splicingShrinkageVal', '%');
+        setupSync('buryRatio', 'buryRatioSlider', 'buryRatioVal', 'x');
+        setupSync('leaderAdjustment', 'leaderAdjustmentSlider', 'leaderAdjustmentVal', 'cm');
+        setupSync('powerAdjustment', 'powerAdjustmentSlider', 'powerAdjustmentVal', 'cm');
+        setupSync('pigtailFinishedLength', 'pigtailFinishedLengthSlider', 'pigtailFinishedLengthVal', 'cm');
+
         document.getElementById('outerDiameter').addEventListener('change', calculate);
 
         // Reset
@@ -1134,7 +1193,7 @@
                     if (slider) slider.value = val;
                     const display = document.getElementById(id + 'Val');
                     if (display) {
-                        display.innerText = `${val} cm`;
+                        display.innerText = (id === 'splicingShrinkage') ? `${val} %` : (id === 'buryRatio') ? `${val} x` : `${val} cm`;
                     }
                 }
             }
@@ -1147,6 +1206,11 @@
             const desiredThrow = parseFloat(document.getElementById('desiredThrow').value) || 0;
             const depowerMove = parseFloat(document.getElementById('depowerMove').value) || 0;
             const outerDiameter = parseFloat(document.getElementById('outerDiameter').value) || 24;
+            const splicingShrinkage = (parseFloat(document.getElementById('splicingShrinkage').value) || 20) / 100.0;
+            const buryRatio = parseFloat(document.getElementById('buryRatio').value) || 50;
+            const leaderAdjustment = parseFloat(document.getElementById('leaderAdjustment').value) || 30;
+            const powerAdjustment = parseFloat(document.getElementById('powerAdjustment').value) || 20;
+            const pigtailFinishedLength = parseFloat(document.getElementById('pigtailFinishedLength').value) || 40;
 
             // Rope selection rules based on Bar OD
             const is22mm = (outerDiameter === 22);
@@ -1156,7 +1220,6 @@
             // Update badges in UI cards
             document.getElementById('diameter-badge-1').innerText = `using ${ropeLabel} rope`;
             document.getElementById('diameter-badge-2').innerText = `using ${ropeLabel} rope`;
-            document.getElementById('puTubeVal').innerText = is22mm ? "100.0" : "100.0"; // both are 100mm but keeps context
 
             // Calculations
             // 1. Sheeting Line
@@ -1178,8 +1241,8 @@
             document.getElementById('chafeCutValFt').innerText = `${(chafeCut * CM_TO_FT).toFixed(2)} ft`;
 
             // 3. Leader Lines
-            const leaderRaw = (desiredThrow + depowerMove + CONSTANTS.leaderAdjustment) * (1 + CONSTANTS.leaderSplicingShrinkage) + CONSTANTS.leaderAdjustment;
-            const leaderFinished = leaderRaw - (2 * CONSTANTS.leaderLineSpliceLoop);
+            const leaderRaw = (desiredThrow + depowerMove + leaderAdjustment) * (1 + splicingShrinkage) + leaderAdjustment;
+            const leaderFinished = leaderRaw - CONSTANTS.leaderBottomLoop - CONSTANTS.leaderTopLoop;
 
             document.getElementById('leaderRawVal').innerText = leaderRaw.toFixed(1);
             document.getElementById('leaderRawValFt').innerText = `${(leaderRaw * CM_TO_FT).toFixed(2)} ft`;
@@ -1195,10 +1258,10 @@
             document.getElementById('safetyFinVal').innerText = safetyFinished.toFixed(1);
             document.getElementById('safetyFinValFt').innerText = `${(safetyFinished * CM_TO_FT).toFixed(2)} ft`;
 
-            // 5. Pigtails (splicing bury is dynamic based on rope diameter)
-            const pigtailBury = leaderRopeDiameter * CONSTANTS.pigtailBuryRatio; // 12.5cm or 15.0cm
-            const steerPig = CONSTANTS.pigtailFinishedLength + 2 * pigtailBury * (1 + CONSTANTS.pigtailSplicingShrinkage) + CONSTANTS.loopKnotLength + CONSTANTS.steeringLoopLength;
-            const powerPig = CONSTANTS.pigtailFinishedLength + 2 * pigtailBury * (1 + CONSTANTS.pigtailSplicingShrinkage) + CONSTANTS.powerAdjustment + CONSTANTS.powerLoopLength;
+            // 5. Pigtails (splicing bury is dynamic based on rope diameter and ratio)
+            const pigtailBury = leaderRopeDiameter * buryRatio; // e.g. 0.25 * 50 = 12.5cm
+            const steerPig = pigtailFinishedLength + 2 * pigtailBury * (1 + splicingShrinkage) + CONSTANTS.loopKnotLength + CONSTANTS.pigtailLoopLength;
+            const powerPig = pigtailFinishedLength + 2 * pigtailBury * (1 + splicingShrinkage) + powerAdjustment + CONSTANTS.pigtailLoopLength;
 
             document.getElementById('steerPigVal').innerText = steerPig.toFixed(1);
             document.getElementById('steerPigValFt').innerText = `${(steerPig * CM_TO_FT).toFixed(2)} ft`;
