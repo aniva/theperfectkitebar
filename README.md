@@ -1,6 +1,6 @@
 # ThePerfectKiteBar (TPKB)
 
-An **open-source kite control bar** designed for **kite-foil enthusiasts** who value flexibility, customization, and complete DIY freedom.
+A **DIY kite control bar with shared design files** designed for **kite-foil enthusiasts** who value flexibility, customization, and field serviceability.
 
 Development began in **2023**, driven by the lack of suitable off-the-shelf products—most commercial options were either too expensive, overly complex, unnecessarily heavy, or built around identical designs across multiple brands.
 The first functional version of TPKB was **tested in Spring 2024**, followed by multiple iterative refinements based on real-world user experience.
@@ -17,7 +17,7 @@ Key design priorities include:
 
 ## Project Purpose
 
-ThePerfectKiteBar is an open hardware project focused on designing and sharing components of a kite control bar system optimized for kite-foiling.
+ThePerfectKiteBar is a hardware design project focused on designing and sharing components of a kite control bar system optimized for kite-foiling.
 
 This project is intended for:
 
@@ -29,6 +29,12 @@ This project is intended for:
 All parts are designed with parametric flexibility in mind—allowing for adaptation to different materials, manufacturing methods, and rope/tube sizes.
 
 ---
+
+## License and Project Management
+
+Design files and documentation are shared under [CC BY-NC 4.0](LICENSE.md), which requires attribution and restricts commercial use.
+
+See [Contributing](CONTRIBUTING.md) for the change workflow and local checks, and [Validation Status](docs/validation.md) for recorded testing status and outstanding validation work.
 
 ## Project Organization and Directory Structure
 

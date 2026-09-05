@@ -13,9 +13,9 @@ from pathlib import Path
 from datetime import datetime
 import urllib.request, urllib.error
 
-# Ensure Python 3.6+
-if sys.version_info < (3, 6):
-    print("❌ Python 3.6 or higher is required.")
+# Ensure Python 3.7+
+if sys.version_info < (3, 7):
+    print("❌ Python 3.7 or higher is required.")
     sys.exit(1)
 
 # Configuration
@@ -32,7 +32,7 @@ END_MARKER = r"<!-- END_SHAPR_TABLE -->"
 def fetch_metadata():
     """Fetch JSON metadata listing from GCS."""
     try:
-        with urllib.request.urlopen(GCS_JSON_URL) as resp:
+        with urllib.request.urlopen(GCS_JSON_URL, timeout=15) as resp:
             data = resp.read()
     except urllib.error.HTTPError as e:
         print(f"⚠️ HTTP error {e.code} fetching JSON metadata: {e.reason}")
@@ -112,7 +112,7 @@ def update_readme(path, meta):
         text,
         flags=re.DOTALL
     )
-    if count:
+    if count and new_text != text:
         path.write_text(new_text)
         print(f"✅ Updated {path}")
 

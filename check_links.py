@@ -4,7 +4,7 @@ import re
 import os
 from pathlib import Path
 
-ROOT = Path('/home/me/repos/theperfectkitebar')
+ROOT = Path(__file__).resolve().parent
 readmes = list(ROOT.rglob('*.md')) + list(ROOT.rglob('*.html'))
 # Exclude .venv and .git
 readmes = [r for r in readmes if '.venv' not in str(r) and '.git/' not in str(r)]
@@ -70,3 +70,5 @@ for readme_path, line, ref in valid[:30]:
     print(f"  {readme_path}:{line}  ->  {ref}")
 if len(valid) > 30:
     print(f"  ... and {len(valid) - 30} more valid links.")
+
+raise SystemExit(1 if broken else 0)

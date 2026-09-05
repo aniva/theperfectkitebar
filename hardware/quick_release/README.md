@@ -34,6 +34,8 @@ The M4 and M6 versions are functionally identical across all variants, with the 
 
 Note that for all variants, the upper nut (M4 or M6) that holds the claws must be installed permanently (e.g., using Loctite Threadlocker Red).
 
+See [Validation Status](../../docs/validation.md) for recorded evidence and outstanding testing work.
+
 ## Variants
 
 Variants 1 through 4 have been omitted, as they represent early design iterations that did not proceed to field testing.

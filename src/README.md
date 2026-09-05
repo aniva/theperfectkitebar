@@ -26,7 +26,7 @@ The infrastructure consists of:
 3. **Pub/Sub Topic (`cad-budget-alerts`)**: Connects to the GCP Billing Budget so that alerts publish messages to this topic.
 4. **Cloud Scheduler Job (`reenable-public-access`)**: Runs monthly to trigger the enabling function.
 
-### Cloud Functions (Python 3.10 / Gen 2)
+### Cloud Functions (Python 3.12 / Gen 2)
 
 * **`disablePublicAccess`**:
   * **Trigger**: Subscribed to the `cad-budget-alerts` Pub/Sub topic.
@@ -40,5 +40,9 @@ The infrastructure consists of:
 ## File Reference
 
 * **`cad2gcp/`**: The primary Terraform module containing infrastructure resource definitions.
-* **`disable-pub-access/`**: A standalone Terraform module deploying the same resources.
-* **`enable-pub-access/`**: Standalone code for the public-enabling logic.
+* **`cad2gcp/src/main.py`**: Function entry points that dispatch to the handlers.
+* **`cad2gcp/src/disable_public_access.py`**: Budget-alert handler that removes public access.
+* **`cad2gcp/src/enable_public_access.py`**: HTTP handler that restores public access.
+* **`cad2gcp/variables.tf`**: Input variables, including the budget display name.
+
+The Terraform module defines the Pub/Sub topic but does not create the billing budget. Configure that budget separately to publish to `cad-budget-alerts`, using the matching display name. These files describe the intended deployment; they do not establish its current live status.

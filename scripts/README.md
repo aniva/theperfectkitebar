@@ -4,10 +4,10 @@ This directory contains utility scripts and Git hooks that automate local CAD fi
 
 ## The Big Picture: Why are hooks needed?
 
-Since Git is not designed to track large binary CAD files (like high-res `.stl` models or parametric `.shapr` source files), we host these files on a Google Cloud Storage (GCS) bucket (`theperfectkitebar-cad-assets`).
+Git tracks manufacturing exports such as `.stl`, `.step`, and `.dxf`. Editable `.shapr` sources are excluded from Git and hosted in the Google Cloud Storage (GCS) bucket `theperfectkitebar-cad-assets`.
 
-To make collaboration smooth, we use Git hooks to:
-1. **Sync Assets**: Fetch latest CAD files from GCS to your local `hardware/` directory.
+To make collaboration smooth, we use scripts and a Git hook to:
+1. **Sync Assets (manual script)**: Fetch latest CAD files from GCS to your local `hardware/` directory.
 2. **Synchronize Docs**: Keep download links, file hashes (MD5), and modification dates in README files automatically in sync with the files stored on GCS.
 3. **Clean Metadata**: Strip hidden OS and cloud sync files (e.g. Windows `:Zone.Identifier` or Dropbox attributes) from the repository before commits.
 
@@ -21,7 +21,7 @@ To set up the automated hooks on your local machine, run:
 ./scripts/hooks/install_hooks.sh
 ```
 
-This script creates symbolic links in your local `.git/hooks/` directory to point to the active scripts in `scripts/hooks/`.
+This script installs executable hooks in Git’s configured hooks directory, using absolute symlinks into this checkout. It repairs stale symlinks and refuses to overwrite an existing regular hook file. Rerun it after moving the checkout.
 
 ---
 
@@ -32,7 +32,8 @@ This script creates symbolic links in your local `.git/hooks/` directory to poin
 * **`pre-commit.sh`** (runs automatically before each commit):
   * Cleans up OS/Dropbox metadata files (`:Zone.Identifier`, `:com.dropbox.attrs`) to prevent Git pollution.
   * Runs `update_shapr_tables.py` to auto-generate markdown download tables in component READMEs.
-  * Automatically stages any modified READMEs.
+  * Automatically stages READMEs whose generated tables change. This stages the entire file, so finish or separate unrelated README edits before committing.
+  * Works without an interactive terminal and succeeds when no table updates are needed. If GCS metadata is unavailable, the updater reports it and leaves tables unchanged.
 
 ### Python Utilities
 * **`update_shapr_tables.py`**:
