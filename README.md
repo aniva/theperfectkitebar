@@ -1,32 +1,15 @@
 # ThePerfectKiteBar (TPKB)
 
-A **DIY kite control bar with shared design files** designed for **kite-foil enthusiasts** who value flexibility, customization, and field serviceability.
+An open-hardware **DIY kite control bar system** optimized for **kite-foiling**, built for riders who want lightweight performance, parametric customization, and full field serviceability.
 
-Development began in **2023**, driven by the lack of suitable off-the-shelf products—most commercial options were either too expensive, overly complex, unnecessarily heavy, or built around identical designs across multiple brands.
-The first functional version of TPKB was **tested in Spring 2024**, followed by multiple iterative refinements based on real-world user experience.
+Development began in **2023**, driven by the lack of suitable off-the-shelf bars—most commercial options were too expensive, overly complex, unnecessarily heavy, or built around identical generic designs across brands. The first functional version of TPKB was **tested in Spring 2024**, followed by continuous refinements driven by real-world water and snow sessions.
 
-Key design priorities include:
-- Minimal weight without compromising strength
-- Full **field-serviceability** with common tools
-- **Low-cost manufacturing** using accessible 3D printing services
-- Easy **spare part replacement**
-- **Glove-friendly operation**, especially in cold water (5°C and below)
-- Seamless usability in both **cold northern climates** and **tropical destinations** (e.g., the Caribbean)
-
----
-
-## Project Purpose
-
-ThePerfectKiteBar is a hardware design project focused on designing and sharing components of a kite control bar system optimized for kite-foiling.
-
-This project is intended for:
-
-- DIY enthusiasts
-- Riders seeking lightweight or custom solutions
-- Experimental design exploration
-- Field replacement and customization of bar components
-
-All parts are designed with parametric flexibility in mind—allowing for adaptation to different materials, manufacturing methods, and rope/tube sizes.
+### Design Priorities & Scope
+- **Minimal weight** without compromising structural strength
+- **Full field-serviceability** and easy spare-part replacement using common hand tools
+- **Low-cost, accessible manufacturing** via on-demand 3D printing services (SLS, MJF, SLM) and laser cutting
+- **Parametric flexibility** in Shapr3D, allowing adaptation to different carbon tube diameters, rope sizes, bearings, and materials
+- **All-climate ergonomics**, featuring glove-friendly operation in freezing conditions (5°C and below) alongside corrosion-resistant reliability in tropical saltwater
 
 ---
 
@@ -36,21 +19,21 @@ Design files and documentation are shared under [CC BY-NC 4.0](LICENSE.md), whic
 
 See [Contributing](CONTRIBUTING.md) for the change workflow and local checks, and [Validation Status](docs/validation.md) for recorded testing status and outstanding validation work.
 
-## Project Organization and Directory Structure
+---
 
-The main hardware components of the project are organized under the `/hardware/` directory:
+## Project Structure & Navigation
 
-- `/hardware/bar/` → Bar components, including the main tube, end pieces, and center inserts
-- `/hardware/swivel/` → Swivel component for untwisting lines
-- `/hardware/quick_release/` → The quick release safety system
-- `/hardware/trim/` → Depower trim system, including the V-splitter
-- `/hardware/tools/` → Jigs and tools for assembly
+Hardware components are organized under `/hardware/`, where the folder hierarchy encodes key design constraints (tube diameter, bearing type, rope diameter, and design variant). Each component directory contains its own `README.md` covering part function, bills of materials, 3D printing specifications, assembly notes, and previews:
 
-Each component has its own folder containing:
+- **[Bar](hardware/bar/README.md)** (`/hardware/bar/`) — Main carbon tube tracks (OD 22mm and OD 24mm), bar ends, and center pieces (off-center SLS nylon clamp and inline SLM titanium hub)
+- **[Swivel](hardware/swivel/README.md)** (`/hardware/swivel/`) — Ceramic-bearing below-the-bar swivel for untwisting front lines
+- **[Quick Release](hardware/quick_release/README.md)** (`/hardware/quick_release/`) — Compact, glove-friendly safety release mechanism
+- **[Trim](hardware/trim/README.md)** (`/hardware/trim/`) — Depower trim cleat base, line stoppers, and V-splitters
+- **[Tools](hardware/tools/README.md)** (`/hardware/tools/`) — Custom drilling jigs and sewing machine presser feet for assembly
 
-- Its own `README.md` file with detailed specifications
-- Subfolders indicating key design constraints (tube diameter, bearing type, rope diameter, etc.)
-- Variants reflecting different design approaches
+**Rigging & Assembly Guides:**
+- **[Rope Splicing & Cutting Dimensions Guide](docs/rope_dimensions.md)** — Line routing physics, splicing formulas, and build procedure
+- **[Interactive Splicing & Sizing Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html)** — Unified web calculator for sheeting lines, leaders, pigtails, and bungees
 
 ---
 
@@ -64,40 +47,14 @@ Each component has its own folder containing:
 **Example Filename Breakdown:**
 
 ```text
-bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24_22_sls.*
+bar/carbon_tube_od24_id22mm/bar_end/leader_line_3mm/variant_7/bar-end_24-22_sls.*
 ```
 
 - `bar` folder = part of the bar (vs QR etc.)
 - `carbon_tube_od24_id22mm` = must use carbon tube with these OD/ID dimensions
-- `leader_line_3mm` = must use 3mm leader (steering) lines 
-- `variant` = 7 
+- `leader_line_3mm` = must use 3mm leader (steering) lines
+- `variant` = 7
 - `version` = _git commit id_
-
----
-
-## Navigation Guide
-
-To explore any component:
-
-1. Navigate to `hardware/<component_name>/` and open the `README.md` file in that directory
-2. Inside you will find:
-   - Part purpose and function
-   - Design constraints and specifications
-   - 3D printing instructions
-   - Assembly notes and requirements
-   - Images and previews
-   - Available variants
-
-**Component Links:**
-
-- [Bar](hardware/bar/README.md)
-- [Swivel](hardware/swivel/README.md)
-- [Quick Release](hardware/quick_release/README.md)
-- [Trim](hardware/trim/README.md)
-- [Tools](hardware/tools/README.md)
-- [Rope Splicing & Cutting Dimensions Guide](docs/rope_dimensions.md)
-- [Interactive Splicing & Sizing Calculator](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html)
-- [Bungee & Accessory Sizing Guide](https://raw.githack.com/aniva/theperfectkitebar/main/docs/rope_calculator.html)
 
 
 ---
@@ -121,7 +78,7 @@ The project previously reported multi-season field use of 3201PA-F from -20°C t
 | Cleat bases | [PA12-HP Nylon](https://jlc3dp.com/help/article/pa12-hp-nylon) | MJF | Retain the existing baseline; evaluate PA11-HP separately for fit and loaded operation. |
 | Lightly loaded housings, covers, and slider blocks without significant shock loading | [PA12S-HP Nylon](https://jlc3dp.com/help/article/pa12s-hp-nylon) | MJF | Potential cost-saving choice with a finer surface texture. Account for orientation: elongation is 12% in XY but only 5% in Z. Compare actual part quotes. |
 | Polymer components requiring greater ductility | [PA11-HP Nylon](https://jlc3dp.com/help/article/pa11-hp-nylon) | MJF | Candidate for testing: 52 MPa and 50% elongation. A QR housing substitution requires assembly and release-function testing. This is not a recommendation to replace metal pins or load-bearing metal mechanisms with nylon. |
-| Swivel metal parts (housing and shaft) | [Titanium TC4](https://jlc3dp.com/help/article/titanium-tc4) or [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel) | SLM | Titanium for lower weight; otherwise 316L stainless steel, following component specifications. |
+| Inline bar center hub (Variant 8) and Swivel metal parts (housing and shaft) | [Titanium TC4](https://jlc3dp.com/help/article/titanium-tc4) or [316L Stainless Steel](https://jlc3dp.com/help/article/316L-Stainless-Steel) | SLM | Titanium preferred for lower weight and high strength-to-weight ratio; otherwise 316L stainless steel, following component specifications. |
 | Quick Release (QR) mechanism flat parts | Titanium sheet | Laser or waterjet cutting | Use the exact thickness specified in the component instructions. |
 | Assembly tools | Refer to [Tools](hardware/tools/README.md) | SLM and SLA | Follow each tool's requirements; CBY resin remains an economical option for suitable jig adapters and presser feet. |
 

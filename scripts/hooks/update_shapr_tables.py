@@ -8,7 +8,10 @@ Replaces content between BEGIN_SHAPR_TABLE and END_SHAPR_TABLE markers.
 import sys
 import json
 import base64
+import hashlib
 import re
+import shutil
+import subprocess
 from pathlib import Path
 from datetime import datetime
 import urllib.request, urllib.error
@@ -65,9 +68,55 @@ def fetch_metadata():
     return meta
 
 
+def calculate_local_md5(file_path, chunk_size=8192):
+    """Calculate the MD5 hex digest of a local file."""
+    md5 = hashlib.md5()
+    with open(file_path, 'rb') as f:
+        while chunk := f.read(chunk_size):
+            md5.update(chunk)
+    return md5.hexdigest()
+
+
+def sync_shapr_to_gcs(meta):
+    """Upload any new or modified local .shapr files under hardware/ to GCS."""
+    local_files = [
+        p for p in sorted(Path('hardware').rglob('*.shapr'))
+        if 'backup' not in p.parts
+    ]
+    to_upload = []
+    for p in local_files:
+        rel_full = str(p.relative_to('.')).lstrip('./')
+        key = rel_full[len('hardware/'):] if rel_full.startswith('hardware/') else rel_full
+        local_md5 = calculate_local_md5(p)
+        remote = meta.get(key)
+        if not remote or remote.get('md5') != local_md5:
+            to_upload.append((p, key))
+
+    if not to_upload:
+        return False
+
+    if not shutil.which('gsutil'):
+        print("⚠️ gsutil not found; cannot upload new/modified .shapr files to GCS.")
+        return False
+
+    uploaded_any = False
+    for local_path, key in to_upload:
+        dest = f"gs://{GCS_BUCKET}/{key}"
+        print(f"⬆️ Uploading {local_path} -> {dest}...")
+        res = subprocess.run(['gsutil', 'cp', str(local_path), dest])
+        if res.returncode == 0:
+            uploaded_any = True
+        else:
+            print(f"❌ Failed to upload {local_path} to {dest}")
+    return uploaded_any
+
+
 def generate_table(dirpath, meta):
     """Generate a Markdown table for all .shapr files under dirpath."""
-    local_files = [p for p in Path(dirpath).rglob('*.shapr')]
+    local_files = [
+        p for p in Path(dirpath).rglob('*.shapr')
+        if 'backup' not in p.parts
+    ]
     if not local_files:
         return ''
     lines = ["| File | MD5 | Last Modified | Download URL |",
@@ -123,6 +172,8 @@ def main():
     if not meta:
         print("⚠️ No metadata found; aborting.")
         return
+    if sync_shapr_to_gcs(meta):
+        meta = fetch_metadata()
     for readme in Path('hardware').rglob('README.md'):
         update_readme(readme, meta)
 

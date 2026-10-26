@@ -37,8 +37,9 @@ This script installs executable hooks in Git’s configured hooks directory, usi
 
 ### Python Utilities
 * **`update_shapr_tables.py`**:
-  * Scans local directories for `.shapr` source files.
+  * Scans local directories for `.shapr` source files (excluding `backup/` folders).
   * Fetches file metadata (MD5 hashes, last-modified dates) from the GCS JSON API.
+  * Automatically uploads any new or modified `.shapr` files to `gs://theperfectkitebar-cad-assets` via `gsutil` when their MD5 differs from GCS.
   * Dynamically updates markdown tables inside READMEs between `<!-- BEGIN_SHAPR_TABLE -->` and `<!-- END_SHAPR_TABLE -->` tags.
 * **`sync_from_gcs.py`**:
   * Syncs public GCS assets locally into your `hardware/` directory.

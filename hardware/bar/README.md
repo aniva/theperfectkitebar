@@ -21,9 +21,11 @@ The Bar Ends insert 100mm inside the carbon tube to reinforce it against bending
 
 ## 2. Center Pieces
 
-The Central Piece snaps over the middle of the carbon tube. It contains the low-friction entry/exit guide for the polyurethane-covered sheeting lines and safety lines.
+The Central Piece provides the low-friction entry/exit guide for the sheeting and safety lines at the middle of the bar. Two design approaches are available:
 
-All center pieces use the optimized **Variant 7** geometry, but come in two versions based on the securing bolt diameter:
+### Variant 7 (Off-Center SLS Nylon Clamp)
+
+**Variant 7** is an off-center plastic piece (**SLS PA12 Nylon**) that snaps directly over a single continuous carbon tube. This keeps the tube completely uncut in the middle, resulting in an ultra-lightweight construction and rapid, straightforward assembly. It comes in two versions based on the securing bolt diameter:
 
 * **2.5mm Bolt version**: Offers a smaller center-recess footprint and maximum weight saving.
 * **3mm Bolt version**: Provides a larger, heavier-duty connection for maximum strength.
@@ -32,6 +34,12 @@ All center pieces use the optimized **Variant 7** geometry, but come in two vers
 |------------------|-----------------------------|---------------------------|-----------|
 | **OD 22mm / ID 20mm** | <img src="carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m2.5x12_sls.png" width="80px"> | <img src="carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m3x12_sls.png" width="80px"> | [`22mm Center Piece`](carbon_tube_od22_id20mm/bar_center_piece) |
 | **OD 24mm / ID 22mm** | <img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m2.5x14_sls.png" width="80px"> | <img src="carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m3x14_sls.png" width="80px"> | [`24mm Center Piece`](carbon_tube_od24_id22mm/bar_center_piece) |
+
+### Variant 8 (Inline SLM Titanium Center-Hole Hub)
+
+Unlike the off-center plastic clamp of Variant 7, [`Variant 8`](carbon_tube_od22_id20mm/bar_center_piece/variant_8) uses a mainstream inline center-hole kite bar layout. The central hub is 3D printed in **Titanium via SLM** (available through the same JLC3DP print shop) and features a smooth central aperture for the sheeting and safety lines. Two **OD 22mm / ID 20mm** carbon tube segments slide over each end of the titanium insert and bolt in place to achieve the desired overall bar length.
+
+<img src="carbon_tube_od22_id20mm/bar_center_piece/variant_8/bar-center-piece_22-20_slm.png" width="300px">
 
 ---
 
@@ -62,6 +70,7 @@ The following `.shapr` files are the editable source models created in Shapr3D. 
 |------|-----|---------------|--------------|
 | `bar-center-piece_22_m2.5x12_sls.shapr` | `dbb2e7d7f3a93d92e606cccd7b349d44` | 2025-05-02 03:57:23 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m2.5x12_sls.shapr) |
 | `bar-center-piece_22_m3x12_sls.shapr` | `90e041ad71556d7bbd5cdc6f9af44f42` | 2025-06-07 20:08:35 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od22_id20mm/bar_center_piece/variant_7/bar-center-piece_22_m3x12_sls.shapr) |
+| `bar-center-piece_22-20_slm.shapr` | `cebc1c6dbdffebb3da66d62bfa03d293` | 2026-10-26 00:20:39 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od22_id20mm/bar_center_piece/variant_8/bar-center-piece_22-20_slm.shapr) |
 | `bar-end_22-20_sls.shapr` | `1b0e33c67c1ef51686e6ca508431f07c` | 2025-05-02 03:57:32 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od22_id20mm/bar_end/leader_line_2.5mm/variant_5/bar-end_22-20_sls.shapr) |
 | `bar-end_22-20_sls.shapr` | `8385ef305bdfa2b8d48de34e286412dc` | 2025-05-02 03:57:29 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od22_id20mm/bar_end/leader_line_2.5mm/variant_7/bar-end_22-20_sls.shapr) |
 | `bar-center-piece_24_m2.5x14_sls.shapr` | `3e2a95272948cef865253b36069fbe39` | 2025-05-02 03:57:11 | [Download](https://storage.googleapis.com/theperfectkitebar-cad-assets/bar/carbon_tube_od24_id22mm/bar_center_piece/variant_7/bar-center-piece_24_m2.5x14_sls.shapr) |
