@@ -32,6 +32,8 @@ Unlike the off-center plastic clamp of Variant 7, [`Variant 8`](variant_8) follo
 
 To build the bar to your target length, two **OD 22mm / ID 20mm** carbon fiber tubes slide onto the opposing sleeve ends of the titanium centerpiece and are bolted securely through the integrated recessed hex-nut pockets.
 
+> **Hardware & Drilling Note:** Variant 8 uses the exact same bolt pattern as the [Bar Ends](../bar_end/README.md), meaning it is assembled using the same **2mm countersunk bolts and nuts** and the same **[2mm Bolt Drilling Jig](../../../tools/README.md)**. Because the two carbon tubes must be drilled at both their inner ends (for the center piece) and outer ends (for the bar ends), assembling a bar with Variant 8 requires **twice as much drilling** as a Variant 7 bar (see the [Assembly Guide](../../../../docs/assembly.md)).
+
 <img src="variant_8/bar-center-piece_22-20_slm.png" width="55%">
 
 ---

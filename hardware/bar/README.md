@@ -39,6 +39,8 @@ The Central Piece provides the low-friction entry/exit guide for the sheeting an
 
 Unlike the off-center plastic clamp of Variant 7, [`Variant 8`](carbon_tube_od22_id20mm/bar_center_piece/variant_8) uses a mainstream inline center-hole kite bar layout. The central hub is 3D printed in **Titanium via SLM** (available through the same JLC3DP print shop) and features a smooth central aperture for the sheeting and safety lines. Two **OD 22mm / ID 20mm** carbon tube segments slide over each end of the titanium insert and bolt in place to achieve the desired overall bar length.
 
+> **Hardware & Drilling Note:** Variant 8 shares the exact same bolt pattern as the Bar Ends, allowing assembly with the same **2mm countersunk bolts and nuts** and the same **[2mm Bolt Drilling Jig](../tools/README.md)**. Because drilling is required on both carbon tubes where they attach to the center piece (in addition to the bar ends), assembling a bar with the Variant 8 center piece requires **twice as much drilling** as a Variant 7 bar (see the [Assembly Guide](../../docs/assembly.md)).
+
 <img src="carbon_tube_od22_id20mm/bar_center_piece/variant_8/bar-center-piece_22-20_slm.png" width="300px">
 
 ---
