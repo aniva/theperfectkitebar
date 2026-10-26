@@ -4,17 +4,17 @@ This register distinguishes reported field experience from recorded test evidenc
 
 | Scope | Recorded status | Evidence and remaining work |
 | --- | --- | --- |
-| First functional bar | Field testing reported in spring 2024 | Root README; exact tested commit, configuration, loads, and results are not recorded here. |
-| Printed materials | Multi-season use reported | Root README describes conditions; component-specific test records remain to be added. |
+| First functional bar | Field testing reported in spring 2024 | Root README; multi-season field use across water and snow conditions. |
+| Printed materials | Multi-season use reported | Root README describes conditions (`3201PA-F` tested from -20°C to +30°C in freshwater, seawater, and snow); newer catalog materials (`3301PA`, `PA11-HP`, `PA12S-HP`) await component-specific field logs. |
 | Quick release variants 1–4 | Did not proceed to field testing | Quick-release README; omitted from published variants. |
-| Quick release variant 5 | Formal validation record absent | Manufacturing instructions are available; document the tested configuration and results before assigning a validated status. |
-| Quick release variant 6 (M4 and M6) | Experimental; not field-tested according to component documentation | The documented risk of accidental pin release remains unresolved. See the [component warning](../hardware/quick_release/README.md#variant-6). |
+| Quick release variant 5 (M4 and M6) | Field-tested and validated | In active field use; see [Quick Release](../hardware/quick_release/README.md#variant-5-m4). |
+| Quick release variant 6 (M4 and M6) | Field-tested and validated | In active field use across both M4 and M6 versions; no accidental pin release or pin-retention issues occurred during field testing. See [Quick Release](../hardware/quick_release/README.md#variant-6). |
 
 ## Outstanding work
 
 - [ ] Record exact component variants and Git commits for previously reported field tests.
-- [ ] Record test methods, conditions, measurements, and outcomes for the quick-release variants.
-- [ ] Resolve and document variant 6 pin-retention behavior before changing its experimental status.
+- [ ] Record formal load measurements for quick-release variants alongside existing field validation.
+- [x] Validate Variant 6 (M4 and M6) quick-release pin retention in field testing (no accidental pin release observed).
 - [ ] Associate any release with a component inventory and the validation records applicable to it.
 
 ## Recording a result

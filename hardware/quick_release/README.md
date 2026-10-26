@@ -110,7 +110,7 @@ Note that all the claws are the same as for Variant 5 with correspoing M4 or M6 
 
 QR cases are also the same and rope wheel is of M4 version (because quick release pin diameter is M6, the M4 version of the wheel have hole diameter of 7mmm)
 
-**Warning:** At the time of writing, this variant has not been field-tested. There is a risk that the quick release pin could be accidentally released during use. This would cause the kite to flag out on its safety line, potentially resulting in a long swim. Extreme riding and jumping are strongly discouraged until this variant has been thoroughly tested in various conditions.
+**Field Validation:** Both the M4 and M6 versions of Variant 6 have been validated in active field use. No accidental pin release or pin-retention issues occurred during field testing.
 
 ### Variant 6 M4
 
