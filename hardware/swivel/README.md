@@ -6,6 +6,17 @@ This swivel is optimized for:
 - **4mm Dyneema** main sheeting line (inside a Dyneema chafe sleeve suitable for 4–6mm rope)
 - **2.5mm safety line** (non-bungee type)
 
+<table>
+  <tr>
+    <td align="center"><strong>Swivel Housing, Shaft & Bearing (SLM)</strong></td>
+    <td align="center"><strong>Swivel Cap & Retainer (SLS)</strong></td>
+  </tr>
+  <tr>
+    <td><img src="sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4/swivel_4.5x17x3x9_slm.png" width="400"></td>
+    <td><img src="sheeting_rope_4mm/bearing_ZR51103/swivel-cap/variant_4/swivel-cap_sls.png" width="400"></td>
+  </tr>
+</table>
+
 ---
 
 ## Bearing Requirement
@@ -61,11 +72,12 @@ Learn more: [https://jlc3dp.com/3d-printing/selective-laser-melting](https://jlc
 ---
 
 ## Summary of Components
-| Part               | Material               | Manufacturing Method     |
-|-------------------|------------------------|--------------------------|
-| Swivel Housing    | 316 Stainless Steel    | SLM Metal 3D Printing    |
-| Swivel Shaft      | 316 Stainless Steel    | SLM Metal 3D Printing    |
-| Bearing           | Zirconia Ceramic       | Purchased (51103 model)  |
+| Part | Material | Manufacturing Method | Files |
+|------|----------|----------------------|-------|
+| Swivel Housing | 316L Stainless Steel or Titanium TC4 | SLM Metal 3D Printing | [`swivel_housing_and_shaft/variant_4`](sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4) |
+| Swivel Shaft | 316L Stainless Steel or Titanium TC4 | SLM Metal 3D Printing | [`swivel_housing_and_shaft/variant_4`](sheeting_rope_4mm/bearing_ZR51103/swivel_housing_and_shaft/variant_4) |
+| Swivel Cap & Retainer | PA12 Nylon | SLS 3D Printing | [`swivel-cap/variant_4`](sheeting_rope_4mm/bearing_ZR51103/swivel-cap/variant_4) |
+| Bearing | Zirconia Ceramic | Purchased (`51103` model) | — |
 
 ## Native Shapr3D Design Files
 
